@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solemnunity222", "solemnunity222.csproj", "{4843738A-36FA-9428-F5F1-904610CF6761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solemnunity222.Plugins", "solemnunity222.Plugins.csproj", "{8AA0D19A-571C-9CC6-9EEB-FD37142579F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "solemnunity222.Editor.Plugins", "solemnunity222.Editor.Plugins.csproj", "{59E17E85-3580-7A6A-4DEE-81A980D93016}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4843738A-36FA-9428-F5F1-904610CF6761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4843738A-36FA-9428-F5F1-904610CF6761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4843738A-36FA-9428-F5F1-904610CF6761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4843738A-36FA-9428-F5F1-904610CF6761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA0D19A-571C-9CC6-9EEB-FD37142579F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA0D19A-571C-9CC6-9EEB-FD37142579F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA0D19A-571C-9CC6-9EEB-FD37142579F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA0D19A-571C-9CC6-9EEB-FD37142579F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E17E85-3580-7A6A-4DEE-81A980D93016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E17E85-3580-7A6A-4DEE-81A980D93016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E17E85-3580-7A6A-4DEE-81A980D93016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E17E85-3580-7A6A-4DEE-81A980D93016}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
