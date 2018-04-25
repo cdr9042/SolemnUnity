@@ -1,3 +1,7 @@
 Temp/
 obj/
 Library/
+SolemnUnity.sln
+Assembly-CSharp.csproj
+Assembly-CSharp-firstpass.csproj
+Assembly-CSharp-Editor-firstpass.csproj
