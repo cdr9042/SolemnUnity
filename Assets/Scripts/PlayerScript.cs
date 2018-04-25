@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityStandardAssets._2D
 {
-    public class PlatformerCharacter2D : MonoBehaviour
+    public class PlayerScript : MonoBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
@@ -19,6 +19,7 @@ namespace UnityStandardAssets._2D
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        private bool m_Attacking = false;
 
         private void Awake()
         {
@@ -63,7 +64,7 @@ namespace UnityStandardAssets._2D
 
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
-
+            
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
@@ -75,7 +76,6 @@ namespace UnityStandardAssets._2D
 
                 // Move the character
                 m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
-
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
                 {
@@ -101,7 +101,24 @@ namespace UnityStandardAssets._2D
             }
         }
 
-
+        // public void Attack(bool attack){
+        //     // Debug.Log(attack);
+        //     if (attack && !m_Attacking) {
+        //         Debug.Log(attack);
+        //         m_Anim.SetBool("Attack", true);
+        //         m_Attacking = true;
+        //         // Debug.Log(m_Anim.GetCurrentAnimatorStateInfo(0).tagHash);
+        //         // if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        //         // {
+        //         //     m_Anim.SetBool("Attack", false);
+        //         //     m_Anim.Play("Idle");
+        //         // }
+        //     }
+        // }
+        // public void AttackEnd(){
+        //     m_Anim.SetBool("Attack", false);
+        //     m_Attacking = false;
+        // }
         private void Flip()
         {
             // Switch the way the player is labelled as facing.
@@ -111,6 +128,10 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        void OnCollisionEnter2D(Collision2D collider){
+            Debug.Log(collider);
         }
     }
 }
