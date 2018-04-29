@@ -8,8 +8,8 @@ public class PlayerAttackTrigger : MonoBehaviour {
 		Debug.Log(collider);
 	}
 	void OnTriggerEnter2D(Collider2D collider) {
-		Debug.Log("collider" + collider.isTrigger);
-		Debug.Log("tag" + collider.CompareTag("Enemy"));
+		// Debug.Log("collider" + collider.isTrigger);
+		// Debug.Log("tag" + collider.CompareTag("Enemy"));
 		if (collider.isTrigger != true && collider.CompareTag("Enemy")) {
 			Debug.Log("contact enemy");
 			collider.SendMessageUpwards("Damage",damage);

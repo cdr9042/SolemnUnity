@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 	
-	public float HP=1;
-	public float currentHP=1;
+	[SerializeField] private float HP=1;
+	[SerializeField] private float currentHP=1;
+	public float enemyAttack = 10;
 	// Use this for initialization
 	void Awake() {
 		currentHP = HP;

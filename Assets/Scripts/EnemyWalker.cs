@@ -26,13 +26,16 @@ public class EnemyWalker : MonoBehaviour {
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
 			target = GameObject.Find("Player");
 			turnTimeCD = turnTime;
-			aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
+			if (target != null) {
+				aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
+			} else {
+				Debug.Log("Can't find Player");
+			}
 			direction = aimDirection;
 			m_Velocity = m_MaxSpeed;
         }
 		
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -40,7 +43,7 @@ public class EnemyWalker : MonoBehaviour {
 		// Debug.Log(target);
 		if (target != null) {
 			aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
-		}
+		} else {target = GameObject.Find("Player");}
 		switch (state){
 			case 0: //accelerate
 				if (m_Velocity < m_MaxSpeed) {
@@ -76,6 +79,9 @@ public class EnemyWalker : MonoBehaviour {
 				m_Grounded = true;
 		}
 		m_Anim.SetBool("Ground", m_Grounded);
+		if (m_Rigidbody2D.velocity.magnitude == 0) {
+			m_Velocity = 0;
+		}
 	}
 	public void Move(float move)
 	{
@@ -124,10 +130,17 @@ public class EnemyWalker : MonoBehaviour {
 		
 	}
 
+	// IEnumerator FindPlayer(){
+		
+	// 	target = GameObject.Find("Player");
+	// 	yield return new WaitForSeconds(5);
+	// }
+
 	void OnGUI() {
-		GUILayout.Label(direction.ToString()+"\n"+
-			aimDirection.ToString()+"\n"+
-			state
+		GUILayout.Label( m_Rigidbody2D.velocity.magnitude.ToString()
+			// direction.ToString()+"\n"+
+			// aimDirection.ToString()+"\n"+
+			// state
 		);
 	}
 }

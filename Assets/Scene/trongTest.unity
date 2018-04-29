@@ -707,13 +707,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1033206677}
+  - component: {fileID: 1033206680}
   - component: {fileID: 1033206674}
   - component: {fileID: 1033206676}
   - component: {fileID: 1033206675}
   - component: {fileID: 1033206679}
   - component: {fileID: 1033206678}
   m_Layer: 10
-  m_Name: Genesis 32X SCD - Castlevania Bloodlines - Skeleton_0
+  m_Name: enemySkeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,6 +855,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1033206680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1033206673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed525eec963760489dedbfc04759d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 60
+  currentHP: 1
+  enemyAttack: 10
 --- !u!1 &1088567606
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,8 +877,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1088567609}
-  - component: {fileID: 1088567608}
   - component: {fileID: 1088567607}
+  - component: {fileID: 1088567608}
   - component: {fileID: 1088567610}
   - component: {fileID: 1088567611}
   m_Layer: 0
@@ -886,6 +901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   currentHP: 1
+  enemyAttack: 10
 --- !u!212 &1088567608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1117,6 +1133,12 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  m_WhatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
+  m_HealthMax: 100
+  m_ProtectTime: 2
+  m_StaggerTime: 0.7
 --- !u!114 &1224954411
 MonoBehaviour:
   m_ObjectHideFlags: 0
