@@ -47,7 +47,7 @@ public class EnemyWalker : MonoBehaviour {
 		switch (state){
 			case 0: //accelerate
 				if (m_Velocity < m_MaxSpeed) {
-					m_Velocity += 0.02f;
+					m_Velocity += 0.05f;
 				}
 				if (aimDirection != direction) {
 					state = 1;
@@ -55,7 +55,7 @@ public class EnemyWalker : MonoBehaviour {
 			break;
 			case 1: //turn
 				if (m_Velocity > 0) {
-					m_Velocity -= 0.007f;
+					m_Velocity -= 0.02f;
 				}
 				else {
 					direction = aimDirection;

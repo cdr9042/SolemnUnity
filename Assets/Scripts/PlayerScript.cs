@@ -7,18 +7,26 @@ namespace UnityStandardAssets._2D
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
-        [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
-        [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
+        [Range(0, 1)] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
+        private bool m_AirControl = true;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+        [SerializeField] private LayerMask m_WhatIsWall;
         [SerializeField] private LayerMask m_WhatIsEnemy;                  // A mask determining what is enemy to the character
         [SerializeField] private float m_HealthMax = 100f;      //Máu tối đa người chơi
         [SerializeField] private float m_ProtectTime = 2f;      //Thời gian bảo vệ sau khi mất máu ( nhấp nháy )
         [SerializeField] private float m_StaggerTime = 0.7f;    //Thời gian bị mất điều khiển khi mất máu
-        
+
+        public float m_AirJump = 1;           //Số lần nhảy trên không
+        public bool canWallJump = false;
+
         private float m_HealthLeft;                    // The fastest the player can travel in the x axis.
+        private float m_AirJumpLeft = 0f;                   // //Số lần nhảy trên không hiện tại
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .08f; // Radius of the overlap circle to determine if grounded
+        private Transform m_WallCheck;    // A position marking where to check if the player is facing wall.
+        const float k_WallCheckRadius = .08f;
         private bool m_Grounded;            // Whether or not the player is grounded.
+        private bool m_OnWall;              // Check if on wall
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
@@ -39,18 +47,20 @@ namespace UnityStandardAssets._2D
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
+            m_WallCheck = transform.Find("WallCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_Collider = GetComponent<Collider2D>();
             m_HealthLeft = m_HealthMax;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer, false);
+            m_AirJumpLeft = m_AirJump;
         }
 
 
         private void FixedUpdate()
         {
             m_Grounded = false;
-
+            m_OnWall = false;
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -61,6 +71,12 @@ namespace UnityStandardAssets._2D
             }
             m_Anim.SetBool("Ground", m_Grounded);
 
+            if (canWallJump)
+                m_OnWall = Physics2D.OverlapCircle(m_WallCheck.position, k_WallCheckRadius, m_WhatIsWall);
+
+            if (m_Grounded || m_OnWall) {
+                m_AirJumpLeft = m_AirJump;
+            }
             // colliders = Physics2D.OverlapBoxAll(transform.position, k_GroundedRadius, m_WhatIsEnemy);
 
             // Set the vertical animation
@@ -106,7 +122,7 @@ namespace UnityStandardAssets._2D
                 if (m_Grounded || m_AirControl)
                 {
                     // Reduce the speed if crouching by the crouchSpeed multiplier
-                    move = (crouch ? move*m_CrouchSpeed : move);
+                    // move = (crouch ? move*m_CrouchSpeed : move);
 
                     // The Speed animator parameter is set to the absolute value of the horizontal input.
                     m_Anim.SetFloat("Speed", Mathf.Abs(move));
@@ -127,12 +143,21 @@ namespace UnityStandardAssets._2D
                     }
                 }
                 // If the player should jump...
-                if (m_Grounded && jump && m_Anim.GetBool("Ground"))
+                if (jump)
+                if (m_Grounded && m_Anim.GetBool("Ground"))
                 {
                     // Add a vertical force to the player.
                     m_Grounded = false;
                     m_Anim.SetBool("Ground", false);
                     m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                }
+                else if (m_AirJumpLeft > 0 || m_OnWall) {
+                    Vector2 v = m_Rigidbody2D.velocity;
+                    v.y = m_JumpForce / m_Rigidbody2D.mass * Time.fixedDeltaTime;;
+                    m_Rigidbody2D.velocity = v;
+
+                    if (!m_OnWall) m_AirJumpLeft--;
+                    // m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce*1.1f));
                 }
             }
             // mylog = m_Grounded.ToString();
