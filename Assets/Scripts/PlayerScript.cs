@@ -43,8 +43,8 @@ namespace UnityStandardAssets._2D
                                             //2 = đang được bảo vệ
         private string mylog="";
 
-        private bool attacking =false;
-        private bool airAttack;
+        private int attackMode = 0;
+        // private bool airAttack;
         private float attackTimer = 0;
         private float attackCD = 0.5f;
         private float airAttackCD = 0.5f;
@@ -158,7 +158,7 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Crouch", crouch);
             
             //only control the player if grounded or airControl is turned on
-            if ( !TakingDamage && !attacking) { //nếu đang nhận thiệt hại thì ko thể điều khiển
+            if ( !TakingDamage && attackMode == 0) { //nếu đang nhận thiệt hại thì ko thể điều khiển
                 if (m_Grounded || m_AirControl)
                 {
                     // Reduce the speed if crouching by the crouchSpeed multiplier
@@ -214,39 +214,42 @@ namespace UnityStandardAssets._2D
         }
 
         public void Attack(bool attack) {
-            if (attack && !attacking) {
-                attacking = true;
+            if (attack && attackMode==0) {
                 if (m_Grounded) {
+                    attackMode = 1;
                     attackTimer = attackCD;
                     // m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
                 }
-                else {attackTimer = airAttackCD;
+                else {
+                    attackMode = 2;
+                    attackTimer = airAttackCD;
                 }
-                airAttack = !m_Grounded;
                 AttackTrigger.enabled = true;
             }
         }
 
         private void UpdateAttack () {
-            if (attacking) {
-                if (airAttack) {
-                    if (m_Grounded) attackTimer = 0;
-                } else {
-                    if (!m_Grounded) attackTimer = 0;
-                };
-                
+            if (attackMode != 0) {
+                switch (attackMode) {
+                    case 2: {
+                        if (m_Grounded) attackMode = 0;
+                        break;
+                    }
+                    case 1: if (!m_Grounded) attackTimer = 0; break;
+                }
+
                 if (attackTimer > 0) {
                     attackTimer -= Time.deltaTime;
                 } else {
-                    attacking = false;
+                    attackMode = 0;
                     AttackTrigger.enabled = false;
                 }
             }
-            m_Anim.SetBool("Attack",attacking);
+            m_Anim.SetInteger("Attack",attackMode);
         }
 
         void OnCollisionEnter2D(Collision2D collider) {
-            
+            if (state == 0)
             if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
             {
                 Enemy enemy = (collider.gameObject.GetComponent<Enemy>());
@@ -273,10 +276,11 @@ namespace UnityStandardAssets._2D
         }
         void OnGUI() {
             GUILayout.Label(""+
-                "!TakingDamage && !attacking" + (!TakingDamage && !attacking).ToString() + "\n" +
-                "speed " + m_Rigidbody2D.velocity + "\n" +
-                "attacking " +attacking.ToString()+"\n"+
-                "ground "+m_Grounded.ToString()
+                // "!TakingDamage && !attacking" + (!TakingDamage && attackMode==0).ToString() + "\n" +
+                // "speed " + m_Rigidbody2D.velocity + "\n" +
+                m_Anim.GetInteger("Attack")
+                // "attacking " +attackMode.ToString()+"\n"+
+                // "ground "+m_Grounded.ToString()
                 // state.ToString()
             // +"\ntime current state" + t_currentState.ToString()
             // +"\n" + TakingDamage.ToString()

@@ -26,7 +26,7 @@ namespace UnityStandardAssets._2D
             }
 
             if (!m_Attack) {
-                m_Attack = Input.GetKey("c");
+                m_Attack = Input.GetKeyDown("c");
             }
         }
 
