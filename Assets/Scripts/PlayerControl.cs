@@ -8,7 +8,7 @@ namespace UnityStandardAssets._2D
     public class PlayerControl : MonoBehaviour
     {
         private PlayerScript m_Character;
-        private bool m_Jump;
+        private bool m_Jump, m_Attack;
 
 
         private void Awake()
@@ -24,6 +24,10 @@ namespace UnityStandardAssets._2D
                 // Read the jump input in Update so button presses aren't missed.
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+
+            if (!m_Attack) {
+                m_Attack = Input.GetKey("c");
+            }
         }
 
 
@@ -36,8 +40,10 @@ namespace UnityStandardAssets._2D
             // Debug.Log(h);
             // Pass all parameters to the character control script.
             m_Character.Move(h, crouch, m_Jump);
-            // m_Character.Attack(attack);
             m_Jump = false;
+
+            m_Character.Attack(m_Attack);
+            m_Attack = false;
         }
     }
 }

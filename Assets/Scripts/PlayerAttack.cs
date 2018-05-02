@@ -5,14 +5,32 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
 	private bool attacking =false;
 	private float attackTimer = 0;
-	private float attackCD = 0.4f;
+	private float attackCD = 0.5f;
 	public Collider2D AttackTrigger;
-
+	
 	private Animator anim;
 
 	void Awake () {
 		anim = gameObject.GetComponent<Animator>();
 		AttackTrigger.enabled = false;
+
+		UpdateAnimClipTimes();
+		}
+
+	public void UpdateAnimClipTimes()
+	{
+		AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
+		foreach(AnimationClip clip in clips)
+		{
+			switch(clip.name)
+			{
+				case "sogetsu_attack":
+					attackCD = clip.length+0.1f;
+					Debug.Log("attack CD " + attackCD);
+					break;
+				// default: Debug.Log(clip.name); break;
+			}
+		}
 	}
 
 	void Update(){

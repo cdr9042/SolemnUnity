@@ -15,6 +15,7 @@ namespace UnityStandardAssets._2D
         [SerializeField] private float m_HealthMax = 100f;      //Máu tối đa người chơi
         [SerializeField] private float m_ProtectTime = 2f;      //Thời gian bảo vệ sau khi mất máu ( nhấp nháy )
         [SerializeField] private float m_StaggerTime = 0.7f;    //Thời gian bị mất điều khiển khi mất máu
+        [SerializeField] private float m_KnockBack = 2.2f;      //Khoảng cách bị bay ra khi mất máu
 
         public float m_AirJump = 1;           //Số lần nhảy trên không
         public bool canWallJump = false;
@@ -22,7 +23,7 @@ namespace UnityStandardAssets._2D
         private float m_HealthLeft;                    // The fastest the player can travel in the x axis.
         private float m_AirJumpLeft = 0f;                   // //Số lần nhảy trên không hiện tại
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
-        const float k_GroundedRadius = .08f; // Radius of the overlap circle to determine if grounded
+        const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
         private Transform m_WallCheck;    // A position marking where to check if the player is facing wall.
         const float k_WallCheckRadius = .08f;
         private bool m_Grounded;            // Whether or not the player is grounded.
@@ -42,6 +43,13 @@ namespace UnityStandardAssets._2D
                                             //2 = đang được bảo vệ
         private string mylog="";
 
+        private bool attacking =false;
+        private bool airAttack;
+        private float attackTimer = 0;
+        private float attackCD = 0.5f;
+        private float airAttackCD = 0.5f;
+        public Collider2D AttackTrigger;
+
         private void Awake()
         {
             // Setting up references.
@@ -54,6 +62,30 @@ namespace UnityStandardAssets._2D
             m_HealthLeft = m_HealthMax;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer, false);
             m_AirJumpLeft = m_AirJump;
+
+            AttackTrigger.enabled = false;
+
+		UpdateAnimClipTimes();
+        }
+
+        public void UpdateAnimClipTimes()
+        {
+            AnimationClip[] clips = m_Anim.runtimeAnimatorController.animationClips;
+            foreach(AnimationClip clip in clips)
+            {
+                switch(clip.name)
+                {
+                    case "sogetsu_attack":
+                        attackCD = clip.length+0.1f;
+                        Debug.Log("attack CD " + attackCD);
+                    break;
+                    case "sogetsu_jump_attack":
+                        airAttackCD = clip.length+0.1f;
+                        Debug.Log("attack CD " + attackCD);
+                    break;
+                    // default: Debug.Log(clip.name); break;
+                }
+            }
         }
 
 
@@ -63,7 +95,9 @@ namespace UnityStandardAssets._2D
             m_OnWall = false;
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            // Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(m_GroundCheck.position, new Vector2(k_GroundedRadius,k_GroundedRadius),0, m_WhatIsGround);
+            
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
@@ -81,11 +115,15 @@ namespace UnityStandardAssets._2D
 
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
-
+            //Hurt
             switch (state) {
                 case 1: t_currentState += Time.deltaTime;
-                    if (t_currentState >= m_StaggerTime) {
+                    if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 0.1f ) {
+                        m_Rigidbody2D.AddForce(new Vector2 (-Mathf.Sign(m_Rigidbody2D.velocity.x)*3,0));
+                    };
+                    if (t_currentState >= m_StaggerTime) { //stop staggering
                         TakingDamage = false;
+                        m_Anim.SetBool("isHurt",false);
                         t_currentState = 0;
                         state = 2;
                     }
@@ -99,6 +137,8 @@ namespace UnityStandardAssets._2D
                 break;
                 default:break;
             }
+
+            UpdateAttack();
         }
 
 
@@ -118,7 +158,7 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Crouch", crouch);
             
             //only control the player if grounded or airControl is turned on
-            if ( !TakingDamage ) { //nếu đang nhận thiệt hại thì ko thể điều khiển
+            if ( !TakingDamage && !attacking) { //nếu đang nhận thiệt hại thì ko thể điều khiển
                 if (m_Grounded || m_AirControl)
                 {
                     // Reduce the speed if crouching by the crouchSpeed multiplier
@@ -173,10 +213,40 @@ namespace UnityStandardAssets._2D
             transform.localScale = theScale;
         }
 
+        public void Attack(bool attack) {
+            if (attack && !attacking) {
+                attacking = true;
+                if (m_Grounded) {
+                    attackTimer = attackCD;
+                    // m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
+                }
+                else {attackTimer = airAttackCD;
+                }
+                airAttack = !m_Grounded;
+                AttackTrigger.enabled = true;
+            }
+        }
+
+        private void UpdateAttack () {
+            if (attacking) {
+                if (airAttack) {
+                    if (m_Grounded) attackTimer = 0;
+                } else {
+                    if (!m_Grounded) attackTimer = 0;
+                };
+                
+                if (attackTimer > 0) {
+                    attackTimer -= Time.deltaTime;
+                } else {
+                    attacking = false;
+                    AttackTrigger.enabled = false;
+                }
+            }
+            m_Anim.SetBool("Attack",attacking);
+        }
+
         void OnCollisionEnter2D(Collision2D collider) {
             
-            // Debug.Log("collider" + collider.isTrigger);
-            // Debug.Log("tag" + collider.gameObject.layer);
             if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
             {
                 Enemy enemy = (collider.gameObject.GetComponent<Enemy>());
@@ -186,9 +256,6 @@ namespace UnityStandardAssets._2D
                     Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
                 }
             }
-            // if (!collider.isTrigger && collider.CompareTag("Enemy")) {
-            //     Debug.Log("contact enemy");
-            // }
         }
         private void TakeDamage(float dmg){
             Debug.Log("Took "+dmg+"damage! Health left: "+m_HealthLeft);
@@ -196,17 +263,23 @@ namespace UnityStandardAssets._2D
             TakingDamage = true;
             t_currentState = 0;
             state = 1;
+            m_Anim.SetBool("isHurt",true);
             
             float flyDirection;
             m_HealthLeft -= dmg;
             flyDirection = (m_FacingRight) ? -1f : 1f;
-            m_Rigidbody2D.velocity = new Vector2(flyDirection * 3, 1.5f); //m_Rigidbody2D.velocity.y
+            m_Rigidbody2D.velocity = new Vector2(flyDirection * m_KnockBack, 1.5f); //m_Rigidbody2D.velocity.y
             
         }
         void OnGUI() {
-            GUILayout.Label(state.ToString()
-            +"\ntime current state" + t_currentState.ToString()
-            +"\n" + TakingDamage.ToString()
+            GUILayout.Label(""+
+                "!TakingDamage && !attacking" + (!TakingDamage && !attacking).ToString() + "\n" +
+                "speed " + m_Rigidbody2D.velocity + "\n" +
+                "attacking " +attacking.ToString()+"\n"+
+                "ground "+m_Grounded.ToString()
+                // state.ToString()
+            // +"\ntime current state" + t_currentState.ToString()
+            // +"\n" + TakingDamage.ToString()
             // +"\n" + t_currentState.ToString()
             );
         }

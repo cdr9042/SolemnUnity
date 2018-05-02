@@ -137,10 +137,10 @@ public class EnemyWalker : MonoBehaviour {
 	// }
 
 	void OnGUI() {
-		GUILayout.Label( m_Rigidbody2D.velocity.magnitude.ToString()
+		// GUILayout.Label( m_Rigidbody2D.velocity.magnitude.ToString()
 			// direction.ToString()+"\n"+
 			// aimDirection.ToString()+"\n"+
 			// state
-		);
+		// );
 	}
 }
