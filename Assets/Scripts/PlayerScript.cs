@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 
+
 namespace UnityStandardAssets._2D
 {
     public class PlayerScript : MonoBehaviour
@@ -13,7 +14,7 @@ namespace UnityStandardAssets._2D
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
         [SerializeField] private LayerMask m_WhatIsWall;
         [SerializeField] private LayerMask m_WhatIsEnemy;                  // A mask determining what is enemy to the character
-        [SerializeField] private float m_HealthMax = 100f;      //Máu tối đa người chơi
+        
         [SerializeField] private float m_ProtectTime = 2f;      //Thời gian bảo vệ sau khi mất máu ( nhấp nháy )
         [SerializeField] private float m_StaggerTime = 0.7f;    //Thời gian bị mất điều khiển khi mất máu
         [SerializeField] private float m_KnockBack = 2.2f;      //Khoảng cách bị bay ra khi mất máu
@@ -21,7 +22,8 @@ namespace UnityStandardAssets._2D
         public float m_AirJump = 1;           //Số lần nhảy trên không
         public bool canWallJump = false;
 
-        private float m_HealthLeft;                    // The fastest the player can travel in the x axis.
+        public float m_HealthMax = 100f;      //Máu tối đa người chơi
+        public float m_HealthLeft;                    // The fastest the player can travel in the x axis.
         private float m_AirJumpLeft = 0f;                   // //Số lần nhảy trên không hiện tại
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -38,7 +40,7 @@ namespace UnityStandardAssets._2D
 
         private bool TakingDamage = false;  //nếu đang taking damage = true thì không thể điều khiển
         private float t_currentState = 0f;
-        private int state = 0;              //trạng thái của người chơi
+        public int state = 0;              //trạng thái của người chơi
                                             //0 = mặc định
                                             //1 = đang bị mất điều khiển do bị tấn công
                                             //2 = đang được bảo vệ
@@ -300,7 +302,9 @@ namespace UnityStandardAssets._2D
         // {
             
         // }
-
+        private void Death() {
+            
+        }
         void OnGUI() {
             GUILayout.Label(""
                 // "!TakingDamage && !attacking" + (!TakingDamage && attackMode==0).ToString() + "\n" +

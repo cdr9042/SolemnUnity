@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-
+using UnityEngine.SceneManagement;
 namespace UnityStandardAssets._2D
 {
     [RequireComponent(typeof (PlayerScript))]
@@ -40,6 +40,11 @@ namespace UnityStandardAssets._2D
             // Debug.Log(h);
             // Pass all parameters to the character control script.
             m_Character.Move(h, crouch, m_Jump);
+            if(m_Character.state == 4) {
+                if (m_Jump) {
+                    SceneManager.LoadScene("Main_menu");
+                }
+            }
             m_Jump = false;
 
             m_Character.Attack(m_Attack);
