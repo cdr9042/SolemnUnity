@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
@@ -50,6 +51,8 @@ namespace UnityStandardAssets._2D
         private float airAttackCD = 0.5f;
         public Collider2D AttackTrigger;
 
+        SpriteRenderer m_SpriteRenderer;
+
         private void Awake()
         {
             // Setting up references.
@@ -64,8 +67,8 @@ namespace UnityStandardAssets._2D
             m_AirJumpLeft = m_AirJump;
 
             AttackTrigger.enabled = false;
-
-		UpdateAnimClipTimes();
+            UpdateAnimClipTimes();
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public void UpdateAnimClipTimes()
@@ -77,11 +80,11 @@ namespace UnityStandardAssets._2D
                 {
                     case "sogetsu_attack":
                         attackCD = clip.length+0.1f;
-                        Debug.Log("attack CD " + attackCD);
+                        // Debug.Log("attack CD " + attackCD);
                     break;
                     case "sogetsu_jump_attack":
                         airAttackCD = clip.length+0.1f;
-                        Debug.Log("attack CD " + attackCD);
+                        // Debug.Log("attack CD " + attackCD);
                     break;
                     // default: Debug.Log(clip.name); break;
                 }
@@ -116,6 +119,12 @@ namespace UnityStandardAssets._2D
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
             //Hurt
+            if (state == 1 || state == 2) {
+                if (Math.Round(t_currentState*100) % 8 == 0)
+                    m_SpriteRenderer.material.SetFloat("_FlashAmount",.8f);
+                if ((Math.Round(t_currentState*100)+4) % 8 == 0)
+                    m_SpriteRenderer.material.SetFloat("_FlashAmount",0);
+            }
             switch (state) {
                 case 1: t_currentState += Time.deltaTime;
                     if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 0.1f ) {
@@ -131,6 +140,7 @@ namespace UnityStandardAssets._2D
                 case 2: t_currentState += Time.deltaTime;
                     if (t_currentState >= m_ProtectTime) {
                         t_currentState = 0;
+                        m_SpriteRenderer.material.SetFloat("_FlashAmount",0);
                         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer, false);
                         state = 0;
                     }
@@ -224,23 +234,30 @@ namespace UnityStandardAssets._2D
                     attackMode = 2;
                     attackTimer = airAttackCD;
                 }
-                AttackTrigger.enabled = true;
             }
         }
 
         private void UpdateAttack () {
             if (attackMode != 0) {
-                switch (attackMode) {
-                    case 2: {
-                        if (m_Grounded) attackMode = 0;
+                if (attackTimer > 0) {
+                    switch (attackMode) {
+                        case 2: { //air attack
+                            if (attackTimer < airAttackCD-0.1f) {
+                                AttackTrigger.enabled = true;
+                            }
+                            if (m_Grounded) attackTimer = 0;
+                        break;
+                        }
+                        case 1: //ground attack
+                            if (attackTimer < attackCD-0.1f) {
+                                AttackTrigger.enabled = true;
+                            }
+                            if (!m_Grounded) attackTimer = 0; 
                         break;
                     }
-                    case 1: if (!m_Grounded) attackTimer = 0; break;
-                }
-
-                if (attackTimer > 0) {
                     attackTimer -= Time.deltaTime;
-                } else {
+                } 
+                else {
                     attackMode = 0;
                     AttackTrigger.enabled = false;
                 }
@@ -252,7 +269,7 @@ namespace UnityStandardAssets._2D
             if (state == 0)
             if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
             {
-                Enemy enemy = (collider.gameObject.GetComponent<Enemy>());
+                EnemyScript enemy = (collider.gameObject.GetComponent<EnemyScript>());
                 if (enemy != null) {
                     TakeDamage(enemy.enemyAttack);
                 } else {
@@ -261,24 +278,34 @@ namespace UnityStandardAssets._2D
             }
         }
         private void TakeDamage(float dmg){
+            m_HealthLeft -= dmg;
             Debug.Log("Took "+dmg+"damage! Health left: "+m_HealthLeft);
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
             TakingDamage = true;
-            t_currentState = 0;
-            state = 1;
-            m_Anim.SetBool("isHurt",true);
-            
+            if (m_HealthLeft > 0) {
+                t_currentState = 0;
+                state = 1;
+                m_Anim.SetBool("isHurt",true);
+            } else {
+                state = 4;
+                m_Anim.SetBool("Fall",true);
+            }
             float flyDirection;
-            m_HealthLeft -= dmg;
+                
             flyDirection = (m_FacingRight) ? -1f : 1f;
             m_Rigidbody2D.velocity = new Vector2(flyDirection * m_KnockBack, 1.5f); //m_Rigidbody2D.velocity.y
-            
         }
+
+        // private IEnumerator Flasher() 
+        // {
+            
+        // }
+
         void OnGUI() {
-            GUILayout.Label(""+
+            GUILayout.Label(""
                 // "!TakingDamage && !attacking" + (!TakingDamage && attackMode==0).ToString() + "\n" +
                 // "speed " + m_Rigidbody2D.velocity + "\n" +
-                m_Anim.GetInteger("Attack")
+                // m_Anim.GetInteger("Attack")
                 // "attacking " +attackMode.ToString()+"\n"+
                 // "ground "+m_Grounded.ToString()
                 // state.ToString()

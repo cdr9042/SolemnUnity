@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof (EnemyScript))]
 public class EnemyWalker : MonoBehaviour {
 	[SerializeField] private float m_MaxSpeed = 10f;
 	private bool m_Grounded; 
@@ -14,9 +14,9 @@ public class EnemyWalker : MonoBehaviour {
 	float direction, aimDirection;
 	GameObject target;
 	private float turnTime = 1f, turnTimeCD, m_Velocity;
-	private int state;
+	private int walkState;
 	// Use this for initialization
-
+	public EnemyScript m_Self;
 	private void Awake()
         {
             // Setting up references.
@@ -33,6 +33,7 @@ public class EnemyWalker : MonoBehaviour {
 			}
 			direction = aimDirection;
 			m_Velocity = m_MaxSpeed;
+			m_Self = GetComponent<EnemyScript>();
         }
 		
 	void Start () {
@@ -40,17 +41,17 @@ public class EnemyWalker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// Debug.Log(target);
+		// Debug.Log(m_Self.walkState);
 		if (target != null) {
 			aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
 		} else {target = GameObject.Find("Player");}
-		switch (state){
+		switch (walkState){
 			case 0: //accelerate
 				if (m_Velocity < m_MaxSpeed) {
 					m_Velocity += 0.05f;
 				}
 				if (aimDirection != direction) {
-					state = 1;
+					walkState = 1;
 				}
 			break;
 			case 1: //turn
@@ -59,11 +60,13 @@ public class EnemyWalker : MonoBehaviour {
 				}
 				else {
 					direction = aimDirection;
-					state = 0;
+					walkState = 0;
 				}
 			break;
 		}
-		Move(m_Velocity * direction);
+
+		if (m_Self.state != 1)
+			Move(m_Velocity * direction);
 	}
 
 	
@@ -137,10 +140,11 @@ public class EnemyWalker : MonoBehaviour {
 	// }
 
 	void OnGUI() {
-		// GUILayout.Label( m_Rigidbody2D.velocity.magnitude.ToString()
+		GUILayout.Label( m_Self.state.ToString()
+			// m_Rigidbody2D.velocity.magnitude.ToString()
 			// direction.ToString()+"\n"+
 			// aimDirection.ToString()+"\n"+
-			// state
-		// );
+			// walkState
+		);
 	}
 }
