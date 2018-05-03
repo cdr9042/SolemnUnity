@@ -288,6 +288,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EnemyCollider.cs" />
+    <Compile Include="Assets\HealBarScript.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\CameraSwitch.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\LevelReset.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
@@ -296,6 +298,14 @@
     <Compile Include="Assets\Scene\Main_menu\script\MainMenu.cs" />
     <Compile Include="Assets\Scene\Main_menu\script\OptionsMenu.cs" />
     <Compile Include="Assets\Scene\Main_menu\script\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\DebugLog.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyWalker.cs" />
+    <Compile Include="Assets\Scripts\GameInit.cs" />
+    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\PlayerAttackTrigger.cs" />
+    <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\PlayerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scene\Main_menu\Pixel_Parchment_UI-1.0-pc\lib\linux-i686\lib\python2.7\lib-dynload\dynload.txt" />

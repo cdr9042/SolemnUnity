@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 105223535}
   - component: {fileID: 105223537}
   - component: {fileID: 105223536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1042,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 114699973}
   - component: {fileID: 114699975}
   - component: {fileID: 114699974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1075,8 +1075,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 114699972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.8, y: -36.6, z: 0.03475633}
-  m_LocalScale: {x: 70.25323, y: 4.73521, z: 1}
+  m_LocalPosition: {x: -7.8, y: -54.15, z: 0.03475633}
+  m_LocalScale: {x: 70.25323, y: 18.773384, z: 1}
   m_Children: []
   m_Father: {fileID: 1721094971}
   m_RootOrder: 3
@@ -1141,7 +1141,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2665,7 +2665,7 @@ GameObject:
   - component: {fileID: 314523753}
   - component: {fileID: 314523755}
   - component: {fileID: 314523754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2745,7 +2745,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 334691031}
   - component: {fileID: 334691033}
   - component: {fileID: 334691032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2945,7 +2945,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3110,7 +3110,7 @@ GameObject:
   - component: {fileID: 341309779}
   - component: {fileID: 341309781}
   - component: {fileID: 341309780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3124,8 +3124,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 341309778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.04, y: -29.45, z: 0.03475633}
-  m_LocalScale: {x: 28.79485, y: 4.73521, z: 1}
+  m_LocalPosition: {x: -28.04, y: -54.47, z: 0.03475633}
+  m_LocalScale: {x: 28.79485, y: 24.752605, z: 1}
   m_Children: []
   m_Father: {fileID: 1721094971}
   m_RootOrder: 1
@@ -3190,7 +3190,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3282,7 +3282,7 @@ GameObject:
   - component: {fileID: 372015950}
   - component: {fileID: 372015952}
   - component: {fileID: 372015951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3362,7 +3362,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3527,7 +3527,7 @@ GameObject:
   - component: {fileID: 410741818}
   - component: {fileID: 410741820}
   - component: {fileID: 410741819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3541,8 +3541,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 410741817}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 710.6, y: -2.8, z: 0.03475633}
-  m_LocalScale: {x: 19.931976, y: 4.46835, z: 1}
+  m_LocalPosition: {x: 710.6, y: -14.63, z: 0.03475633}
+  m_LocalScale: {x: 19.931976, y: 13.932903, z: 1}
   m_Children: []
   m_Father: {fileID: 1721094971}
   m_RootOrder: 35
@@ -3607,7 +3607,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3706,7 +3706,7 @@ GameObject:
   - component: {fileID: 434598457}
   - component: {fileID: 434598459}
   - component: {fileID: 434598458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3786,7 +3786,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3805,7 +3805,7 @@ GameObject:
   - component: {fileID: 435553194}
   - component: {fileID: 435553196}
   - component: {fileID: 435553195}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3885,7 +3885,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4288,7 +4288,7 @@ GameObject:
   - component: {fileID: 485557222}
   - component: {fileID: 485557224}
   - component: {fileID: 485557223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4368,7 +4368,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4753,7 +4753,7 @@ GameObject:
   - component: {fileID: 519001936}
   - component: {fileID: 519001938}
   - component: {fileID: 519001937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4833,7 +4833,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5251,7 +5251,7 @@ GameObject:
   - component: {fileID: 562102973}
   - component: {fileID: 562102975}
   - component: {fileID: 562102974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5331,7 +5331,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5561,7 +5561,7 @@ GameObject:
   - component: {fileID: 589622111}
   - component: {fileID: 589622113}
   - component: {fileID: 589622112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5641,7 +5641,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5912,7 +5912,7 @@ GameObject:
   - component: {fileID: 628847447}
   - component: {fileID: 628847449}
   - component: {fileID: 628847448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5926,8 +5926,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 628847446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87.07, y: -31.8, z: 0.03475633}
-  m_LocalScale: {x: 13.39159, y: 4.73521, z: 1}
+  m_LocalPosition: {x: 87.07, y: -32.46, z: 0.03475633}
+  m_LocalScale: {x: 13.39159, y: 5.255142, z: 1}
   m_Children: []
   m_Father: {fileID: 1721094971}
   m_RootOrder: 6
@@ -5992,7 +5992,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6011,7 +6011,7 @@ GameObject:
   - component: {fileID: 635575302}
   - component: {fileID: 635575304}
   - component: {fileID: 635575303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6091,7 +6091,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6110,7 +6110,7 @@ GameObject:
   - component: {fileID: 646946996}
   - component: {fileID: 646946998}
   - component: {fileID: 646946997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6124,8 +6124,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 646946995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -92.6, y: -26.6, z: 0.03475633}
-  m_LocalScale: {x: 70.25323, y: 4.7352095, z: 1}
+  m_LocalPosition: {x: -92.6, y: -54.22, z: 0.03475633}
+  m_LocalScale: {x: 70.25323, y: 26.832336, z: 1}
   m_Children: []
   m_Father: {fileID: 1721094971}
   m_RootOrder: 0
@@ -6138,7 +6138,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 646946995}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6190,7 +6190,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6502,7 +6502,7 @@ GameObject:
   - component: {fileID: 684775779}
   - component: {fileID: 684775781}
   - component: {fileID: 684775780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6582,7 +6582,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6807,7 +6807,7 @@ GameObject:
   - component: {fileID: 702161006}
   - component: {fileID: 702161008}
   - component: {fileID: 702161007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6887,7 +6887,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6896,6 +6896,53 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &702164923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1003645165471546, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 702164924}
+  - component: {fileID: 702164925}
+  m_Layer: 9
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702164924
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4079760392898100, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 702164923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.195, y: -0.174, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291943579}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &702164925
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 58130090439376278, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 702164923}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08
 --- !u!1 &705337467
 GameObject:
   m_ObjectHideFlags: 0
@@ -7080,7 +7127,7 @@ GameObject:
   - component: {fileID: 735605766}
   - component: {fileID: 735605768}
   - component: {fileID: 735605767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7160,7 +7207,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7252,7 +7299,7 @@ GameObject:
   - component: {fileID: 753967713}
   - component: {fileID: 753967715}
   - component: {fileID: 753967714}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7332,7 +7379,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8170,7 +8217,7 @@ GameObject:
   - component: {fileID: 848208128}
   - component: {fileID: 848208130}
   - component: {fileID: 848208129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8250,7 +8297,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8575,7 +8622,7 @@ GameObject:
   - component: {fileID: 874734677}
   - component: {fileID: 874734679}
   - component: {fileID: 874734678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8655,7 +8702,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8720,7 +8767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &916103797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8914,7 +8961,7 @@ GameObject:
   - component: {fileID: 919183730}
   - component: {fileID: 919183732}
   - component: {fileID: 919183731}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8994,7 +9041,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9869,7 +9916,7 @@ GameObject:
   - component: {fileID: 1013488132}
   - component: {fileID: 1013488134}
   - component: {fileID: 1013488133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9949,7 +9996,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10811,7 +10858,7 @@ GameObject:
   - component: {fileID: 1103757584}
   - component: {fileID: 1103757586}
   - component: {fileID: 1103757585}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10891,7 +10938,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11125,7 +11172,7 @@ GameObject:
   - component: {fileID: 1159476049}
   - component: {fileID: 1159476051}
   - component: {fileID: 1159476050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11205,7 +11252,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11224,7 +11271,7 @@ GameObject:
   - component: {fileID: 1180235950}
   - component: {fileID: 1180235952}
   - component: {fileID: 1180235951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11304,7 +11351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11929,6 +11976,214 @@ Transform:
   m_Father: {fileID: 804353948}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1291943571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1354415451500922, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1291943579}
+  - component: {fileID: 1291943578}
+  - component: {fileID: 1291943577}
+  - component: {fileID: 1291943576}
+  - component: {fileID: 1291943575}
+  - component: {fileID: 1291943574}
+  - component: {fileID: 1291943573}
+  - component: {fileID: 1291943572}
+  m_Layer: 9
+  m_Name: Player
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!58 &1291943572
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.019782752, y: -0.21881557}
+  serializedVersion: 2
+  m_Radius: 0.1045984
+--- !u!95 &1291943573
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 95666593224011108, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20182374bc02499449e50223a0d8c77a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!212 &1291943574
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212663453035848212, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1647751363
+  m_SortingLayer: 4
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: d7e587f34f7a741418c7aabb1fc306fd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.84, y: 0.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!50 &1291943575
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 50291016363937164, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1.5
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!61 &1291943576
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 61241876814113198, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.020199701, y: 0.029310822}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.46, y: 0.25}
+    oldSize: {x: 2.3384616, y: 1.7230769}
+    newSize: {x: 0.84, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21293148, y: 0.5064237}
+  m_EdgeRadius: 0
+--- !u!114 &1291943577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114696482123775906, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d939b237908c034aa372227b1a726b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxSpeed: 14
+  m_JumpForce: 1000
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  m_WhatIsWall:
+    serializedVersion: 2
+    m_Bits: 256
+  m_WhatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_HealthMax: 100
+  m_ProtectTime: 2
+  m_StaggerTime: 0.7
+  m_KnockBack: 2.5
+  m_AirJump: 0
+  canWallJump: 1
+  AttackTrigger: {fileID: 1313455785}
+--- !u!114 &1291943578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114745238247961058, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784c506d580da9c4cbb95a1ee67d9d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1291943579
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4709418486384244, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291943571}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -78.23, y: 19.89, z: 0}
+  m_LocalScale: {x: 12.170999, y: 12.457576, z: 1}
+  m_Children:
+  - {fileID: 1869167094}
+  - {fileID: 702164924}
+  - {fileID: 1337206740}
+  - {fileID: 1313455787}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298448308
 GameObject:
   m_ObjectHideFlags: 0
@@ -12226,6 +12481,77 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1312694108}
+--- !u!1 &1313455784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1991591678123560, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1313455787}
+  - component: {fileID: 1313455785}
+  - component: {fileID: 1313455786}
+  m_Layer: 9
+  m_Name: AttackTrigger
+  m_TagString: PlayerAttack
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1313455785
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 61330012376109626, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313455784}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7305395, y: -0.044044077}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4362003, y: 0.55711496}
+  m_EdgeRadius: 0
+--- !u!114 &1313455786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114322704473611284, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313455784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb6b52342b145a4bb42d28f9342f6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+--- !u!4 &1313455787
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4178870601318614, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1313455784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291943579}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327396073
 GameObject:
   m_ObjectHideFlags: 0
@@ -12299,6 +12625,36 @@ Transform:
   m_Father: {fileID: 1228901037}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1337206739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1183775532545880, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1337206740}
+  m_Layer: 9
+  m_Name: CeilingCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1337206740
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4574219751454398, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1337206739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.251, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291943579}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339485497
 GameObject:
   m_ObjectHideFlags: 0
@@ -12343,7 +12699,7 @@ GameObject:
   - component: {fileID: 1345014781}
   - component: {fileID: 1345014783}
   - component: {fileID: 1345014782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12423,7 +12779,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12588,7 +12944,7 @@ GameObject:
   - component: {fileID: 1373419715}
   - component: {fileID: 1373419717}
   - component: {fileID: 1373419716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12668,7 +13024,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13120,7 +13476,7 @@ GameObject:
   - component: {fileID: 1421615591}
   - component: {fileID: 1421615593}
   - component: {fileID: 1421615592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13200,7 +13556,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13287,7 +13643,7 @@ GameObject:
   - component: {fileID: 1445146259}
   - component: {fileID: 1445146261}
   - component: {fileID: 1445146260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13367,7 +13723,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14039,7 +14395,7 @@ GameObject:
   - component: {fileID: 1503696810}
   - component: {fileID: 1503696812}
   - component: {fileID: 1503696811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14053,8 +14409,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1503696809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 125.68, y: -20.6, z: 0.03475633}
-  m_LocalScale: {x: 27.984419, y: 4.73521, z: 1}
+  m_LocalPosition: {x: 125.68, y: -21.57, z: 0.03475633}
+  m_LocalScale: {x: 27.984419, y: 5.5151086, z: 1}
   m_Children: []
   m_Father: {fileID: 1721094971}
   m_RootOrder: 4
@@ -14119,7 +14475,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15048,7 +15404,7 @@ GameObject:
   - component: {fileID: 1586273515}
   - component: {fileID: 1586273517}
   - component: {fileID: 1586273516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15128,7 +15484,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -15733,7 +16089,7 @@ GameObject:
   - component: {fileID: 1630942479}
   - component: {fileID: 1630942481}
   - component: {fileID: 1630942480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15813,7 +16169,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -16442,7 +16798,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1721094971}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16660,7 +17016,7 @@ GameObject:
   - component: {fileID: 1741224740}
   - component: {fileID: 1741224742}
   - component: {fileID: 1741224741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16740,7 +17096,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17100,7 +17456,7 @@ GameObject:
   - component: {fileID: 1786442134}
   - component: {fileID: 1786442136}
   - component: {fileID: 1786442135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17180,7 +17536,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17199,7 +17555,7 @@ GameObject:
   - component: {fileID: 1789011282}
   - component: {fileID: 1789011284}
   - component: {fileID: 1789011283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17279,7 +17635,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -17687,6 +18043,53 @@ Transform:
   m_Father: {fileID: 804353948}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869167093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1742743317064388, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1869167094}
+  - component: {fileID: 1869167095}
+  m_Layer: 9
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1869167094
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4014504196362968, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869167093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.018, y: -0.223, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291943579}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1869167095
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 58929327909050488, guid: 1f92cb637a01c524e87a4ce730794da2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869167093}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.105545655
 --- !u!1 &1888542093
 GameObject:
   m_ObjectHideFlags: 0
@@ -18576,7 +18979,7 @@ GameObject:
   - component: {fileID: 2014765884}
   - component: {fileID: 2014765886}
   - component: {fileID: 2014765885}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18656,7 +19059,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18923,7 +19326,7 @@ GameObject:
   - component: {fileID: 2023626548}
   - component: {fileID: 2023626550}
   - component: {fileID: 2023626549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19003,7 +19406,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19022,7 +19425,7 @@ GameObject:
   - component: {fileID: 2024034858}
   - component: {fileID: 2024034860}
   - component: {fileID: 2024034859}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19102,7 +19505,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19437,7 +19840,7 @@ GameObject:
   - component: {fileID: 2069887522}
   - component: {fileID: 2069887524}
   - component: {fileID: 2069887523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CratePinkGridSprite (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19517,7 +19920,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9558824, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19629,7 +20032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d3968294210ba4a9d2bb96dfa74a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 916103804}
+  m_Target: {fileID: 1291943579}
   m_AutoTargetPlayer: 1
   m_UpdateType: 1
   m_MoveSpeed: 3
@@ -19681,7 +20084,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087462108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.77, y: 19.4, z: 0.5}
+  m_LocalPosition: {x: -78.23, y: 19.89, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2057617392}
