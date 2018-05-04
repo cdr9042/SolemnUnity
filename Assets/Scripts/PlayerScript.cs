@@ -26,7 +26,7 @@ namespace UnityStandardAssets._2D
         public float m_HealthLeft;                    // The fastest the player can travel in the x axis.
         private float m_AirJumpLeft = 0f;                   // //Số lần nhảy trên không hiện tại
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
-        const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+        private float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
         private Transform m_WallCheck;    // A position marking where to check if the player is facing wall.
         const float k_WallCheckRadius = .08f;
         private bool m_Grounded;            // Whether or not the player is grounded.
@@ -61,6 +61,7 @@ namespace UnityStandardAssets._2D
         {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
+            k_GroundedRadius = m_GroundCheck.GetComponent<BoxCollider2D>().size.y;
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_WallCheck = transform.Find("WallCheck");
             m_Anim = GetComponent<Animator>();
