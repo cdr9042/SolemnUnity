@@ -23,6 +23,8 @@ namespace UnityStandardAssets._2D {
         {
             health = playerScript.m_HealthLeft;
             healthBar.fillAmount = health / maxHealth;
+
+            
         }
     }
 }

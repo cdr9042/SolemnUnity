@@ -11,6 +11,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/trongTest.unity
     guid: e0dd646b2181c7a4783208b993c4d4b5
-  - enabled: 1
-    path: Assets/Scene/test-map.unity
-    guid: 9c72d41cc4e2ecd4db885f192ad4f020
