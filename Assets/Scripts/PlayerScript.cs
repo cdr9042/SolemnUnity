@@ -55,6 +55,8 @@ namespace UnityStandardAssets._2D
 
         SpriteRenderer m_SpriteRenderer;
 
+        GameObject gameOverUI;
+
         private void Awake()
         {
             // Setting up references.
@@ -71,6 +73,9 @@ namespace UnityStandardAssets._2D
             AttackTrigger.enabled = false;
             UpdateAnimClipTimes();
             m_SpriteRenderer = GetComponent<SpriteRenderer>();
+
+            gameOverUI = GameObject.Find("GameOverUI");
+            Debug.Log(gameOverUI);
         }
 
         public void UpdateAnimClipTimes()
@@ -291,6 +296,8 @@ namespace UnityStandardAssets._2D
             } else {
                 state = 4;
                 m_Anim.SetBool("Fall",true);
+                gameOverUI.GetComponent<GameOverUIScript>().active();
+                //gameOverUI.SetActive(true);
             }
             float flyDirection;
                 
