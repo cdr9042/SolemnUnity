@@ -26,9 +26,9 @@ namespace UnityStandardAssets._2D
         public float m_HealthLeft;                    // The fastest the player can travel in the x axis.
         private float m_AirJumpLeft = 0f;                   // //Số lần nhảy trên không hiện tại
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
-        const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+        private Vector2 k_GroundedRadius; // Radius of the overlap circle to determine if grounded
         private Transform m_WallCheck;    // A position marking where to check if the player is facing wall.
-        const float k_WallCheckRadius = .08f;
+        private float k_WallCheckRadius = .08f;
         private bool m_Grounded;            // Whether or not the player is grounded.
         private bool m_OnWall;              // Check if on wall
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
@@ -63,9 +63,12 @@ namespace UnityStandardAssets._2D
             m_GroundCheck = transform.Find("GroundCheck");
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_WallCheck = transform.Find("WallCheck");
+            k_WallCheckRadius = m_WallCheck.GetComponent<CircleCollider2D>().radius;
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_Collider = GetComponent<Collider2D>();
+            k_GroundedRadius = m_GroundCheck.GetComponent<BoxCollider2D>().size;
+
             m_HealthLeft = m_HealthMax;
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer, false);
             m_AirJumpLeft = m_AirJump;
@@ -106,7 +109,7 @@ namespace UnityStandardAssets._2D
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
             // Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(m_GroundCheck.position, new Vector2(k_GroundedRadius,k_GroundedRadius),0, m_WhatIsGround);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(m_GroundCheck.position, k_GroundedRadius,0, m_WhatIsGround);
             
             for (int i = 0; i < colliders.Length; i++)
             {
@@ -289,6 +292,10 @@ namespace UnityStandardAssets._2D
             Debug.Log("Took "+dmg+"damage! Health left: "+m_HealthLeft);
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
             TakingDamage = true;
+            float flyDirection;
+                
+            flyDirection = (m_FacingRight) ? -1f : 1f;
+            m_Rigidbody2D.velocity = new Vector2(flyDirection * m_KnockBack, 1.5f); //m_Rigidbody2D.velocity.y
             if (m_HealthLeft > 0) {
                 t_currentState = 0;
                 state = 1;
@@ -299,10 +306,6 @@ namespace UnityStandardAssets._2D
                 gameOverUI.GetComponent<GameOverUIScript>().active();
                 //gameOverUI.SetActive(true);
             }
-            float flyDirection;
-                
-            flyDirection = (m_FacingRight) ? -1f : 1f;
-            m_Rigidbody2D.velocity = new Vector2(flyDirection * m_KnockBack, 1.5f); //m_Rigidbody2D.velocity.y
         }
 
         // private IEnumerator Flasher() 
