@@ -11,3 +11,4 @@ solemnunity222.Plugins.csproj
 solemnunity222.Editor.Plugins.csproj
 
 \.vs/
+/*.csproj
