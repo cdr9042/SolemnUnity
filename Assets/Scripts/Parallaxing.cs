@@ -9,7 +9,7 @@ public class Parallaxing : MonoBehaviour {
 
 	private Transform cam;					// reference to the main cameras transform
 	private Vector3 previousCamPos;			// the position of the camera in the previous frame
-
+	// GameObject go;
 	// Is called before Start(). Great for references.
 	void Awake () {
 		// set up camera the reference
@@ -26,6 +26,9 @@ public class Parallaxing : MonoBehaviour {
 		for (int i = 0; i < backgrounds.Length; i++) {
 			parallaxScales[i] = backgrounds[i].position.z*-1;
 		}
+
+		// go = GameObject.Find("redsquare");
+		// Debug.Log(go);
 	}
 	
 	// Update is called once per frame
@@ -44,8 +47,10 @@ public class Parallaxing : MonoBehaviour {
 
 			// fade between current position and the target position using lerp
 			backgrounds[i].position = Vector3.Lerp (backgrounds[i].position, backgroundTargetPos, smoothing * Time.deltaTime);
-		}
 
+			
+		}
+		
 		// set the previousCamPos to the camera's position at the end of the frame
 		previousCamPos = cam.position;
 	}
