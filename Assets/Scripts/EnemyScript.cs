@@ -12,12 +12,15 @@ public class EnemyScript : MonoBehaviour {
 	public int state = 0;
 	private float t_state, t_flash, flashTime = .6f, knockBackTime = .3f;
 
+    Animator m_Anim;
+
 	private Rigidbody2D m_Rigidbody2D;
 	// Use this for initialization
 	void Awake() {
 		currentHP = HP;
 		m_SpriteRenderer = GetComponent<SpriteRenderer>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        m_Anim = GetComponent<Animator>();
 	}
 	void Start () {
 		
@@ -26,7 +29,8 @@ public class EnemyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (currentHP <= 0){
-			Destroy(gameObject);
+            m_Anim.SetBool("Dying", true);
+            //Destroy(gameObject);
 		}
 
 		if (t_flash > 0) {
@@ -68,6 +72,7 @@ public class EnemyScript : MonoBehaviour {
 			float knockDirection = transform.position.x - player.transform.position.x;
 			m_Rigidbody2D.velocity = new Vector2(direction*3f, m_Rigidbody2D.velocity.y);
 		}
+        m_Anim.SetBool("isHurt", true); //start hurt animation
 	}
 
 	void OnGUI() {
