@@ -8,11 +8,13 @@ public class Game { //don't need ": Monobehaviour" because we are not attaching 
 	public Character knight;
 	public Character rogue;
 	public Character wizard;
+	public string currentStage;
 
 	public Game () {
 		knight = new Character();
 		rogue = new Character();
 		wizard = new Character();
+		currentStage = "trongTest";
 	}
 		
 }

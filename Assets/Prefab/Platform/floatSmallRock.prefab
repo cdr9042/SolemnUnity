@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 4910092906702892}
   - component: {fileID: 251455686168054546}
   - component: {fileID: 68196961365040826}
+  - component: {fileID: 114999602466336606}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -117,6 +118,18 @@ EdgeCollider2D:
   m_Points:
   - {x: 0, y: 6}
   - {x: 2, y: 6}
+--- !u!114 &114999602466336606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1812745305407536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb44b11a0dc383459bcb2f978f01385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRange: 1
 --- !u!212 &212010971616743350
 SpriteRenderer:
   m_ObjectHideFlags: 1

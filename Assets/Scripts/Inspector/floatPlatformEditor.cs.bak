@@ -1,0 +1,17 @@
+﻿
+using UnityEngine;
+using System.Collections;
+using UnityEditor;
+
+[CustomEditor(typeof(floatPlatformScript))]
+public class floatPlatformEditor : Editor 
+{
+    public override void OnInspectorGUI()
+    {
+        floatPlatformScript myTarget = (floatPlatformScript)target;
+        
+        // myTarget.experience = EditorGUILayout.IntField("Experience", myTarget.experience);
+		bool touching = myTarget.m_Collider.IsTouchingLayers(LayerMask.NameToLayer("PlayerLayer"));
+        EditorGUILayout.LabelField("Level", touching.ToString());
+    }
+}

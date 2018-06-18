@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameInit : MonoBehaviour {
-
+public class NextStageCheck : MonoBehaviour {
+	public bool PlayerEnter;
 	// Use this for initialization
 	void Start () {
-		// Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("PlayerLayer"), LayerMask.NameToLayer ("EnemyLayer"));
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+	void OnTriggerEnter2D (Collider2D collider) {
+		PlayerEnter = true;
 	}
 }
