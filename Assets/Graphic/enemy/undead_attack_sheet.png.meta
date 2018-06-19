@@ -1,51 +1,29 @@
 fileFormatVersion: 2
-guid: 7e802d70d6a730c4da91acfed12cced0
-timeCreated: 1525350439
+guid: bd9bf8ee609198047b9208bb6cc3402e
+timeCreated: 1529307253
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: slime-walk1
-    21300002: slime-walk2
-    21300004: slime-walk3
-    21300006: slime-walk4
-    21300008: slime-walk5
-    21300010: slime-walk6
-    21300012: slime-walk7
-    21300014: slime-walk8
-    21300016: slime-atk1
-    21300018: slime-atk2
-    21300020: slime-atk3
-    21300022: slime-atk4
-    21300024: slime-atk5
-    21300026: slime-hit1
-    21300028: slime-hit2
-    21300030: slime-hit3
-    21300032: slime-dead1
-    21300034: slime-dead2
-    21300036: slime-dead3
-    21300038: slime-dead4
-    21300040: slime-dead5
-    21300042: slime-Sheet_0
-    21300044: slime-Sheet_1
-    21300046: slime-Sheet_2
-    21300048: slime-Sheet_3
-    21300050: slime-Sheet_4
-    21300052: slime-Sheet_5
-    21300054: slime-Sheet_6
-    21300056: slime-Sheet_7
-    21300058: slime-Sheet_8
-    21300060: slime-Sheet_9
-    21300062: slime-Sheet_10
-    21300064: slime-Sheet_11
-    21300066: slime-Sheet_12
-    21300068: slime-Sheet_13
-    21300070: slime-Sheet_14
-    21300072: slime-Sheet_15
-    21300074: slime-Sheet_16
-    21300076: slime-Sheet_17
-    21300078: slime-Sheet_18
-    21300080: slime-Sheet_19
-    21300082: slime-Sheet_20
+    21300000: undead_attack_sheet_0
+    21300002: undead_attack_sheet_2
+    21300004: undead_attack_sheet_4
+    21300006: undead_attack_sheet_6
+    21300008: undead_attack_sheet_7
+    21300010: undead_attack_sheet_9
+    21300012: undead_attack_sheet_11
+    21300014: undead_attack_sheet_13
+    21300016: undead_attack_sheet_15
+    21300018: undead_attack_sheet_16
+    21300020: undead_attack_sheet_17
+    21300022: undead_attack_sheet_18
+    21300024: undead_attack_sheet_20
+    21300026: undead_attack_sheet_21
+    21300028: undead_attack_sheet_22
+    21300030: undead_attack_sheet_23
+    21300032: undead_attack_sheet_25
+    21300034: undead_attack_sheet_26
+    21300036: undead_attack_sheet_27
+    21300038: undead_attack_sheet_29
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -122,295 +100,281 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime-Sheet_0
+      name: undead_attack_sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
+        x: 6
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_1
+      name: undead_attack_sheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 50
+        x: 62
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_2
+      name: undead_attack_sheet_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 50
+        x: 119
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_3
+      name: undead_attack_sheet_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 50
+        x: 176
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_4
+      name: undead_attack_sheet_7
       rect:
         serializedVersion: 2
-        x: 128
-        y: 50
+        x: 228
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_5
+      name: undead_attack_sheet_9
       rect:
         serializedVersion: 2
-        x: 160
-        y: 50
+        x: 284
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_6
+      name: undead_attack_sheet_11
       rect:
         serializedVersion: 2
-        x: 192
-        y: 50
+        x: 341
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_7
+      name: undead_attack_sheet_13
       rect:
         serializedVersion: 2
-        x: 224
-        y: 50
+        x: 410
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_8
+      name: undead_attack_sheet_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 25
+        x: 468
+        y: 6
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_9
+      name: undead_attack_sheet_16
       rect:
         serializedVersion: 2
-        x: 32
-        y: 25
+        x: 522
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_10
+      name: undead_attack_sheet_17
       rect:
         serializedVersion: 2
-        x: 64
-        y: 25
+        x: 578
+        y: 6
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_11
+      name: undead_attack_sheet_18
       rect:
         serializedVersion: 2
-        x: 96
-        y: 25
+        x: 633
+        y: 6
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_12
+      name: undead_attack_sheet_20
       rect:
         serializedVersion: 2
-        x: 128
-        y: 25
+        x: 687
+        y: 8
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_13
+      name: undead_attack_sheet_21
       rect:
         serializedVersion: 2
-        x: 160
-        y: 25
+        x: 743
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_14
+      name: undead_attack_sheet_22
       rect:
         serializedVersion: 2
-        x: 192
-        y: 25
+        x: 799
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_15
+      name: undead_attack_sheet_23
       rect:
         serializedVersion: 2
-        x: 224
-        y: 25
+        x: 853
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_16
+      name: undead_attack_sheet_25
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 907
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_17
+      name: undead_attack_sheet_26
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 958
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_18
+      name: undead_attack_sheet_27
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 1013
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_19
+      name: undead_attack_sheet_29
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 1069
+        y: 7
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

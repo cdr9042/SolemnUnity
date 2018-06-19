@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c0ab6cf7abd819f48b5ff67896490c71
-timeCreated: 1525350439
+guid: 83e3d05510a31354fb32f4bd31d36485
+timeCreated: 1529378064
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -46,7 +46,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -79,7 +79,27 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
+    outline:
+    - - {x: 68.5, y: 61.5}
+      - {x: 24.5, y: 127.5}
+      - {x: 7.5, y: 127.5}
+      - {x: -7.5, y: 121.5}
+      - {x: -97.5, y: 68.5}
+      - {x: -118.5, y: 12.5}
+      - {x: -118.5, y: -64.5}
+      - {x: -75.5, y: -100.5}
+      - {x: -53.5, y: -111.5}
+      - {x: 45.5, y: -111.5}
+      - {x: 106.5, y: -80.5}
+      - {x: 124.5, y: -7.5}
+      - {x: 124.5, y: 4.5}
+      - {x: 118.5, y: 16.5}
+    - - {x: -125.5, y: -57.5}
+      - {x: -124.5, y: -60.5}
+      - {x: -120.5, y: -60.5}
+      - {x: -118.5, y: -58.5}
+      - {x: -119.5, y: -55.5}
+      - {x: -123.5, y: -55.5}
     physicsShape: []
   spritePackingTag: 
   userData: 
