@@ -249,7 +249,6 @@ namespace UnityStandardAssets._2D
                         Flip();
                     }
                 }
-
             }
             // mylog = m_Grounded.ToString();
         }
@@ -318,23 +317,37 @@ namespace UnityStandardAssets._2D
             m_Anim.SetInteger("Attack", attackMode);
         }
 
-        void OnCollisionEnter2D(Collision2D col)
+        void OnCollisionEnter2D(Collision2D collider)
         {
-            if (state == 0)
-                if (col.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+
+            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+            {
+                EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
+                if (enemy != null)
                 {
-                    EnemyScript enemy = (col.gameObject.GetComponent<EnemyScript>());
-                    if (enemy != null)
-                    {
-                        TakeDamage(enemy.enemyAttack);
-                    }
-                    else
-                    {
-                        Debug.Log("Script 'Enemy' not present in " + col.gameObject);
-                    }
+                    TakeDamage(enemy.enemyAttack);
+                }
+                else
+                {
+                    Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
+                }
+            }
+        }
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+            {
+                EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
+                if (enemy != null)
+                {
+                    TakeDamage(enemy.enemyAttack);
+                }
+                else
+                {
+                    Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
                 }
             // Debug.Log(col.collider.tag);
-
+            }
         }
 
         void OnCollisionStay2D(Collision2D col)
@@ -352,26 +365,29 @@ namespace UnityStandardAssets._2D
 
         private void TakeDamage(float dmg)
         {
-            m_HealthLeft -= dmg;
-            Debug.Log("Took " + dmg + "damage! Health left: " + m_HealthLeft);
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
-            TakingDamage = true;
-            float flyDirection;
+            if (state == 0)
+            {
+                m_HealthLeft -= dmg;
+                Debug.Log("Took " + dmg + "damage! Health left: " + m_HealthLeft);
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
+                TakingDamage = true;
+                float flyDirection;
 
-            flyDirection = (m_FacingRight) ? -1f : 1f;
-            m_Rigidbody2D.velocity = new Vector2(flyDirection * m_KnockBack, 1.5f); //m_Rigidbody2D.velocity.y
-            if (m_HealthLeft > 0)
-            {
-                t_currentState = 0;
-                state = 1;
-                m_Anim.SetBool("isHurt", true);
-            }
-            else
-            {
-                state = 4;
-                m_Anim.SetBool("Fall", true);
-                gameOverUI.GetComponent<GameOverUIScript>().active();
-                //gameOverUI.SetActive(true);
+                flyDirection = (m_FacingRight) ? -1f : 1f;
+                m_Rigidbody2D.velocity = new Vector2(flyDirection * m_KnockBack, 1.5f); //m_Rigidbody2D.velocity.y
+                if (m_HealthLeft > 0)
+                {
+                    t_currentState = 0;
+                    state = 1;
+                    m_Anim.SetBool("isHurt", true);
+                }
+                else
+                {
+                    state = 4;
+                    m_Anim.SetBool("Fall", true);
+                    gameOverUI.GetComponent<GameOverUIScript>().active();
+                    //gameOverUI.SetActive(true);
+                }
             }
         }
 

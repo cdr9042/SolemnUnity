@@ -13,7 +13,7 @@ public class PlayerAttackTrigger : MonoBehaviour {
 		// Debug.Log("collider" + collider.isTrigger);
 		// Debug.Log("tag" + collider.CompareTag("Enemy"));
 		if (collider.isTrigger != true && collider.CompareTag("Enemy")) {
-			Debug.Log("contact enemy");
+			// Debug.Log("contact enemy");
 			object[] param = new object[4];
 			param[0] = damage;
 			param[1] = Mathf.Sign(collider.transform.position.x - transform.position.x);

@@ -1,51 +1,33 @@
 fileFormatVersion: 2
-guid: 7e802d70d6a730c4da91acfed12cced0
-timeCreated: 1525350439
+guid: 0cd0a667b16b21e4a810d28d6de588df
+timeCreated: 1529307253
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: slime-walk1
-    21300002: slime-walk2
-    21300004: slime-walk3
-    21300006: slime-walk4
-    21300008: slime-walk5
-    21300010: slime-walk6
-    21300012: slime-walk7
-    21300014: slime-walk8
-    21300016: slime-atk1
-    21300018: slime-atk2
-    21300020: slime-atk3
-    21300022: slime-atk4
-    21300024: slime-atk5
-    21300026: slime-hit1
-    21300028: slime-hit2
-    21300030: slime-hit3
-    21300032: slime-dead1
-    21300034: slime-dead2
-    21300036: slime-dead3
-    21300038: slime-dead4
-    21300040: slime-dead5
-    21300042: slime-Sheet_0
-    21300044: slime-Sheet_1
-    21300046: slime-Sheet_2
-    21300048: slime-Sheet_3
-    21300050: slime-Sheet_4
-    21300052: slime-Sheet_5
-    21300054: slime-Sheet_6
-    21300056: slime-Sheet_7
-    21300058: slime-Sheet_8
-    21300060: slime-Sheet_9
-    21300062: slime-Sheet_10
-    21300064: slime-Sheet_11
-    21300066: slime-Sheet_12
-    21300068: slime-Sheet_13
-    21300070: slime-Sheet_14
-    21300072: slime-Sheet_15
-    21300074: slime-Sheet_16
-    21300076: slime-Sheet_17
-    21300078: slime-Sheet_18
-    21300080: slime-Sheet_19
-    21300082: slime-Sheet_20
+    21300000: undead_idle_sheet_0
+    21300002: undead_idle_sheet_1
+    21300004: undead_idle_sheet_2
+    21300006: undead_idle_sheet_3
+    21300008: undead_idle_sheet_4
+    21300010: undead_idle_sheet_5
+    21300012: undead_idle_sheet_6
+    21300014: undead_idle_sheet_7
+    21300016: undead_idle_sheet_8
+    21300018: undead_idle_sheet_9
+    21300020: undead_idle_sheet_10
+    21300022: undead_idle_sheet_11
+    21300024: undead_idle_sheet_12
+    21300026: undead_idle_sheet_13
+    21300028: undead_idle_sheet_14
+    21300030: undead_idle_sheet_15
+    21300032: undead_idle_sheet_16
+    21300034: undead_idle_sheet_17
+    21300036: undead_idle_sheet_19
+    21300038: undead_idle_sheet_20
+    21300040: undead_idle_sheet_22
+    21300042: undead_idle_sheet_23
+    21300044: undead_idle_sheet_25
+    21300046: undead_idle_sheet_26
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -122,295 +104,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slime-Sheet_0
+      name: undead_idle_sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 50
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 25
-        width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: slime-Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_17
+      name: undead_idle_sheet_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 54
         y: 0
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_18
+      name: undead_idle_sheet_3
       rect:
         serializedVersion: 2
-        x: 64
+        x: 103
         y: 0
         width: 32
-        height: 25
+        height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+      pivot: {x: 0.522455, y: 0.47754487}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_19
+      name: undead_idle_sheet_5
       rect:
         serializedVersion: 2
-        x: 96
+        x: 150
         y: 0
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: slime-Sheet_20
+      name: undead_idle_sheet_6
       rect:
         serializedVersion: 2
-        x: 128
+        x: 197
         y: 0
         width: 32
-        height: 25
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: undead_idle_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
