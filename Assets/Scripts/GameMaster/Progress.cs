@@ -5,9 +5,11 @@ using System.Collections;
 public class Progress {
 
 	public string stage;
+	public int checkPoint;
 
 	public Progress () {
 		this.stage = "";
+		this.checkPoint = 0;
 	}
 
 }

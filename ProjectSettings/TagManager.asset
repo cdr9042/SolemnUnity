@@ -21,7 +21,7 @@ TagManager:
   - PlayerLayer
   - EnemyLayer
   - Background
-  - 
+  - ItemLayer
   - 
   - 
   - 
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Items
+    uniqueID: 3249666989
     locked: 0
   - name: Enemy
     uniqueID: 2247605705
