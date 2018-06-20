@@ -58,6 +58,8 @@ namespace UnityStandardAssets._2D
 
         GameObject gameOverUI;
 
+        public Transform lastCheckpoint;
+
         private void Awake()
         {
             // Setting up references.
@@ -79,7 +81,6 @@ namespace UnityStandardAssets._2D
             m_SpriteRenderer = GetComponent<SpriteRenderer>();
 
             gameOverUI = GameObject.Find("GameOverUI");
-            Debug.Log(gameOverUI);
         }
 
         public void UpdateAnimClipTimes()
@@ -132,7 +133,7 @@ namespace UnityStandardAssets._2D
             if (canWallJump)
                 m_OnWall = Physics2D.OverlapBox(m_WallCheck.position, k_WallCheckRadius, 0, m_WhatIsWall);
 
-            if (m_Grounded || m_OnWall)
+            if (m_Grounded)
             {
                 m_AirJumpLeft = m_AirJump;
             }
@@ -214,6 +215,7 @@ namespace UnityStandardAssets._2D
                         //bật tường sẽ đẩy người chơi lùi lại
                         float WJdirection = m_FacingRight ? 1 : -1;
                         v.x = m_JumpForce * -0.022f * WJdirection;
+                        m_AirJumpLeft = m_AirJump;
                     }
                     m_Rigidbody2D.velocity = v;
 
@@ -347,6 +349,8 @@ namespace UnityStandardAssets._2D
                     Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
                 }
             // Debug.Log(col.collider.tag);
+            } else if (collider.tag == "Checkpoint") {
+                lastCheckpoint = collider.transform;
             }
         }
 
@@ -385,7 +389,7 @@ namespace UnityStandardAssets._2D
                 {
                     state = 4;
                     m_Anim.SetBool("Fall", true);
-                    gameOverUI.GetComponent<GameOverUIScript>().active();
+                    // gameOverUI.GetComponent<GameOverUIScript>().active();
                     //gameOverUI.SetActive(true);
                 }
             }

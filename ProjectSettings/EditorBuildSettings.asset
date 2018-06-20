@@ -9,11 +9,5 @@ EditorBuildSettings:
     path: Assets/Scene/Main_menu.unity
     guid: 1000e95991f23c044827bcb87de3f25f
   - enabled: 1
-    path: Assets/Scene/trongTest.unity
-    guid: e0dd646b2181c7a4783208b993c4d4b5
-  - enabled: 1
-    path: Assets/Scene/trongTestBan2.unity
-    guid: 1c6fb692a007e824581f2e94b94ecb86
-  - enabled: 1
-    path: Assets/Level1.unity
-    guid: cd80b87530bbb47b781a32f3b934e56d
+    path: Assets/Scene/Stages/Stage1.unity
+    guid: 1c49999953250ff4db9483c450f9c467

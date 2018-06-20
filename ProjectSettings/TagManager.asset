@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PlayerAttack
   - MovingPlatform
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

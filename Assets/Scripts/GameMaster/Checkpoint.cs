@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public int phase;
-    public int checkPoint = 0;
+    public string checkPoint = "1-1";
     private Animator m_Anim;
     private float[] clipLength = new float[5];
 	public Transform dataMaster;
@@ -44,6 +44,12 @@ public class Checkpoint : MonoBehaviour
         phase = 1;
         yield return new WaitForSeconds(clipLength[0]);
 		phase = 2;
+		GameData.current._Progress.checkPoint = name;
+        if (GameData.current.getGameMode() != "test") {
+            Debug.Log(GameData.current._Progress.checkPoint);
+            GameData.current._Progress.getStage();
+		    SaveLoadGame.Save();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -2,14 +2,24 @@ using UnityEngine;
 using System.Collections;
 
 [System.Serializable] // You need this part, so that you class can be 'serialized', meaning turned into 1s and 0s. Binary baby!
-public class Progress {
+public class Progress
+{
 
-	public string stage;
-	public int checkPoint;
+    public string stage;
+    public string checkPoint;
 
-	public Progress () {
-		this.stage = "";
-		this.checkPoint = 0;
-	}
-
+    public Progress()
+    {
+        this.stage = "";
+        this.checkPoint = "";
+    }
+    public void setStage(string stageName)
+    {
+        stage = stageName;
+		Debug.Log("Progress stage set to: "+stage);
+    }
+    public string getStage () {
+        Debug.Log("Progress current stage: "+stage);
+        return stage;
+    }
 }
