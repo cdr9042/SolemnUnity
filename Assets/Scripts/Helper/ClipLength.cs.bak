@@ -1,0 +1,19 @@
+using UnityEngine;
+using System.Collections;
+
+[System.Serializable]
+public class ClipLength { //don't need ": Monobehaviour" because we are not attaching it to a game object
+
+	public static ClipLength current;
+	public static string gameMode;
+
+	public ClipLength () {
+		gameMode = "";
+	}
+	public void setGameMode (string gM) {
+		gameMode = gM;
+	}
+	public string getGameMode (){
+		return gameMode;
+	}
+}

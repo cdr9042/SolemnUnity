@@ -36,10 +36,12 @@ namespace UnityStandardAssets._2D
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
+        private float m_RigidbodyOldGravity;
+
         private Collider2D m_Collider;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
-        private bool TakingDamage = false;  //nếu đang taking damage = true thì không thể điều khiển
+        private bool disableControl = false;  //nếu đang taking damage = true thì không thể điều khiển
         private float t_currentState = 0f;
         public int state = 0;              //trạng thái của người chơi
                                            //0 = mặc định
@@ -52,6 +54,7 @@ namespace UnityStandardAssets._2D
         private float attackTimer = 0;
         private float attackCD = 0.5f;
         private float airAttackCD = 0.5f;
+        private float[] clipLength = new float[10];
         public Collider2D AttackTrigger;
 
         SpriteRenderer m_SpriteRenderer;
@@ -69,6 +72,7 @@ namespace UnityStandardAssets._2D
             k_WallCheckRadius = m_WallCheck.GetComponent<BoxCollider2D>().size;
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            m_RigidbodyOldGravity = m_Rigidbody2D.gravityScale;
             m_Collider = GetComponent<Collider2D>();
             k_GroundedRadius = m_GroundCheck.GetComponent<BoxCollider2D>().size;
 
@@ -98,7 +102,13 @@ namespace UnityStandardAssets._2D
                         airAttackCD = clip.length + 0.1f;
                         // Debug.Log("attack CD " + attackCD);
                         break;
-                        // default: Debug.Log(clip.name); break;
+                    // default: Debug.Log(clip.name); break;
+                    case "sogetsu_die":
+                        clipLength[4] = clip.length;
+                        break;
+                    case "revive":
+                        clipLength[5] = clip.length;
+                        break;
                 }
             }
         }
@@ -159,7 +169,7 @@ namespace UnityStandardAssets._2D
                     };
                     if (t_currentState >= m_StaggerTime)
                     { //stop staggering
-                        TakingDamage = false;
+                        disableControl = false;
                         m_Anim.SetBool("isHurt", false);
                         t_currentState = 0;
                         state = 2;
@@ -175,10 +185,63 @@ namespace UnityStandardAssets._2D
                         state = 0;
                     }
                     break;
+                case 4:
+                    t_currentState += Time.deltaTime;
+                    m_Rigidbody2D.velocity = new Vector2(Mathf.Lerp(m_Rigidbody2D.velocity.x, 0, 4f * Time.deltaTime), m_Rigidbody2D.velocity.y);
+                    if (t_currentState >= clipLength[4] + 1f)
+                    {
+                        state = 5;
+                        t_currentState = 0;
+                        Debug.Log("done dying, now revive");
+                        // Debug.Break();
+                        m_Rigidbody2D.velocity = new Vector2(0, 0);
+                    }
+                    break;
+                case 5:
+                    // Debug.Log("state = 5");
+                    if (!m_Anim.GetBool("isReviving"))
+                    {
+                        GameObject lastCheckPoint;
+                        if (GameData.current._Progress.checkPoint != null && GameData.current._Progress.checkPoint != "")
+                        {
+                            lastCheckPoint = GameObject.Find(GameData.current._Progress.checkPoint);
+                            Debug.Log("respawn to check point");
+                        }
+                        else
+                        {
+                            lastCheckPoint = GameObject.Find("SpawnPoint");
+                            Debug.Log("respawn to spawn point");
+                        }
+                        m_Anim.SetBool("Fall", false);
+                        m_Anim.SetBool("isReviving", true);
+                        transform.position = lastCheckPoint.transform.position;
+                        m_Rigidbody2D.gravityScale = 0;
+                        disableControl = true;
+
+                    }
+                    else
+                    {
+                        t_currentState += Time.deltaTime;
+                        if (t_currentState >= clipLength[5])
+                        {
+                            t_currentState = 0;
+                            m_Anim.SetBool("isReviving", false);
+                            state = 2;
+                            disableControl = false;
+                            m_HealthLeft = m_HealthMax;
+                            m_Rigidbody2D.gravityScale = m_RigidbodyOldGravity;
+                        }
+                    }
+
+                    break;
                 default: break;
             }
 
             UpdateAttack();
+            if (transform.position.y < -1000 && state != 5)
+            {
+                state = 4;
+            }
         }
 
 
@@ -224,7 +287,7 @@ namespace UnityStandardAssets._2D
                 }
 
             //only control the player if grounded or airControl is turned on
-            if (!TakingDamage && attackMode == 0)
+            if (!disableControl && attackMode == 0)
             { //nếu đang nhận thiệt hại thì ko thể điều khiển
                 if (m_Grounded || m_AirControl)
                 {
@@ -348,8 +411,10 @@ namespace UnityStandardAssets._2D
                 {
                     Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
                 }
-            // Debug.Log(col.collider.tag);
-            } else if (collider.tag == "Checkpoint") {
+                // Debug.Log(col.collider.tag);
+            }
+            else if (collider.tag == "Checkpoint")
+            {
                 lastCheckpoint = collider.transform;
             }
         }
@@ -374,7 +439,7 @@ namespace UnityStandardAssets._2D
                 m_HealthLeft -= dmg;
                 Debug.Log("Took " + dmg + "damage! Health left: " + m_HealthLeft);
                 Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
-                TakingDamage = true;
+                disableControl = true;
                 float flyDirection;
 
                 flyDirection = (m_FacingRight) ? -1f : 1f;
@@ -387,6 +452,7 @@ namespace UnityStandardAssets._2D
                 }
                 else
                 {
+                    t_currentState = 0;
                     state = 4;
                     m_Anim.SetBool("Fall", true);
                     // gameOverUI.GetComponent<GameOverUIScript>().active();
@@ -406,14 +472,14 @@ namespace UnityStandardAssets._2D
         void OnGUI()
         {
             GUILayout.Label(""
-            // "!TakingDamage && !attacking" + (!TakingDamage && attackMode==0).ToString() + "\n" +
+            // "!disableControl && !attacking" + (!disableControl && attackMode==0).ToString() + "\n" +
             // "speed " + m_Rigidbody2D.velocity + "\n" +
             // m_Anim.GetInteger("Attack")
             // "attacking " +attackMode.ToString()+"\n"+
             // "ground "+m_Grounded.ToString()
             // state.ToString()
             // +"\ntime current state" + t_currentState.ToString()
-            // +"\n" + TakingDamage.ToString()
+            // +"\n" + disableControl.ToString()
             // +"\n" + t_currentState.ToString()
             );
         }
