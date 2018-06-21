@@ -411,7 +411,7 @@ namespace UnityStandardAssets._2D
         }
         void OnTriggerStay2D(Collider2D collider)
         {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer") || collider.gameObject.tag == "Spike")
+            if (collider.gameObject.layer == LayerMask.NameToLayer("BulletLayer") || collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer") || collider.gameObject.tag == "Spike")
             {
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)

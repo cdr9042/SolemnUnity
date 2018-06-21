@@ -42,6 +42,7 @@ public class EnemyWalker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Debug.Log(m_Self.walkState);
+		//Debug.Log(target.transform.position);
 		if (target != null) {
 			aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
 		} else {target = GameObject.Find("Player");}

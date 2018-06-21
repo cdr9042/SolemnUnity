@@ -54,11 +54,11 @@ public class Shooting : MonoBehaviour {
       }
 
       // Make the weapon shot always towards it
-     	EnemyFlyer fly = shotTransform.gameObject.GetComponent<EnemyFlyer>();
-       if (fly != null)
-       {
-         fly.direction = this.transform.right; // towards in 2D space is the right of the sprite
-       }
+     	EnemyBullet fly = shotTransform.gameObject.GetComponent<EnemyBullet>();
+        if (fly != null)
+        {
+          fly.direction = this.transform.right; // towards in 2D space is the right of the sprite
+        }
     }
   }
 
