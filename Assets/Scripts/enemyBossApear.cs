@@ -5,23 +5,23 @@ using UnityEngine.AI;
 
 public class enemyBossApear : MonoBehaviour
 {
-	EnemyFlyer flyScript;
+    EnemyFlyer flyScript;
     EnemyShoot shootScript;
-	EnemyBullet chaseAtk;
+    EnemyBullet chaseAtk;
     private Animator m_Anim;
-	private Rigidbody2D m_Rigidbody2D;
-	//public NavMeshAgent nav;
+    private Rigidbody2D m_Rigidbody2D;
+    //public NavMeshAgent nav;
     public float apearLength, atkLength;
     public float Timer, stunTimer;
     // Use this for initialization
     GameObject target;
-    public float speed ;
+    public float speed;
     private float _endPos;
-    public int UnitsToMove ;
+    public int UnitsToMove;
     private bool m_GetDown = true;
     private Vector2 originPos;
-   
-    
+    public GameObject player; //ghetto
+    private GameObject[] gameObjects = new GameObject[20];
 
     public string phase = "wait";
     private void Awake()
@@ -29,10 +29,10 @@ public class enemyBossApear : MonoBehaviour
         m_Anim = GetComponent<Animator>();
         flyScript = GetComponent<EnemyFlyer>();
         shootScript = GetComponent<EnemyShoot>();
-		chaseAtk = GetComponent<EnemyBullet>();
-		target = GameObject.Find("Player");
-		m_Rigidbody2D = GetComponent<Rigidbody2D>();
-        _endPos = transform.position.y + UnitsToMove;	
+        chaseAtk = GetComponent<EnemyBullet>();
+        target = GameObject.Find("Player");
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        _endPos = transform.position.y + UnitsToMove;
         originPos = transform.position;
 
 
@@ -54,7 +54,7 @@ public class enemyBossApear : MonoBehaviour
                     apearLength = clip.length + 0.1f;
                     // Debug.Log("attack CD " + attackCD);
                     break;
-               
+
             }
         }
     }
@@ -72,20 +72,41 @@ public class enemyBossApear : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {					Debug.Log(m_Rigidbody2D.position.y);
+    {
+        Debug.Log(m_Rigidbody2D.position.y);
 
         switch (phase)
         {
             case "wait":
-                if (Timer > 0)
+                //GHETTO CODE, NEED FIX
+                if (player == null)
                 {
-                    Timer -= Time.deltaTime;
+                    gameObjects = GameObject.FindGameObjectsWithTag("Player") as GameObject[];
+
+                    foreach (GameObject gO in gameObjects)
+                    {
+                        if (gO.name.Contains("Player"))
+                        {
+                            player = gO;
+                        }
+                    }
                 }
                 else
                 {
-                    phase = "appear";
-                    Timer = apearLength;
+                    if (Vector2.Distance(transform.position, player.transform.position) <= 20f)
+                    {
+                        if (Timer > 0)
+                        {
+                            Timer -= Time.deltaTime;
+                        }
+                        else
+                        {
+                            phase = "appear";
+                            Timer = apearLength;
+                        }
+                    }
                 }
+
                 break;
             case "appear":
                 Timer -= Time.deltaTime;
@@ -94,98 +115,105 @@ public class enemyBossApear : MonoBehaviour
                     m_Anim.SetBool("Apear", true);
                     flyScript.enabled = true;
                     shootScript.enabled = true;
-					phase ="attack";
-					Timer = apearLength;
-                    
+                    phase = "attack";
+                    Timer = apearLength;
+
                 }
                 break;
 
-             case "attack":
-			 
-			 	if (Timer > 0)
+            case "attack":
+
+                if (Timer > 0)
                 {
                     Timer -= Time.deltaTime;
                 }
                 else
                 {
-                	m_Anim.SetBool("P_attack", true);
-			 		//m_Anim.SetBool("Apear", false);
-					flyScript.speed = new Vector2(0,0);
+                    m_Anim.SetBool("P_attack", true);
+                    //m_Anim.SetBool("Apear", false);
+                    flyScript.speed = new Vector2(0, 0);
                     shootScript.enabled = false;
-					chaseAtk.enabled = true;
+                    chaseAtk.enabled = true;
                     chaseAtk.direction.y = 1;
                     chaseAtk.speed = new Vector2(0, 10);
 
-					if (m_Rigidbody2D.position.y < _endPos ){
-						target = GameObject.Find("Player");
-                        
-						transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x, transform.position.y), speed * Time.deltaTime);
-                    }
-						else 
-						{
-							chaseAtk.direction.y = -1;
-                            chaseAtk.speed = new Vector2(0, 20);
-                            target = null;
-                            if(m_GetDown){
-                                Flip();
-                            }               
-                            stunTimer = 2f;   
-                            phase = "isGround";
-						}
-			}
-                
-                 break;
-                 
-                 case "isGround":
-                    
-                    if (stunTimer > 0) {
-                       stunTimer -= Time.deltaTime;
+                    if (m_Rigidbody2D.position.y < _endPos)
+                    {
+                        target = GameObject.Find("Player");
+
+                        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x, transform.position.y), speed * Time.deltaTime);
                     }
                     else
-                    phase = "stun";
-		
-                 break;
-                 case "stun":
-                    
-                    m_Anim.SetBool("P_attack", false);
-                    m_Anim.SetBool("Stun", true);
-                    if (stunTimer > 0) 
-                       stunTimer -= Time.deltaTime;
-                        else
-                        stunTimer = 3f;
-                        phase ="idle";
-                 break;
-                 case "idle":
+                    {
+                        chaseAtk.direction.y = -1;
+                        chaseAtk.speed = new Vector2(0, 20);
+                        target = null;
+                        if (m_GetDown)
+                        {
+                            Flip();
+                        }
+                        stunTimer = 2f;
+                        phase = "isGround";
+                    }
+                }
+
+                break;
+
+            case "isGround":
+
+                if (stunTimer > 0)
+                {
                     stunTimer -= Time.deltaTime;
-                     if(stunTimer<=0){
-                         m_Anim.SetBool("Stun", false);   
-                         chaseAtk.speed = new Vector2(0, -10);
-                         if(!m_GetDown){
-                                Flip();
-                                
-                            }         
-                        if(transform.position.y >= originPos.y){
-                             chaseAtk.speed = new Vector2(0, 0);
-                            phase = "attackShoot";
-                            flyScript.enabled=false;
-                        }     
-                        
-                       
-                         //phase ="appear";
-                     }
-                 break;
-                 case "attackShoot":
-                    flyScript.enabled=true;
-                     flyScript.speed = new Vector2(10,10);
-                     shootScript.enabled = true;
-                     chaseAtk.enabled = false;
-                     Timer = 3f;
-                     phase ="attack";
-                 break;
+                }
+                else
+                    phase = "stun";
+
+                break;
+            case "stun":
+
+                m_Anim.SetBool("P_attack", false);
+                m_Anim.SetBool("Stun", true);
+                if (stunTimer > 0)
+                    stunTimer -= Time.deltaTime;
+                else
+                    stunTimer = 3f;
+                phase = "idle";
+                break;
+            case "idle":
+                stunTimer -= Time.deltaTime;
+                if (stunTimer <= 0)
+                {
+                    m_Anim.SetBool("Stun", false);
+                    chaseAtk.speed = new Vector2(0, -10);
+                    if (!m_GetDown)
+                    {
+                        Flip();
+
+                    }
+                    if (transform.position.y >= originPos.y)
+                    {
+                        chaseAtk.speed = new Vector2(0, 0);
+                        phase = "attackShoot";
+                        flyScript.enabled = false;
+                    }
+
+
+                    //phase ="appear";
+                }
+                break;
+            case "attackShoot":
+                flyScript.enabled = true;
+                flyScript.speed = new Vector2(10, 10);
+                shootScript.enabled = true;
+                chaseAtk.enabled = false;
+                Timer = 3f;
+                phase = "attack";
+                break;
         }
     }
-    private void FixedUpdate() {
-		
-		
-	}
+    private void FixedUpdate()
+    {
+
+
+    }
 }
