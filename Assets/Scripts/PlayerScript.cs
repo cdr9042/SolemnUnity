@@ -335,7 +335,7 @@ namespace UnityStandardAssets._2D
         }
         void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+            if (collider.gameObject.layer == LayerMask.NameToLayer("BulletLayer"))
             {
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)

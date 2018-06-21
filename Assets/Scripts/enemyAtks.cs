@@ -46,7 +46,7 @@ public class enemyAtks : MonoBehaviour {
         Vector3 dir = (target.transform.position - transform.position).normalized;
          
 
-        can_attack = (distance < 4.5f);
+        can_attack = (distance < 5f);
         if (gameObject.activeSelf) {
         if (can_attack) 
         {

@@ -21,7 +21,7 @@ TagManager:
   - PlayerLayer
   - EnemyLayer
   - Background
-  - ItemLayer
+  - BulletLayer
   - 
   - 
   - 
