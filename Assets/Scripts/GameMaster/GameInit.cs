@@ -9,13 +9,14 @@ public class GameInit : MonoBehaviour
 {
     // public GameData _GameData;
 	public GameObject healthBar;
+    public GameObject enemyMaster;
     // Use this for initialization
     void Start()
     {
         // _GameData = new GameData();
         GameObject playerFab = (GameObject)(Resources.Load("Prefab/PlayerSogetsu"));
         // GameObject cameraFab = (GameObject)Instantiate(Resources.Load("Prefab/Camera"));
-        Debug.Log(GameData.current);
+        // Debug.Log(GameData.current);
         string lastCheckpointName = null;
         if (GameData.current != null)
         {
@@ -44,7 +45,7 @@ public class GameInit : MonoBehaviour
         {
             lastCheckpoint = GameObject.Find("SpawnPoint");
         }
-        Debug.Log(lastCheckpoint);
+        // Debug.Log(lastCheckpoint);
         GameObject player = Instantiate(playerFab, new Vector3(0, 0, 0), Quaternion.identity);
         player.transform.position = lastCheckpoint.transform.position;
         // GameObject _cam = Instantiate(cameraFab,new Vector3(0,0,0),Quaternion.identity);
@@ -56,17 +57,23 @@ public class GameInit : MonoBehaviour
 		// HBS = GetComponent<HealBarScript>();
 		// Debug.Log(HBS);
 		// Debug.Log(HBar);
-		Debug.Log(healthBar.gameObject.GetComponent<HealBarScript>());
+		// Debug.Log(healthBar.gameObject.GetComponent<HealBarScript>());
 		healthBar.gameObject.GetComponent<HealBarScript>().setPlayer(player);
 		healthBar.gameObject.GetComponent<HealBarScript>().init();
 		healthBar.transform.parent.parent.gameObject.SetActive(true);
+        enemyMaster.SetActive(true);
+        enemyMaster.GetComponent<EnemyMasterScript>().player = player;
 		// Debug.Break();
 		// .setPlayer(player);
 		// HBar.GetComponent<HealBarScript>().init();
         // vcam_confiner.m_BoundingShape2D = GameObject.Find("CameraConfiner").GetComponent<PolygonCollider2D>();
         // Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("PlayerLayer"), LayerMask.NameToLayer ("EnemyLayer"));
-    }
 
+        // DebugInit();
+    }
+    void DebugInit(){
+        // GraphicDebug graphicDebug = new GraphicDebug();
+    }
     // Update is called once per frame
     void Update()
     {

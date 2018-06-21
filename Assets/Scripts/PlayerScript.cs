@@ -228,7 +228,6 @@ namespace UnityStandardAssets._2D
                         transform.position = lastCheckPoint.transform.position;
                         m_Rigidbody2D.gravityScale = 0;
                         disableControl = true;
-
                     }
                     else
                     {
@@ -241,6 +240,12 @@ namespace UnityStandardAssets._2D
                             disableControl = false;
                             m_HealthLeft = m_HealthMax;
                             m_Rigidbody2D.gravityScale = m_RigidbodyOldGravity;
+
+                            try {GameObject.Find("DataMaster").GetComponent<GameInit>().enemyMaster.GetComponent<EnemyMasterScript>().resetSpawner();}
+                            catch (Exception e) {
+                                Debug.Log("Can't find DataMaster, failed to reset spawner");
+                            }
+                            
                         }
                     }
 
@@ -411,7 +416,7 @@ namespace UnityStandardAssets._2D
         }
         void OnTriggerStay2D(Collider2D collider)
         {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("BulletLayer") || collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer") || collider.gameObject.tag == "Spike")
+            if (collider.gameObject.layer == LayerMask.NameToLayer("BulletLayer") || collider.gameObject.tag == "Spike")
             {
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)

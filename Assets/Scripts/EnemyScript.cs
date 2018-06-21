@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     private float deathLength;
     private float deathTimer;
     string phase = "dying";
+    public GameObject thePlayer;
 
     Animator m_Anim;
 
@@ -41,9 +42,9 @@ public class EnemyScript : MonoBehaviour
                     deathLength = clip.length + 0.1f;
                     // Debug.Log("attack CD " + attackCD);
                     break;
-				case "hurt":
-					t_flash = clip.length;
-				break;
+                case "hurt":
+                    t_flash = clip.length;
+                    break;
                     // default: Debug.Log(clip.name); break;
             }
         }
@@ -68,7 +69,7 @@ public class EnemyScript : MonoBehaviour
                 if (t_state <= 0)
                 {
                     t_state = flashTime;
-					
+
                     state = 2;
                 }
                 break;
@@ -105,12 +106,10 @@ public class EnemyScript : MonoBehaviour
         Debug.Log(transform.name + "hp left:" + currentHP);
         t_flash = flashTime;
         t_state = 0;
-
         if (canBeKnockBack)
         {
             t_state = knockBackTime;
-            GameObject player = GameObject.Find("Player");
-            float knockDirection = transform.position.x - player.transform.position.x;
+            float knockDirection = transform.position.x - thePlayer.transform.position.x;
             m_Rigidbody2D.velocity = new Vector2(direction * 3f, m_Rigidbody2D.velocity.y);
         }
 

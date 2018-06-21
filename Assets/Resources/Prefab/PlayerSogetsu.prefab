@@ -377,7 +377,7 @@ MonoBehaviour:
   m_KnockBack: 10
   m_AirJump: 0
   canWallJump: 1
-  m_HealthMax: 30
+  m_HealthMax: 100
   m_HealthLeft: 0
   state: 0
   AttackTrigger: {fileID: 61939575241029780}

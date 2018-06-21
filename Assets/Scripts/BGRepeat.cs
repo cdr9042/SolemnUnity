@@ -42,15 +42,15 @@ public class BGRepeat : MonoBehaviour
 
         if (CamLeftPosX > BGRightPosX)
         {
-			Debug.Log(transform);
-            Debug.Log("MOVE TO FRONT");
+			// Debug.Log(transform);
+            // Debug.Log("MOVE TO FRONT");
 			transform.position = new Vector2(transform.position.x + BGsizeX*2f, transform.position.y);
         }
 
 		if (CamLeftPosX < BGLeftPosX - BGsizeX)
         {
-            Debug.Log(transform);
-            Debug.Log("MOVE TO LEFT");
+            // Debug.Log(transform);
+            // Debug.Log("MOVE TO LEFT");
 			transform.position = new Vector2(transform.position.x - BGsizeX*2f, transform.position.y);
         }
     }

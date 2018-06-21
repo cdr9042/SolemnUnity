@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb23e0c24592e6a4a9b9033ca2ceec39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttack: 10
+  enemyAttack: 5
 --- !u!114 &114681203526440116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,10 +281,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed525eec963760489dedbfc04759d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 60
+  HP: 40
   currentHP: 1
   canBeKnockBack: 1
   state: 0
+  thePlayer: {fileID: 0}
 --- !u!114 &114855319428296080
 MonoBehaviour:
   m_ObjectHideFlags: 1

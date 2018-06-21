@@ -24,7 +24,8 @@ public class EnemyWalker : MonoBehaviour {
             // m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
-			target = GameObject.Find("Player");
+			
+			// target = GameObject.Find("Player");
 			turnTimeCD = turnTime;
 			if (target != null) {
 				aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
@@ -45,7 +46,9 @@ public class EnemyWalker : MonoBehaviour {
 		//Debug.Log(target.transform.position);
 		if (target != null) {
 			aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
-		} else {target = GameObject.Find("Player");}
+		} else {
+			target = transform.GetComponent<EnemyScript>().thePlayer;
+		}
 		switch (walkState){
 			case 0: //accelerate
 				if (m_Velocity < m_MaxSpeed) {
