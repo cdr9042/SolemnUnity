@@ -10,14 +10,21 @@ namespace UnityStandardAssets._2D
         float maxHealth = 100f;
         public static float redHealth;
         GameObject player;
+        public Transform GreenBar;
         private PlayerScript playerScript;
+        public HealBarScript GreenBarScript;
         // Use this for initialization
         void Start()
         {
             redHealthBar = GetComponent<Image>();
-            GameObject player = GameObject.Find("Player");
-            playerScript = player.GetComponent<PlayerScript>();
-            maxHealth = playerScript.m_HealthMax;
+            // foreach (GameObject playerobj in GameObject.FindGameObjectsWithTag("Player")) {
+            //     Debug.Log(playerobj);
+            // }
+            // GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
+            // Debug.Break();
+            // playerScript = player.GetComponent<PlayerScript>();
+            GreenBarScript = GreenBar.GetComponent<HealBarScript>();
+            maxHealth = GreenBarScript.maxHealth;
             redHealth = maxHealth;
         }
 
@@ -27,7 +34,7 @@ namespace UnityStandardAssets._2D
             //redHealth = playerScript.m_HealthLeft;
             redHealthBar.fillAmount = redHealth / maxHealth;
 
-            if (HealBarScript.health < redHealth)
+            if (GreenBarScript.health < redHealth)
             {
                 redHealth -= 0.1f;
             }

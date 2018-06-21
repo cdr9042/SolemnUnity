@@ -132,7 +132,18 @@ namespace UnityStandardAssets._2D
                     m_Grounded = true;
                     if (colliders[i].CompareTag("MovingPlatform"))
                     {
-                        transform.parent = colliders[i].transform;
+                        // if (colliders[i].transform.Find("Collider") != null)
+                        //     transform.position = new Vector2(transform.position.x,colliders[i].transform.Find("Collider").transform.position.y);
+                        // else {
+                        //     Debug.Log("platform doesn't have collider");
+                        // }
+                        if (m_GroundCheck.position.y >= colliders[i].transform.position.y)
+                        {
+                            transform.parent = colliders[i].transform;
+                        }
+                        // else { m_Grounded = false; }
+                        // Debug.Log(colliders[i].bounds.ClosestPoint(transform.position));
+
                         // Debug.Break();
                         // Debug.Log(colliders[i].transform.position);
                     }
@@ -398,9 +409,9 @@ namespace UnityStandardAssets._2D
                 }
             }
         }
-        void OnTriggerEnter2D(Collider2D collider)
+        void OnTriggerStay2D(Collider2D collider)
         {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer") || collider.gameObject.tag == "Spike")
             {
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets._2D;
 
 public class GameInit : MonoBehaviour
 {
-    public GameData _GameData;
+    // public GameData _GameData;
+	public GameObject healthBar;
     // Use this for initialization
     void Start()
     {
-        _GameData = new GameData();
+        // _GameData = new GameData();
         GameObject playerFab = (GameObject)(Resources.Load("Prefab/PlayerSogetsu"));
         // GameObject cameraFab = (GameObject)Instantiate(Resources.Load("Prefab/Camera"));
         Debug.Log(GameData.current);
@@ -32,7 +34,7 @@ public class GameInit : MonoBehaviour
             Debug.Log("GameData.current not set, test mode initiated");
         }
         GameObject lastCheckpoint;
-        if (lastCheckpointName != null && lastCheckpointName != "")
+        if (lastCheckpointName != null && lastCheckpointName != "" && GameObject.Find(lastCheckpointName)!=null)
         {
             Debug.Log(lastCheckpointName);
             lastCheckpoint = GameObject.Find(lastCheckpointName);
@@ -50,6 +52,17 @@ public class GameInit : MonoBehaviour
         CinemachineVirtualCamera vcam = _cam.GetComponent<CinemachineVirtualCamera>();
         CinemachineConfiner vcam_confiner = _cam.GetComponent<CinemachineConfiner>();
         vcam.Follow = player.transform;
+
+		// HBS = GetComponent<HealBarScript>();
+		// Debug.Log(HBS);
+		// Debug.Log(HBar);
+		Debug.Log(healthBar.gameObject.GetComponent<HealBarScript>());
+		healthBar.gameObject.GetComponent<HealBarScript>().setPlayer(player);
+		healthBar.gameObject.GetComponent<HealBarScript>().init();
+		healthBar.transform.parent.parent.gameObject.SetActive(true);
+		// Debug.Break();
+		// .setPlayer(player);
+		// HBar.GetComponent<HealBarScript>().init();
         // vcam_confiner.m_BoundingShape2D = GameObject.Find("CameraConfiner").GetComponent<PolygonCollider2D>();
         // Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("PlayerLayer"), LayerMask.NameToLayer ("EnemyLayer"));
     }

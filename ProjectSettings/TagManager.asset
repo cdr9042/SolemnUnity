@@ -9,6 +9,7 @@ TagManager:
   - PlayerAttack
   - MovingPlatform
   - Checkpoint
+  - Spike
   layers:
   - Default
   - TransparentFX
