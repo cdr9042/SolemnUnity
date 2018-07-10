@@ -16,15 +16,23 @@ public class GotoNextStage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		canGoNextStage = _NextStageCheck.PlayerEnter;
-		if (canGoNextStage) {
-			// DataMaster.GetComponent<GameInit>()._GameData._Progress.stage = NextScene;
-			GameData.current._Progress.checkPoint = null;
-			GameData.current._Progress.stage = NextScene;
-			SaveLoadGame.Save();
-			SceneManager.LoadScene(NextScene);
+		//canGoNextStage = _NextStageCheck.PlayerEnter;
+		//if (canGoNextStage) {
+		//	// DataMaster.GetComponent<GameInit>()._GameData._Progress.stage = NextScene;
+		//	GameData.current._Progress.checkPoint = null;
+		//	GameData.current._Progress.stage = NextScene;
+		//	SaveLoadGame.Save();
+		//	SceneManager.LoadScene(NextScene);
 			
-		}
+		//}
 	}
+
+    public void goToNextStage()
+    {
+        GameData.current._Progress.checkPoint = null;
+        GameData.current._Progress.stage = NextScene;
+        SaveLoadGame.Save();
+        SceneManager.LoadScene(NextScene);
+    }
 
 }

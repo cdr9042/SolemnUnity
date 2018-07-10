@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class NextStageCheck : MonoBehaviour {
 	public bool PlayerEnter;
+    public Transform _StageMaster;
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	void OnTriggerEnter2D (Collider2D collider) {
-		PlayerEnter = true;
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.tag == "Player")
+        {
+            Debug.Break();
+            PlayerEnter = true;
+            _StageMaster.GetComponent<GotoNextStage>().goToNextStage();
+        }
 	}
 }

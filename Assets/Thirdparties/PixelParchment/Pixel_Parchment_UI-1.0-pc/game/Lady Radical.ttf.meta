@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: fa48e05dc73f1974cbcaaa6ec4b07bc0
+timeCreated: 1524776462
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lady Radical
+  fontNames:
+  - Lady Radical
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b6754202d19472c47a6ab42a7008403c, type: 3}
+  - {fileID: 12800000, guid: 3484baff62e9e384ba4e98360bc36361, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

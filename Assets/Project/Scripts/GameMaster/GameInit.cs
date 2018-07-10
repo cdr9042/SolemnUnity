@@ -10,11 +10,12 @@ public class GameInit : MonoBehaviour
     // public GameData _GameData;
 	public GameObject healthBar;
     public GameObject enemyMaster;
+    [SerializeField] GameObject m_PlayerPrefab;
     // Use this for initialization
     void Start()
     {
         // _GameData = new GameData();
-        GameObject playerFab = (GameObject)(Resources.Load("Prefab/PlayerSogetsu"));
+        //GameObject playerFab = (GameObject)(Resources.Load("Prefab/PlayerSogetsu"));
         // GameObject cameraFab = (GameObject)Instantiate(Resources.Load("Prefab/Camera"));
         // Debug.Log(GameData.current);
         string lastCheckpointName = null;
@@ -46,7 +47,10 @@ public class GameInit : MonoBehaviour
             lastCheckpoint = GameObject.Find("SpawnPoint");
         }
         // Debug.Log(lastCheckpoint);
-        GameObject player = Instantiate(playerFab, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject player = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
+        player.name = "Player";
+        player.transform.localScale = Vector3.one;
+        Debug.Log("instantiate");
         player.transform.position = lastCheckpoint.transform.position;
         // GameObject _cam = Instantiate(cameraFab,new Vector3(0,0,0),Quaternion.identity);
         GameObject _cam = GameObject.Find("CM vcam1");

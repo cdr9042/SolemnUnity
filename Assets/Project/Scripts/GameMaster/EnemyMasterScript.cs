@@ -12,7 +12,7 @@ public class EnemyMasterScript : MonoBehaviour
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("EnemySpawner"))
         {
 			enemyList.Add(enemy);
-			Debug.Log(enemy);
+			//.Log(enemy);
 			enemy.GetComponent<EnemySpawner>().enabled = true;
 			// enemy.GetComponent<EnemySpawner>().player = player;
         };

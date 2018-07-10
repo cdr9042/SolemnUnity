@@ -31,26 +31,26 @@ public class BGRepeat : MonoBehaviour
 			new Vector3(BGRightPosX,go.transform.position.y,go.transform.position.z-0.5f),
 			Color.blue);
 		}
-		// Debug.Log(go);
+		// .Log(go);
         // go.transform.position = new Vector2(transform.position.x + transform.GetComponent<SpriteRenderer>().size.x/2, go.transform.position.y);
-        // Debug.Log(transform.position);
-        // Debug.Log("bTP:");
-        // Debug.Log(transform.GetComponent<SpriteRenderer>().size.x);
-        // Debug.Log(camToB);
-        // Debug.Log(horzExtent);
+        // .Log(transform.position);
+        // .Log("bTP:");
+        // .Log(transform.GetComponent<SpriteRenderer>().size.x);
+        // .Log(camToB);
+        // .Log(horzExtent);
 
 
         if (CamLeftPosX > BGRightPosX)
         {
-			// Debug.Log(transform);
-            // Debug.Log("MOVE TO FRONT");
+			// .Log(transform);
+            // .Log("MOVE TO FRONT");
 			transform.position = new Vector2(transform.position.x + BGsizeX*2f, transform.position.y);
         }
 
 		if (CamLeftPosX < BGLeftPosX - BGsizeX)
         {
-            // Debug.Log(transform);
-            // Debug.Log("MOVE TO LEFT");
+            // .Log(transform);
+            // .Log("MOVE TO LEFT");
 			transform.position = new Vector2(transform.position.x - BGsizeX*2f, transform.position.y);
         }
     }
