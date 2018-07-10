@@ -99,7 +99,8 @@ public class EnemyScript : MonoBehaviour
 
     public void Damage(object[] param)
     {
-        int incomeDamage = System.Convert.ToInt32(param[0]);
+        //int incomeDamage = System.Convert.ToInt32(param[0]);
+        float incomeDamage = (float)param[0];
         // double direction = System.Convert.ToDouble(param[1]);
         float direction = (float)param[1];
         currentHP -= incomeDamage;

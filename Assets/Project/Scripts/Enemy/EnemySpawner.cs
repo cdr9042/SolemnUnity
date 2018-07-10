@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform enemySpawn;
-    public float initialPoolCount;
+    private List<Transform> enemySpawned = new List<Transform>();
+    public int initialPoolCount;
     public float totalEnemiesSpawned;
     public float concurrentEnemySpawned;
     public float spawnArea;
@@ -21,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         cam = Camera.main.transform;
 
         vertExtent = Camera.main.orthographicSize * 2;
-        horzExtent = vertExtent * Screen.width / Screen.height; ;
+        horzExtent = vertExtent * Screen.width / Screen.height;
     }
 
     // Update is called once per frame
@@ -39,8 +40,10 @@ public class EnemySpawner : MonoBehaviour
                 Debug.Log(name + " is in spawn bound");
                 totalEnemiesSpawned++;
                 Transform spawned = Instantiate(enemySpawn, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+                //.Log(spawned);
+                enemySpawned.Add(spawned);
                 spawned.GetComponent<EnemyScript>().thePlayer = enemyMaster.player;
-                Debug.Log(spawned.GetComponent<EnemyScript>().thePlayer);
+                //.Log(spawned.GetComponent<EnemyScript>().thePlayer);
             }
         }
         // Debug.DrawLine(new Vector3(transform.position.x, transform.position.y, 0), new Vector3(CamLeftPosX, CamTopPosY, 0), Color.red);
@@ -48,6 +51,10 @@ public class EnemySpawner : MonoBehaviour
         // Debug.Log(Vector2.Distance(activeBound.center, transform.position));
     }
     public void resetSpawner(){
+        foreach(Transform enemy in enemySpawned)
+        {
+            Object.Destroy(enemy);
+        }
         totalEnemiesSpawned = 0;
     }
     void OnGUI()

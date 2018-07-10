@@ -27,24 +27,24 @@ namespace UnityStandardAssets._2D
         public float m_HealthMax = 100f;      //Máu tối đa người chơi
         public float m_HealthLeft;                    // The fastest the player can travel in the x axis.
         private float m_AirJumpLeft = 0f;                   // //Số lần nhảy trên không hiện tại
+
+        private Collider2D m_Collider;
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         private Vector2 k_GroundedRadius; // Radius of the overlap circle to determine if grounded
         private Transform m_WallCheck;    // A position marking where to check if the player is facing wall.
         private Vector2 k_WallCheckRadius;
-        
-
         private bool m_Grounded;            // Whether or not the player is grounded.
         private bool m_OnWall;              // Check if on wall
         private bool m_OnPlatform;          // Kiểm tra có đang đứng trên platform không
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
+
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private float m_RigidbodyOldGravity;
 
         private float m_Move;
 
-        private Collider2D m_Collider;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         private bool m_LockFacing = false;
 
@@ -248,11 +248,12 @@ namespace UnityStandardAssets._2D
                             m_HealthLeft = m_HealthMax;
                             m_Rigidbody2D.gravityScale = m_RigidbodyOldGravity;
 
-                            try {GameObject.Find("DataMaster").GetComponent<GameInit>().enemyMaster.GetComponent<EnemyMasterScript>().resetSpawner();}
-                            catch (Exception e) {
+                            try { GameObject.Find("DataMaster").GetComponent<GameInit>().enemyMaster.GetComponent<EnemyMasterScript>().resetSpawner(); }
+                            catch (Exception e)
+                            {
                                 Debug.Log("Can't find DataMaster, failed to reset spawner");
                             }
-                            
+
                         }
                     }
 
@@ -317,7 +318,7 @@ namespace UnityStandardAssets._2D
                 }
 
             //only control the player if grounded or airControl is turned on
-            if (!disableControl && attackMode == 0)
+            if (!disableControl && attackMode != 2)
             { //nếu đang nhận thiệt hại thì ko thể điều khiển
                 if (m_Grounded || m_AirControl)
                 {
@@ -328,12 +329,18 @@ namespace UnityStandardAssets._2D
                     m_Anim.SetFloat("Speed", Mathf.Abs(m_Move));
 
                     // Move the character
-                    float velocityx_modifier = m_Grounded ? 6f : 3f; //hạn chế di chuyển trên không
-                    float velocityx = Mathf.Lerp(m_Rigidbody2D.velocity.x, m_Move * m_MaxSpeed, velocityx_modifier * Time.deltaTime);
+                    float velocityx_modifier = m_Grounded ? 8f : 3f; //hạn chế di chuyển trên không
+                    float targetVelocityX = m_Move * m_MaxSpeed;
+                    if (attackMode == 1)
+                    {
+                        targetVelocityX = 0;
+                    }
+                    float velocityx = Mathf.Lerp(m_Rigidbody2D.velocity.x, targetVelocityX, velocityx_modifier * Time.deltaTime);
                     m_Rigidbody2D.velocity = new Vector2(velocityx, m_Rigidbody2D.velocity.y);
-                    // If the input is moving the player right and the player is facing left...
-                    if (!m_LockFacing)
-                    { Flip(); }
+                    if (!m_LockFacing && attackMode == 0) // If the input is moving the player right and the player is facing left...
+                    {
+                        Flip();
+                    }
                 }
             }
             // mylog = m_Grounded.ToString();
@@ -360,10 +367,8 @@ namespace UnityStandardAssets._2D
         IEnumerator LockFacingFor(float seconds)
         {
             m_LockFacing = true;
-            Debug.Log("Lock facing");
             yield return new WaitForSeconds(seconds);
             m_LockFacing = false;
-            Debug.Log("UnLock facing");
         }
 
 
@@ -373,6 +378,7 @@ namespace UnityStandardAssets._2D
             {
                 if (m_Grounded)
                 {
+                    setMove(0f);
                     attackMode = 1;
                     attackTimer = attackCD;
                     // m_Rigidbody2D.velocity = new Vector2(0, m_Rigidbody2D.velocity.y);
@@ -437,6 +443,7 @@ namespace UnityStandardAssets._2D
                 }
             }
         }
+
         void OnTriggerStay2D(Collider2D collider)
         {
             if (collider.gameObject.layer == LayerMask.NameToLayer("BulletLayer") || collider.gameObject.tag == "Spike")
@@ -444,6 +451,8 @@ namespace UnityStandardAssets._2D
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)
                 {
+                    Debug.Log("Player took damage from " + collider.gameObject.name);
+                    //Debug.Break();
                     TakeDamage(enemy.enemyAttack);
                 }
                 else

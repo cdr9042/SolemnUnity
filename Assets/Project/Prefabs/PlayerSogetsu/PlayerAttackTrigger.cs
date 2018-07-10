@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackTrigger : MonoBehaviour {
-	public int damage = 20;
+	public float damage = 20f;
 	void OnCollisionEnter2D(Collision2D collider){
 		Debug.Log(collider);
 	}

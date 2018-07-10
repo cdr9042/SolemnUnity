@@ -10,7 +10,7 @@ public class GameInit : MonoBehaviour
     // public GameData _GameData;
 	public GameObject healthBar;
     public GameObject enemyMaster;
-    [SerializeField] GameObject m_PlayerPrefab;
+    public GameObject m_PlayerPrefab;
     // Use this for initialization
     void Start()
     {
