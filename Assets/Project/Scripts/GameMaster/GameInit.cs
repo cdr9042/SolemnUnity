@@ -47,7 +47,8 @@ public class GameInit : MonoBehaviour
             lastCheckpoint = GameObject.Find("SpawnPoint");
         }
         // Debug.Log(lastCheckpoint);
-        GameObject player = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
+        GameObject playerParent = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
+        GameObject player = playerParent.transform.Find("PlayerBody").gameObject;
         player.name = "Player";
         player.transform.localScale = Vector3.one;
         Debug.Log("instantiate");

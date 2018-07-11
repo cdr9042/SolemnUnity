@@ -124,7 +124,7 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             // .Log(transform.parent);
-            if (transform.parent == null) //check if on moving platform
+            if (transform.parent.parent == null) //check if on moving platform
                 m_Grounded = false;
             m_OnWall = false;
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -146,7 +146,7 @@ namespace UnityStandardAssets._2D
                         // }
                         if (m_GroundCheck.position.y >= colliders[i].transform.position.y)
                         {
-                            transform.parent = colliders[i].transform;
+                            transform.parent.parent = colliders[i].transform;
                         }
                         // else { m_Grounded = false; }
                         // .Log(colliders[i].bounds.ClosestPoint(transform.position));
@@ -444,22 +444,35 @@ namespace UnityStandardAssets._2D
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("BulletLayer"))
+            {
+                EnemyStats enemy = (collision.gameObject.GetComponent<EnemyStats>());
+                if (enemy != null)
+                {
+                    TakeDamage(enemy.enemyAttack);
+                }
+                else
+                {
+                    Debug.Log("Script 'Enemy' not present in " + collision.GetComponent<Collider>().gameObject);
+                }
+            }
+        }
+
         void OnTriggerStay2D(Collider2D collider)
         {
-            if (collider.gameObject.layer == LayerMask.NameToLayer("BulletLayer") || collider.gameObject.tag == "Spike")
+            if (collider.gameObject.tag == "Spike")
             {
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)
                 {
-                    Debug.Log("Player took damage from " + collider.gameObject.name);
-                    //Debug.Break();
                     TakeDamage(enemy.enemyAttack);
                 }
                 else
                 {
                     Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
                 }
-                // Debug.Log(col.collider.tag);
             }
             else if (collider.tag == "Checkpoint")
             {
@@ -467,16 +480,11 @@ namespace UnityStandardAssets._2D
             }
         }
 
-        void OnCollisionStay2D(Collision2D col)
-        {
-
-
-        }
         void OnCollisionExit2D(Collision2D col)
         {
             if (col.collider.CompareTag("MovingPlatform"))
             {
-                transform.parent = null;
+                transform.parent.parent = null;
             }
         }
 

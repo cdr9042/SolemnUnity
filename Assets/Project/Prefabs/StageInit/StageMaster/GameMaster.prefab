@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265083811088726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 62.4, y: 55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4195142389599470}
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1049444924202820}
   enemyMaster: {fileID: 1942421010288744}
-  m_PlayerPrefab: {fileID: 1710993144188470, guid: c2530d986687f5744acca661ea5b3bc7,
+  m_PlayerPrefab: {fileID: 1964465324897734, guid: 1e8f39e39b60ff443987b4e6c95e2baf,
     type: 2}
 --- !u!114 &114345226719725378
 MonoBehaviour:

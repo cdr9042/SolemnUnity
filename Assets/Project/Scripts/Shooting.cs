@@ -57,9 +57,12 @@ public class Shooting : MonoBehaviour {
      	EnemyBullet fly = shotTransform.gameObject.GetComponent<EnemyBullet>();
         if (fly != null)
         {
-          fly.direction = this.transform.right; // towards in 2D space is the right of the sprite
+                fly.direction = transform.right;
+                //Debug.Log(transform.right);
+                Debug.Log(transform.rotation);
+                //fly.direction = new Vector2 (Mathf.Tan(transform.rotation.z),-1f); // towards in 2D space is the right of the sprite
+            }
         }
-    }
   }
 
   
