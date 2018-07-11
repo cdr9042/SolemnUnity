@@ -7,11 +7,13 @@ public class GameData { //don't need ": Monobehaviour" because we are not attach
 	public static GameData current;
 	public Progress _Progress;
 	public static string gameMode;
+    public Transform[] players;
 
 	public GameData () {
 		_Progress = new Progress ();
 		gameMode = "";
-	}
+        players = new Transform[4];
+    }
 	public void setGameMode (string gM) {
 		gameMode = gM;
 	}

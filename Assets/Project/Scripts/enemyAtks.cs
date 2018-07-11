@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemyAtks : MonoBehaviour
 {
-    public GameObject target;
+    public Transform target;
     public float attackTimer;
     public float coolDown;
     float atkLength;

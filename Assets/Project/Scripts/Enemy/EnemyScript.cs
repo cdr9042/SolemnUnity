@@ -14,7 +14,7 @@ public class EnemyScript : MonoBehaviour
     private float deathLength;
     private float deathTimer;
     string phase = "dying";
-    public GameObject thePlayer;
+    public Transform thePlayer;
 
     Animator m_Anim;
 

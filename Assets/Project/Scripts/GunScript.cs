@@ -24,35 +24,37 @@ public class GunScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Debug.Log(reloadTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (currentGunState != gunState.inactive)
-        //{
-        //    if (CDReload < reloadTime)
-        //    {
-        //        CDReload += Time.deltaTime;
-        //    }
-        //    else if (currentGunState != gunState.shoot)
-        //    {
-                
-        //        //Shoot();
-        //        StartCoroutine(Shoot());
-
-        //        //Reload();
-                
-        //    }
-        //}
-        if (currentGunState == gunState.active)
+        switch (currentGunState)
         {
-            StartCoroutine(Shoot());
+            case gunState.reloading:
+                if (CDReload < reloadTime)
+                {
+                    CDReload += Time.deltaTime;
+                }
+                else
+                {
+                    currentGunState = gunState.active;
+                }
+                break;
+            case gunState.active:
+                break;
         }
         //.DrawLine(transform.position, transform.right);
     }
 
-    IEnumerator Shoot()
+    public void Shoot()
+    {
+        if (currentGunState == gunState.active)
+            StartCoroutine(ShootSquence());
+    }
+
+    IEnumerator ShootSquence()
     {
         currentGunState = gunState.shoot;
         magLeft--;
@@ -66,19 +68,14 @@ public class GunScript : MonoBehaviour
             bullet.GetComponent<BulletPhysic>().velocity = vector;
         }
         yield return new WaitForSeconds(fireRate);
-        if (currentGunState != gunState.inactive)
-        {
-            if (magLeft > 0) { StartCoroutine(Shoot()); }
-            else { StartCoroutine(Reload()); }
-        }
+        if (magLeft > 0) { currentGunState = gunState.active; }
+        else { Reload(); }
     }
 
-    IEnumerator Reload()
+    void Reload()
     {
         CDReload = 0f;
         currentGunState = gunState.reloading;
-        yield return new WaitForSeconds(reloadTime);
         magLeft = magSize;
-        currentGunState = gunState.active;
     }
 }

@@ -12,7 +12,7 @@ public class EnemyWalker : MonoBehaviour {
 	private bool m_FacingRight = false;  // For determining which way the player is currently facing.
 	[SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 	float direction, aimDirection;
-	GameObject target;
+	Transform target;
 	private float turnTime = 1f, turnTimeCD, m_Velocity;
 	private int walkState;
 	// Use this for initialization

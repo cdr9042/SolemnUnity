@@ -42,7 +42,6 @@ public class EnemySpawner : MonoBehaviour
                 Transform spawned = Instantiate(enemySpawn, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
                 //.Log(spawned);
                 enemySpawned.Add(spawned);
-                spawned.GetComponent<EnemyScript>().thePlayer = enemyMaster.player;
                 //.Log(spawned.GetComponent<EnemyScript>().thePlayer);
             }
         }

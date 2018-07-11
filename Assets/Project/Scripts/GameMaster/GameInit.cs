@@ -48,7 +48,8 @@ public class GameInit : MonoBehaviour
         }
         // Debug.Log(lastCheckpoint);
         GameObject playerParent = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
-        GameObject player = playerParent.transform.Find("PlayerBody").gameObject;
+        Transform player = playerParent.transform.Find("PlayerBody");
+        GameData.current.players[0] = player;
         player.name = "Player";
         player.transform.localScale = Vector3.one;
         Debug.Log("instantiate");
@@ -67,7 +68,6 @@ public class GameInit : MonoBehaviour
 		healthBar.gameObject.GetComponent<HealBarScript>().init();
 		healthBar.transform.parent.parent.gameObject.SetActive(true);
         enemyMaster.SetActive(true);
-        enemyMaster.GetComponent<EnemyMasterScript>().player = player;
 		// Debug.Break();
 		// .setPlayer(player);
 		// HBar.GetComponent<HealBarScript>().init();

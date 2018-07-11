@@ -10,7 +10,7 @@ namespace UnityStandardAssets._2D
         Image healthBar;
         public float maxHealth = 100f;
         public float health;
-        public GameObject player;
+        public Transform player;
         private PlayerScript playerScript;
         void Start()
         {
@@ -41,7 +41,7 @@ namespace UnityStandardAssets._2D
         {
             return maxHealth;
         }
-        public void setPlayer(GameObject _player) {
+        public void setPlayer(Transform _player) {
             player= _player;
         }
     }

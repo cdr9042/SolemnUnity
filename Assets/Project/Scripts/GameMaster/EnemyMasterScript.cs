@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMasterScript : MonoBehaviour
 {
     public List<GameObject> enemyList = new List<GameObject>();
-	public GameObject player;
+	//public Transform player;
     // Use this for initialization
     void Start()
     {

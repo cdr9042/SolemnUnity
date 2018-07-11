@@ -43,7 +43,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - HiddenInGame
   m_SortingLayers:
   - name: Background
     uniqueID: 933429991
