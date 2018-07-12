@@ -7,12 +7,12 @@ public class BGRepeat : MonoBehaviour
     private Transform cam;
     // public Transform[] myClone;
     // Use this for initialization
-	public GameObject posMarker;
+	public Transform posMarker;
 	GameObject go;
     void Start()
     {
-        cam = Camera.main.transform;
-		if (posMarker!=null) go = Instantiate(posMarker) as GameObject;
+        cam = GameData.current.playerCamera.transform;
+		if (posMarker!=null) go = Instantiate(posMarker).gameObject;
     }
 
     // Update is called once per frame

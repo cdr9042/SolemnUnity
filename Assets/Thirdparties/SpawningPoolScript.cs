@@ -92,7 +92,7 @@ namespace DigitalRuby.Pooling
         /// <summary>
         /// The hide flags to apply to newly created objects
         /// </summary>
-        public static HideFlags DefaultHideFlags = HideFlags.HideInHierarchy | HideFlags.HideInInspector;
+        public static HideFlags DefaultHideFlags = HideFlags.None;//HideFlags.HideInHierarchy | HideFlags.HideInInspector;
 
         private static List<GameObject> GetOrCreateCacheList(string key)
         {

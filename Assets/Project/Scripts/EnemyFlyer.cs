@@ -15,14 +15,14 @@ public class EnemyFlyer : MonoBehaviour
     public int UnitsToMove = 10;
     public bool _moveRight = true;
 
-    private Transform _player;
+    //private Transform _player;
 
     public void Awake()
     {
         rigidbodyComponent = GetComponent<Rigidbody2D>();
         _startPos = transform.position.x;
         _endPos = _startPos + UnitsToMove;
-        _player = GameObject.Find("DataMaster").GetComponent<GameInit>().m_PlayerPrefab.transform;
+        //_player = GameData.current.players[0];
 
     }
     void Update()

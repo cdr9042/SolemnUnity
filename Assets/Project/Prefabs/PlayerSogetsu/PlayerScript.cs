@@ -248,7 +248,10 @@ namespace UnityStandardAssets._2D
                             m_HealthLeft = m_HealthMax;
                             m_Rigidbody2D.gravityScale = m_RigidbodyOldGravity;
 
-                            try { GameObject.Find("DataMaster").GetComponent<GameInit>().enemyMaster.GetComponent<EnemyMasterScript>().resetSpawner(); }
+                            try {
+                                //GameObject.Find("DataMaster").GetComponent<GameInit>().enemyManagerPrefab.GetComponent<EnemyMasterScript>().resetSpawner();
+                                GameData.current.TriggerEvent(GameData.GameEvent.playerDie);
+                            }
                             catch (Exception e)
                             {
                                 Debug.Log("Can't find DataMaster, failed to reset spawner");

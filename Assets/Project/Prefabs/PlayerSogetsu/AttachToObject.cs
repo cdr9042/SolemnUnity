@@ -12,5 +12,7 @@ public class AttachToObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = anchorChild.position;
-	}
+        transform.rotation = anchorChild.rotation;
+        transform.localScale = anchorChild.localScale;
+    }
 }

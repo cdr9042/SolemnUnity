@@ -50,7 +50,7 @@ public class enemyAtks : MonoBehaviour
             distance = Vector3.Distance(target.transform.position, transform.position);
         else
         {
-            target = transform.GetComponent<EnemyScript>().thePlayer;
+            target = GameData.current.players[0];
         }
 
         Vector3 dir = (target.transform.position - transform.position).normalized;

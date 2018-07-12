@@ -30,7 +30,7 @@ public class EnemyWalker : MonoBehaviour {
 			if (target != null) {
 				aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
 			} else {
-				Debug.Log("Can't find Player");
+                target = GameData.current.players[0];
 			}
 			direction = aimDirection;
 			m_Velocity = m_MaxSpeed;
@@ -69,7 +69,7 @@ public class EnemyWalker : MonoBehaviour {
 			break;
 		}
 
-		if (m_Self.state != 1)
+		if (m_Self.currentState != EnemyScript.State.hurt)
 			Move(m_Velocity * direction);
 	}
 

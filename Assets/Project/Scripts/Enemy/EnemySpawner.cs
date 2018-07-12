@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public Transform enemySpawn;
+    public Transform enemyPrefab;
     private List<Transform> enemySpawned = new List<Transform>();
-    public int initialPoolCount;
-    public float totalEnemiesSpawned;
+    public int m_PoolAmount;
+    public float numberEnemySpawned;
     public float concurrentEnemySpawned;
     public float spawnArea;
     public GameObject player;
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (totalEnemiesSpawned <= initialPoolCount)
+        if (numberEnemySpawned <= m_PoolAmount)
         {
             CamLeftPosX = cam.position.x - horzExtent;
             CamRightPosX = cam.position.x + horzExtent;
@@ -38,8 +38,8 @@ public class EnemySpawner : MonoBehaviour
             if (transform.position.x > CamLeftPosX && transform.position.x < CamRightPosX && transform.position.y > CamBotPosY && transform.position.y < CamTopPosY)
             {
                 Debug.Log(name + " is in spawn bound");
-                totalEnemiesSpawned++;
-                Transform spawned = Instantiate(enemySpawn, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+                numberEnemySpawned++;
+                Transform spawned = Instantiate(enemyPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
                 //.Log(spawned);
                 enemySpawned.Add(spawned);
                 //.Log(spawned.GetComponent<EnemyScript>().thePlayer);
@@ -52,10 +52,11 @@ public class EnemySpawner : MonoBehaviour
     public void resetSpawner(){
         foreach(Transform enemy in enemySpawned)
         {
-            Object.Destroy(enemy);
+            Object.Destroy(enemy.gameObject);
         }
-        totalEnemiesSpawned = 0;
+        numberEnemySpawned = 0;
     }
+
     void OnGUI()
     {
         // DrawQuad(activeBound, Color.red);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRuby.Pooling;
 
 public class DespawnOutOfView : MonoBehaviour
 {
@@ -35,7 +36,8 @@ public class DespawnOutOfView : MonoBehaviour
         {
             if (enteredView)
             {
-                Object.Destroy(gameObject);
+                SpawningPool.ReturnToCache(gameObject);
+                //Object.Destroy(gameObject);
             }
         }
         else

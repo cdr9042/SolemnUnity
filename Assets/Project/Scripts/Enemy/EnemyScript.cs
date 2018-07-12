@@ -9,23 +9,26 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] private float currentHP = 1;
     [SerializeField] private bool canBeKnockBack = false;
     SpriteRenderer m_SpriteRenderer;
-    public int state = 0;
+    //public int state = 0;
     private float t_state, t_flash, flashTime = .6f, knockBackTime = .3f;
     private float deathLength;
     private float deathTimer;
-    string phase = "dying";
+    public Collider2D m_Collider;
     public Transform thePlayer;
 
     Animator m_Anim;
 
     private Rigidbody2D m_Rigidbody2D;
     // Use this for initialization
+    public enum State { idle, hurt, recover, dying }
+    public State currentState;
     void Awake()
     {
         currentHP = HP;
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
         m_Anim = GetComponent<Animator>();
+        //m_Collider = GetComponent<Collider2D>();
     }
     void Start()
     {
@@ -62,30 +65,33 @@ public class EnemyScript : MonoBehaviour
             m_SpriteRenderer.material.SetFloat("_FlashAmount", t_flash / flashTime);
         }
 
-        switch (state)
+        switch (currentState)
         {
-            case 1:
+            case State.hurt:
                 t_state -= Time.deltaTime;
                 if (t_state <= 0)
                 {
                     t_state = flashTime;
 
-                    state = 2;
+                    currentState = State.recover;
                 }
                 break;
-            case 2:
+            case State.recover:
                 t_state -= Time.deltaTime;//chấm dứt nhấp nháy
                 if (t_state <= 0)
                 {
                     m_SpriteRenderer.material.SetFloat("_FlashAmount", 0);
-                    state = 3;
+                    m_Anim.SetBool("isHurt", false);
+                    currentState = State.idle;
                 }
                 break;
-            case 3:
-                m_Anim.SetBool("isHurt", false);
-                state = 0;
-                break;
-            case 4:
+            case State.dying:
+                gameObject.layer = LayerMask.NameToLayer("Background");
+                //m_Collider.enabled = false;
+                //foreach (Collider2D c in GetComponents<Collider2D>())
+                //{
+                //    c.enabled = false;
+                //}
                 deathTimer -= Time.deltaTime;
                 if (deathTimer <= 0)
                 {
@@ -103,6 +109,7 @@ public class EnemyScript : MonoBehaviour
         float incomeDamage = (float)param[0];
         // double direction = System.Convert.ToDouble(param[1]);
         float direction = (float)param[1];
+        //Transform damageSource = param[2];
         currentHP -= incomeDamage;
         Debug.Log(transform.name + "hp left:" + currentHP);
         t_flash = flashTime;
@@ -110,22 +117,19 @@ public class EnemyScript : MonoBehaviour
         if (canBeKnockBack)
         {
             t_state = knockBackTime;
-            float knockDirection = transform.position.x - thePlayer.transform.position.x;
-            m_Rigidbody2D.velocity = new Vector2(direction * 3f, m_Rigidbody2D.velocity.y);
+            //float knockDirection = transform.position.x - thePlayer.transform.position.x;
+            m_Rigidbody2D.AddForce(new Vector2(direction * 100f, m_Rigidbody2D.velocity.y));
         }
 
         if (currentHP <= 0)
         {
-            state = 4;
+            currentState = State.dying;
             m_Anim.SetBool("Dying", true);
             deathTimer = deathLength;
-            phase = "disappear";
-
-
         }
         else
         {
-            state = 1;
+            currentState = State.hurt;
             m_Anim.SetBool("isHurt", true); //start hurt animation
         }
     }

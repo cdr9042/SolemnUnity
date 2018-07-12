@@ -8,16 +8,18 @@ using UnityStandardAssets._2D;
 public class GameInit : MonoBehaviour
 {
     // public GameData _GameData;
-	public GameObject healthBar;
-    public GameObject enemyMaster;
-    public GameObject m_PlayerPrefab;
+    [SerializeField] private GameObject healthBar;
+    [SerializeField] private GameObject m_enemyManager;
+    [SerializeField] private GameObject m_PlayerPrefab;
+    public Transform m_Player;
+    [SerializeField] private GameObject cameraPrefab;
+    [SerializeField] private PolygonCollider2D cameraConfiner;
+    [SerializeField] private GameObject postInit;
+    [SerializeField] private GameObject playerSpawnPoint;
     // Use this for initialization
     void Start()
     {
-        // _GameData = new GameData();
-        //GameObject playerFab = (GameObject)(Resources.Load("Prefab/PlayerSogetsu"));
-        // GameObject cameraFab = (GameObject)Instantiate(Resources.Load("Prefab/Camera"));
-        // Debug.Log(GameData.current);
+        //DontDestroyOnLoad(this);
         string lastCheckpointName = null;
         if (GameData.current != null)
         {
@@ -35,53 +37,73 @@ public class GameInit : MonoBehaviour
             GameData.current.setGameMode("test");
             Debug.Log("GameData.current not set, test mode initiated");
         }
-        GameObject lastCheckpoint;
         if (lastCheckpointName != null && lastCheckpointName != "" && GameObject.Find(lastCheckpointName)!=null)
         {
             Debug.Log(lastCheckpointName);
-            lastCheckpoint = GameObject.Find(lastCheckpointName);
-			lastCheckpoint.GetComponent<Checkpoint>().phase = 1;
+            playerSpawnPoint = GameObject.Find(lastCheckpointName);
+			playerSpawnPoint.GetComponent<Checkpoint>().phase = 1;
         }
         else
         {
-            lastCheckpoint = GameObject.Find("SpawnPoint");
+            //lastCheckpoint = GameObject.Find("SpawnPoint");
         }
-        // Debug.Log(lastCheckpoint);
-        GameObject playerParent = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
-        Transform player = playerParent.transform.Find("PlayerBody");
-        GameData.current.players[0] = player;
-        player.name = "Player";
-        player.transform.localScale = Vector3.one;
-        Debug.Log("instantiate");
-        player.transform.position = lastCheckpoint.transform.position;
-        // GameObject _cam = Instantiate(cameraFab,new Vector3(0,0,0),Quaternion.identity);
-        GameObject _cam = GameObject.Find("CM vcam1");
-        CinemachineVirtualCamera vcam = _cam.GetComponent<CinemachineVirtualCamera>();
-        CinemachineConfiner vcam_confiner = _cam.GetComponent<CinemachineConfiner>();
-        vcam.Follow = player.transform;
 
-		// HBS = GetComponent<HealBarScript>();
-		// Debug.Log(HBS);
-		// Debug.Log(HBar);
-		// Debug.Log(healthBar.gameObject.GetComponent<HealBarScript>());
-		healthBar.gameObject.GetComponent<HealBarScript>().setPlayer(player);
-		healthBar.gameObject.GetComponent<HealBarScript>().init();
-		healthBar.transform.parent.parent.gameObject.SetActive(true);
-        enemyMaster.SetActive(true);
-		// Debug.Break();
-		// .setPlayer(player);
-		// HBar.GetComponent<HealBarScript>().init();
+        // GameObject _cam = Instantiate(cameraFab,new Vector3(0,0,0),Quaternion.identity);
+        CreatePlayer();
+        CreateCamera();
+        CreateUI();
+        SetupEnemyManager();
+        //enemyMaster.SetActive(true);
+        // Debug.Break();
+        // .setPlayer(player);
+        // HBar.GetComponent<HealBarScript>().init();
         // vcam_confiner.m_BoundingShape2D = GameObject.Find("CameraConfiner").GetComponent<PolygonCollider2D>();
         // Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("PlayerLayer"), LayerMask.NameToLayer ("EnemyLayer"));
 
         // DebugInit();
+        postInit.SetActive(true);
     }
+
+    void CreateUI()
+    {
+        //healthBar = Instantiate(healthBar);
+        healthBar.gameObject.GetComponent<HealBarScript>().setPlayer(m_Player);
+        healthBar.gameObject.GetComponent<HealBarScript>().init();
+        healthBar.transform.parent.parent.gameObject.SetActive(true);
+    }
+
+    void CreateCamera()
+    {
+        GameObject _cam = (GameObject)Instantiate(cameraPrefab);
+        _cam.name = "Camera";
+        GameData.current.playerCamera = _cam;
+        CinemachineVirtualCamera vcam = _cam.GetComponentInChildren<CinemachineVirtualCamera>();
+        CinemachineConfiner vcam_confiner = _cam.GetComponentInChildren<CinemachineConfiner>();
+        vcam_confiner.m_BoundingShape2D = cameraConfiner;
+        vcam.Follow = m_Player.transform;
+    }
+
+    void SetupEnemyManager()
+    {
+        GameData.current.m_EnemyMaster = m_enemyManager;
+    }
+
+    void CreatePlayer()
+    {
+        GameObject playerParent = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
+        m_Player = playerParent.transform.Find("PlayerBody");
+        GameData.current.players[0] = m_Player;
+        m_Player.name = "Player";
+        m_Player.transform.localScale = Vector3.one;
+        m_Player.transform.position = playerSpawnPoint.transform.position;
+    }
+
     void DebugInit(){
         // GraphicDebug graphicDebug = new GraphicDebug();
     }
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
 
-    }
+    //}
 }

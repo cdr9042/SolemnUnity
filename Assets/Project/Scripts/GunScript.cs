@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRuby.Pooling;
 
 public class GunScript : MonoBehaviour
 {
@@ -21,10 +22,13 @@ public class GunScript : MonoBehaviour
     public enum gunState { inactive, active, shoot, reloading };
     [SerializeField] private gunState currentGunState = gunState.active;
     public gunState CurrentState { get { return currentGunState; } set { currentGunState = value; } }
+
+    private string prefabKey = "b0";
     // Use this for initialization
     void Start()
     {
         Debug.Log(reloadTime);
+        SpawningPool.AddPrefab(prefabKey, bulletPrefab.gameObject);
     }
 
     // Update is called once per frame
@@ -60,12 +64,17 @@ public class GunScript : MonoBehaviour
         magLeft--;
         for (float i = 0; i < bulletNums; i++)
         {
-            Transform bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            //Transform bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            GameObject bullet = SpawningPool.CreateFromCache(prefabKey);
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = transform.rotation;
             float angle = Mathf.Deg2Rad * (transform.localEulerAngles.z + (i - (bulletNums - 1) / 2) * spreadAngle); //(shootAngle - (i-1)/2 * spreadAngle);
             //.Log("Goc" + (i - (bulletNums - 1) / 2));
             Vector2 vector = new Vector2(bulletSpeed * Mathf.Cos(angle), bulletSpeed * Mathf.Sin(angle));
             //.DrawLine(transform.position, new Vector3(vector.x, vector.y) + transform.position);
+            
             bullet.GetComponent<BulletPhysic>().velocity = vector;
+
         }
         yield return new WaitForSeconds(fireRate);
         if (magLeft > 0) { currentGunState = gunState.active; }
