@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 95358489549158114}
   - component: {fileID: 61629020371575000}
   - component: {fileID: 50455661869232862}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: BatBody
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788813832653784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 266.17, y: 39.86, z: 0}
+  m_LocalPosition: {x: 8.31, y: -4.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4115145236365510}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed525eec963760489dedbfc04759d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 40
+  HP: 60
   currentHP: 1
   canBeKnockBack: 1
   m_Collider: {fileID: 61629020371575000}

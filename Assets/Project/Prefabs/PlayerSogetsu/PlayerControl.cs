@@ -41,7 +41,7 @@ namespace UnityStandardAssets._2D
             // Pass all parameters to the character control script.
             m_Character.setMove(h);
             m_Character.Move(h, crouch, m_Jump);
-            if(m_Character.state == 4) {
+            if(m_Character.state == PlayerScript.State.die) {
                 if (m_Jump) {
                     SceneManager.LoadScene("Main_menu");
                 }

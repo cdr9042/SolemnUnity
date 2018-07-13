@@ -16,6 +16,7 @@ public class GameInit : MonoBehaviour
     [SerializeField] private PolygonCollider2D cameraConfiner;
     [SerializeField] private GameObject postInit;
     [SerializeField] private GameObject playerSpawnPoint;
+    [SerializeField] private GameObject generalManager;
     // Use this for initialization
     void Start()
     {
@@ -27,9 +28,11 @@ public class GameInit : MonoBehaviour
             {
                 lastCheckpointName = GameData.current._Progress.checkPoint;
                 Debug.Log("current stage in data: " + GameData.current._Progress.stage);
-            } else {
-				GameData.current._Progress.setStage(SceneManager.GetActiveScene().name);
-			}
+            }
+            else
+            {
+                GameData.current._Progress.setStage(SceneManager.GetActiveScene().name);
+            }
         }
         else
         {
@@ -37,11 +40,11 @@ public class GameInit : MonoBehaviour
             GameData.current.setGameMode("test");
             Debug.Log("GameData.current not set, test mode initiated");
         }
-        if (lastCheckpointName != null && lastCheckpointName != "" && GameObject.Find(lastCheckpointName)!=null)
+        if (lastCheckpointName != null && lastCheckpointName != "" && GameObject.Find(lastCheckpointName) != null)
         {
             Debug.Log(lastCheckpointName);
             playerSpawnPoint = GameObject.Find(lastCheckpointName);
-			playerSpawnPoint.GetComponent<Checkpoint>().phase = 1;
+            playerSpawnPoint.GetComponent<Checkpoint>().phase = 1;
         }
         else
         {
@@ -52,7 +55,7 @@ public class GameInit : MonoBehaviour
         CreatePlayer();
         CreateCamera();
         CreateUI();
-        SetupEnemyManager();
+        SetupManagers();
         //enemyMaster.SetActive(true);
         // Debug.Break();
         // .setPlayer(player);
@@ -83,8 +86,12 @@ public class GameInit : MonoBehaviour
         vcam.Follow = m_Player.transform;
     }
 
-    void SetupEnemyManager()
+    void SetupManagers()
     {
+        if (!GameObject.Find("GeneralManager"))
+        {
+            Instantiate(generalManager);
+        }
         GameData.current.m_EnemyMaster = m_enemyManager;
     }
 
@@ -98,7 +105,8 @@ public class GameInit : MonoBehaviour
         m_Player.transform.position = playerSpawnPoint.transform.position;
     }
 
-    void DebugInit(){
+    void DebugInit()
+    {
         // GraphicDebug graphicDebug = new GraphicDebug();
     }
     // Update is called once per frame

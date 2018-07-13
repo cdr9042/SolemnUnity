@@ -28,7 +28,10 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         Debug.Log(reloadTime);
-        SpawningPool.AddPrefab(prefabKey, bulletPrefab.gameObject);
+        if (!SpawningPool.ContainsPrefab(prefabKey))
+        {
+            SpawningPool.AddPrefab(prefabKey, bulletPrefab.gameObject);
+        }
     }
 
     // Update is called once per frame

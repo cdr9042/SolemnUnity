@@ -50,10 +50,8 @@ namespace UnityStandardAssets._2D
 
         private bool disableControl = false;  //nếu đang taking damage = true thì không thể điều khiển
         private float t_currentState = 0f;
-        public int state = 0;              //trạng thái của người chơi
-                                           //0 = mặc định
-                                           //1 = đang bị mất điều khiển do bị tấn công
-                                           //2 = đang được bảo vệ
+        public enum State { normal, lostControl, invicible, die, revive}
+        public State state = State.normal;              //trạng thái của người chơi
         private string mylog = "";
 
         private int attackMode = 0;
@@ -170,7 +168,7 @@ namespace UnityStandardAssets._2D
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
             //Hurt
-            if (state == 1 || state == 2)
+            if (state == State.lostControl || state == State.invicible)
             {
                 if (Math.Round(t_currentState * 100) % 8 == 0)
                     m_SpriteRenderer.material.SetFloat("_FlashAmount", .8f);
@@ -179,7 +177,7 @@ namespace UnityStandardAssets._2D
             }
             switch (state)
             {
-                case 1:
+                case State.lostControl:
                     t_currentState += Time.deltaTime;
                     if (Mathf.Abs(m_Rigidbody2D.velocity.x) > 0.1f)
                     {
@@ -190,33 +188,33 @@ namespace UnityStandardAssets._2D
                         disableControl = false;
                         m_Anim.SetBool("isHurt", false);
                         t_currentState = 0;
-                        state = 2;
+                        state = State.invicible;
                     }
                     break;
-                case 2:
+                case State.invicible:
                     t_currentState += Time.deltaTime;
                     if (t_currentState >= m_ProtectTime)
                     {
                         t_currentState = 0;
                         m_SpriteRenderer.material.SetFloat("_FlashAmount", 0);
-                        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer, false);
+                        //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer, false);
+                        //gameObject.layer = LayerMask.NameToLayer("PlayerLayer"); //playerLayer
                         state = 0;
                     }
                     break;
-                case 4:
+                case State.die:
                     t_currentState += Time.deltaTime;
                     m_Rigidbody2D.velocity = new Vector2(Mathf.Lerp(m_Rigidbody2D.velocity.x, 0, 4f * Time.deltaTime), m_Rigidbody2D.velocity.y);
                     if (t_currentState >= clipLength[4] + 1f)
                     {
-                        state = 5;
+                        state = State.revive;
                         t_currentState = 0;
                         Debug.Log("done dying, now revive");
                         // Debug.Break();
                         m_Rigidbody2D.velocity = new Vector2(0, 0);
                     }
                     break;
-                case 5:
-                    // Debug.Log("state = 5");
+                case State.revive:
                     if (!m_Anim.GetBool("isReviving"))
                     {
                         GameObject lastCheckPoint;
@@ -243,7 +241,7 @@ namespace UnityStandardAssets._2D
                         {
                             t_currentState = 0;
                             m_Anim.SetBool("isReviving", false);
-                            state = 2;
+                            state = State.invicible;
                             disableControl = false;
                             m_HealthLeft = m_HealthMax;
                             m_Rigidbody2D.gravityScale = m_RigidbodyOldGravity;
@@ -265,9 +263,9 @@ namespace UnityStandardAssets._2D
             }
 
             UpdateAttack();
-            if (transform.position.y < -1000 && state != 5)
+            if (transform.position.y < -1000 && state != State.revive)
             {
-                state = 4;
+                state = State.die;
             }
         }
 
@@ -433,7 +431,7 @@ namespace UnityStandardAssets._2D
         void OnCollisionEnter2D(Collision2D collider)
         {
 
-            if (collider.gameObject.layer == LayerMask.NameToLayer("EnemyLayer"))
+            if (collider.gameObject.tag == "Enemy")// LayerMask.NameToLayer("EnemyLayer"))
             {
                 EnemyStats enemy = (collider.gameObject.GetComponent<EnemyStats>());
                 if (enemy != null)
@@ -493,11 +491,12 @@ namespace UnityStandardAssets._2D
 
         private void TakeDamage(float dmg)
         {
-            if (state == 0)
+            if (state == State.normal)
             {
                 m_HealthLeft -= dmg;
                 Debug.Log("Took " + dmg + "damage! Health left: " + m_HealthLeft);
-                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
+                //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
+                //gameObject.layer = LayerMask.NameToLayer("PlayerInvicible"); //playerInvicible layer
                 disableControl = true;
                 float flyDirection;
 
@@ -506,13 +505,13 @@ namespace UnityStandardAssets._2D
                 if (m_HealthLeft > 0)
                 {
                     t_currentState = 0;
-                    state = 1;
+                    state = State.lostControl;
                     m_Anim.SetBool("isHurt", true);
                 }
                 else
                 {
                     t_currentState = 0;
-                    state = 4;
+                    state = State.die;
                     m_Anim.SetBool("Fall", true);
                     // gameOverUI.GetComponent<GameOverUIScript>().active();
                     //gameOverUI.SetActive(true);
