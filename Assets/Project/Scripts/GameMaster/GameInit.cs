@@ -77,11 +77,11 @@ public class GameInit : MonoBehaviour
 
     void CreateCamera()
     {
-        GameObject _cam = (GameObject)Instantiate(cameraPrefab);
-        _cam.name = "Camera";
-        GameData.current.playerCamera = _cam;
-        CinemachineVirtualCamera vcam = _cam.GetComponentInChildren<CinemachineVirtualCamera>();
-        CinemachineConfiner vcam_confiner = _cam.GetComponentInChildren<CinemachineConfiner>();
+        //GameObject _cam = (GameObject)Instantiate(cameraPrefab);
+        //_cam.name = "Camera";
+        GameData.current.playerCamera = cameraPrefab.transform.Find("Main Camera").gameObject;
+        CinemachineVirtualCamera vcam = cameraPrefab.GetComponentInChildren<CinemachineVirtualCamera>();
+        CinemachineConfiner vcam_confiner = cameraPrefab.GetComponentInChildren<CinemachineConfiner>();
         vcam_confiner.m_BoundingShape2D = cameraConfiner;
         vcam.Follow = m_Player.transform;
     }

@@ -16,7 +16,8 @@ namespace Solemn.Enemy
         {
             // Retrieve the weapon only once
             weapons = GetComponentsInChildren<GunScript>();
-            target = GameData.current.players[0];
+            if(GameData.current != null)
+                target = GameData.current.players[0];
         }
 
         void Update()
@@ -33,6 +34,7 @@ namespace Solemn.Enemy
                     {
                         case TypeList.Follow:
                             //weapon.transform.eulerAngles = new Vector3(0, 0, Vector3.Angle(new Vector3(1, 0), target.position - transform.position));
+                            if(target != null)
                             weapon.transform.right = target.position - weapon.transform.position;
                             //// Distance moved = time * speed.
                             //float distCovered = (Time.time - startTime) * speed;

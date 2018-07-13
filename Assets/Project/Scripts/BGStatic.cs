@@ -15,6 +15,11 @@ public class BGStatic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		transform.position = new Vector3(cam.position.x,cam.position.y,transform.position.z);
+        if (cam != null)
+            transform.position = new Vector3(cam.position.x, cam.position.y, transform.position.z);
+        else
+        {
+            cam = Camera.main.transform;
+        }
     }
 }

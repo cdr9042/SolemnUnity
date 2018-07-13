@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Solemn.Enemy;
 
 public class FlyerPatrol : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class FlyerPatrol : MonoBehaviour
     [SerializeField] private float m_FlyForce = 400f;
     //[SerializeField] private float flapInterval = 0.5f;
     [SerializeField] private float hSpeed = 3f;
+    private enum ObjType { enemy,platform }
+    [SerializeField] ObjType objType = ObjType.enemy;
     private Rigidbody2D m_Rigidbody;
     private Vector3 setVelocity;
     private bool canFly = true;
@@ -16,7 +19,7 @@ public class FlyerPatrol : MonoBehaviour
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
-        eScript = GetComponent<EnemyScript>();
+        if (objType == ObjType.enemy) eScript = GetComponent<EnemyScript>();
     }
 
     void Update()
@@ -43,7 +46,7 @@ public class FlyerPatrol : MonoBehaviour
             setVelocity = Vector3.Lerp(m_Rigidbody.velocity, targetVelocity, hSpeed / 3 * Time.deltaTime);
             m_Rigidbody.velocity = setVelocity;
         }
-        if (eScript.currentState == EnemyScript.State.dying)
+        if (objType == ObjType.enemy) if (eScript.currentState == EnemyScript.State.dying)
         {
             StopFly();
         }

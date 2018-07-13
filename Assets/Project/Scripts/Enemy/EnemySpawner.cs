@@ -17,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     private float activeBoundMargin = 2f;
     public EnemyMasterScript enemyMaster;
     [SerializeField] private bool canDespawnOOV = true;
+    private enum SpawnType { minion, boss}
+    [SerializeField] private SpawnType m_spawnType = SpawnType.minion;
     //private string prefabKey;
     // Use this for initialization
     void Start()
@@ -39,31 +41,29 @@ public class EnemySpawner : MonoBehaviour
         CamRightPosX = cam.position.x + horzExtent;
         CamTopPosY = cam.position.y + vertExtent;
         CamBotPosY = cam.position.y - vertExtent;
-        if (numberEnemySpawned <= m_PoolAmount)
+        if (m_spawnType == SpawnType.minion && numberEnemySpawned <= m_PoolAmount)
         {
-
             // activeBound = new Rect(CamLeftPosX - activeBoundMargin, CamTopPosY + activeBoundMargin, horzExtent * 2 + activeBoundMargin, vertExtent * 2 + activeBoundMargin);
             if (transform.position.x > CamLeftPosX && transform.position.x < CamRightPosX && transform.position.y > CamBotPosY && transform.position.y < CamTopPosY)
             {
-                Debug.Log(name + " is in spawn bound");
-                numberEnemySpawned++;
-                //Transform spawned = SpawningPool.CreateFromCache(prefabKey).transform;
-                Transform spawned = Instantiate(enemyPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-                enemySpawned.Add(spawned);
+                //.Log(name + " is in spawn bound");
+                Spawn();
             }
         }
 
         if (canDespawnOOV)
         {
-            foreach (Transform spawn in enemySpawned)
+            foreach (Transform spawn in enemySpawned.ToArray())
             {
-                if (spawn == null) { enemySpawned.Remove(spawn); break; }
+                if (spawn == null) {
+                    enemySpawned.Remove(spawn); break;
+                }
                 if (spawn.position.x < CamLeftPosX || spawn.position.x > CamRightPosX || spawn.position.y < CamBotPosY || spawn.position.y > CamTopPosY)
                 {
                     //SpawningPool.ReturnToCache(spawn.gameObject);
-                    enemySpawned.Remove(spawn);
                     Object.Destroy(spawn.gameObject);
                     numberEnemySpawned--;
+                    enemySpawned.Remove(spawn);
                 }
             }
         }
@@ -72,12 +72,22 @@ public class EnemySpawner : MonoBehaviour
         // Debug.DrawLine(new Vector3(transform.position.x, transform.position.y, 0), new Vector3(CamRightPosX, CamBotPosY, 0), Color.red);
         // Debug.Log(Vector2.Distance(activeBound.center, transform.position));
     }
+
+    public void Spawn()
+    {
+        numberEnemySpawned++;
+        //Transform spawned = SpawningPool.CreateFromCache(prefabKey).transform;
+        Transform spawned = Instantiate(enemyPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
+        enemySpawned.Add(spawned);
+    }
+
     public void resetSpawner()
     {
         foreach (Transform enemy in enemySpawned)
         {
             Object.Destroy(enemy.gameObject);
         }
+        enemySpawned.Clear();
         numberEnemySpawned = 0;
     }
 

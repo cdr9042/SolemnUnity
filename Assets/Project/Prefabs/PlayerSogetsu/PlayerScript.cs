@@ -218,6 +218,7 @@ namespace UnityStandardAssets._2D
                     if (!m_Anim.GetBool("isReviving"))
                     {
                         GameObject lastCheckPoint;
+                        Debug.Log(GameData.current._Progress.checkPoint);
                         if (GameData.current._Progress.checkPoint != null && GameData.current._Progress.checkPoint != "")
                         {
                             lastCheckPoint = GameObject.Find(GameData.current._Progress.checkPoint);
