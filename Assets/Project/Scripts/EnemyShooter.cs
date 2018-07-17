@@ -11,13 +11,14 @@ namespace Solemn.Enemy
         [SerializeField] private TypeList shootType = TypeList.Fixed;
         private GunScript[] weapons;
         private Transform target;
-
+        private EnemyScript m_eScript;
         void Awake()
         {
             // Retrieve the weapon only once
             weapons = GetComponentsInChildren<GunScript>();
             if(GameData.current != null)
-                target = GameData.current.players[0];
+                target = StageData.current.players[0];
+            m_eScript = GetComponent<EnemyScript>();
         }
 
         void Update()
@@ -28,7 +29,7 @@ namespace Solemn.Enemy
                 // Auto-fire
                 if (weapon != null)
                 {
-                    if (weapon.CurrentState == GunScript.gunState.active)
+                    if (weapon.CurrentState == GunScript.gunState.active && m_eScript.currentState == EnemyScript.State.idle)
                         weapon.Shoot();
                     switch (shootType)
                     {

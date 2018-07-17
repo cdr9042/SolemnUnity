@@ -24,7 +24,7 @@ public class Parallaxing : MonoBehaviour
         // The previous frame had the current frame's camera position
         if (GameData.current != null)
         {
-            cam = GameData.current.playerCamera.transform;
+            cam = StageData.current.playerCamera.transform;
             previousCamPos = cam.position;
         }
         
@@ -60,7 +60,7 @@ public class Parallaxing : MonoBehaviour
         }
         else
         {
-            cam = GameData.current.playerCamera.transform;
+            cam = StageData.current.playerCamera.transform;
         }
         // set the previousCamPos to the camera's position at the end of the frame
 

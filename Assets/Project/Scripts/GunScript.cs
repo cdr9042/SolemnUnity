@@ -27,7 +27,6 @@ public class GunScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Debug.Log(reloadTime);
         if (!SpawningPool.ContainsPrefab(prefabKey))
         {
             SpawningPool.AddPrefab(prefabKey, bulletPrefab.gameObject);

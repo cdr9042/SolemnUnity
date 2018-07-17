@@ -9,19 +9,19 @@ public class GameData
     public static GameData current;
     public Progress _Progress;
     public static string gameMode;
-    public Transform[] players;
-    public GameObject m_EnemyMaster;
-    public enum GameEvent { playerDie }
-    public GameObject playerCamera;
+    //public Transform[] players;
     //private int totalEnemyCount;
 
     public GameData()
     {
         _Progress = new Progress();
         gameMode = "";
-        players = new Transform[4];
+        //players = new Transform[4];
         //totalEnemyCount = 0;
     }
+
+
+
     public void setGameMode(string gM)
     {
         gameMode = gM;
@@ -31,16 +31,7 @@ public class GameData
         return gameMode;
     }
 
-    public void TriggerEvent(GameEvent ev)
-    {
-        switch (ev)
-        {
-            case GameEvent.playerDie:
-                m_EnemyMaster.GetComponent<EnemyMasterScript>().resetSpawner();
-                break;
-        }
-        
-    }
+    
 
     public void CreateNewGame()
     {

@@ -11,7 +11,8 @@ public class BGRepeat : MonoBehaviour
     GameObject go;
     void Start()
     {
-        cam = GameData.current.playerCamera.transform;
+        if (GameData.current != null)
+            cam = StageData.current.playerCamera.transform;
         if (posMarker != null) go = Instantiate(posMarker).gameObject;
         //transform.position = new Vector3(cam.position.x, cam.position.y, transform.position.z);
     }
@@ -38,13 +39,13 @@ public class BGRepeat : MonoBehaviour
             }
 
             //.DrawLine( //vẽ nét từ trung tâm đến rìa phải BG
-                    //new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f),
-                    //new Vector3(CamRightPosX, cam.position.y, cam.position.z - 0.5f),
-                    //Color.red);
+            //new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f),
+            //new Vector3(CamRightPosX, cam.position.y, cam.position.z - 0.5f),
+            //Color.red);
             //.DrawLine( //vẽ nét từ trung tâm đến rìa phải BG
-                    //new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f),
-                    //new Vector3(CamLeftPosX, cam.position.y, cam.position.z - 0.5f),
-                    //Color.red);
+            //new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.5f),
+            //new Vector3(CamLeftPosX, cam.position.y, cam.position.z - 0.5f),
+            //Color.red);
 
             if (CamLeftPosX > BGRightPosX)
             {
@@ -62,7 +63,8 @@ public class BGRepeat : MonoBehaviour
         }
         else
         {
-            cam = GameData.current.playerCamera.transform;
+            if (GameData.current != null)
+                cam = StageData.current.playerCamera.transform;
         }
 
         // .Log(go);

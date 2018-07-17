@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/Stages/Stage2.unity
     guid: ea6e47bd55d15a94aa48d1d320c0ca09
   - enabled: 1
-    path: Assets/Project/Scenes/MainMenu2/LoadMenu/LoadMenu.unity
+    path: Assets/Project/Scenes/LoadMenu/LoadMenu.unity
     guid: 26d91c580b759884ca6ab5fb6e34eb79
   - enabled: 1
     path: Assets/Project/Scenes/Stages/Stage1SS/Stage1SS.unity
@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/Stages/Stage2SS/Stage2SS.unity
     guid: d398e0f5a2dbef843b402c7af6f748d7
+  - enabled: 1
+    path: Assets/Project/Scenes/VictoryPopup/VictoryPopup.unity
+    guid: c433601c127489547a9042a19cf62d5a
+  - enabled: 1
+    path: Assets/Project/Scenes/FinishGame/FinishGame.unity
+    guid: dd26b4614781f554a93aec18a0558ed1
+  - enabled: 1
+    path: Assets/Project/Scenes/SaveMenu/SaveMenu.unity
+    guid: 4c6c3c3be368ae64d8696157e403a105
   m_configObjects: {}

@@ -17,10 +17,12 @@ public class GameInit : MonoBehaviour
     [SerializeField] private GameObject postInit;
     [SerializeField] private GameObject playerSpawnPoint;
     [SerializeField] private GameObject generalManager;
+    [SerializeField] private GameObject stageManager;
     // Use this for initialization
     void Start()
     {
         //DontDestroyOnLoad(this);
+        //Init game data (for saving progress)
         string lastCheckpointName = null;
         if (GameData.current != null)
         {
@@ -40,6 +42,10 @@ public class GameInit : MonoBehaviour
             GameData.current.setGameMode("test");
             Debug.Log("GameData.current not set, test mode initiated");
         }
+
+        //Init Stage data (for referencing player and handling events)
+        StageData.current = stageManager.GetComponent<StageData>();
+
         if (lastCheckpointName != null && lastCheckpointName != "" && GameObject.Find(lastCheckpointName) != null)
         {
             Debug.Log(lastCheckpointName);
@@ -79,7 +85,7 @@ public class GameInit : MonoBehaviour
     {
         //GameObject _cam = (GameObject)Instantiate(cameraPrefab);
         //_cam.name = "Camera";
-        GameData.current.playerCamera = cameraPrefab.transform.Find("Main Camera").gameObject;
+        StageData.current.playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         CinemachineVirtualCamera vcam = cameraPrefab.GetComponentInChildren<CinemachineVirtualCamera>();
         CinemachineConfiner vcam_confiner = cameraPrefab.GetComponentInChildren<CinemachineConfiner>();
         vcam_confiner.m_BoundingShape2D = cameraConfiner;
@@ -92,14 +98,14 @@ public class GameInit : MonoBehaviour
         {
             Instantiate(generalManager);
         }
-        GameData.current.m_EnemyMaster = m_enemyManager;
+        StageData.current.m_EnemyMaster = m_enemyManager;
     }
 
     void CreatePlayer()
     {
         GameObject playerParent = Instantiate(m_PlayerPrefab, Vector3.zero, Quaternion.identity);
         m_Player = playerParent.transform.Find("PlayerBody");
-        GameData.current.players[0] = m_Player;
+        StageData.current.players[0] = m_Player;
         m_Player.name = "Player";
         m_Player.transform.localScale = Vector3.one;
         m_Player.transform.position = playerSpawnPoint.transform.position;

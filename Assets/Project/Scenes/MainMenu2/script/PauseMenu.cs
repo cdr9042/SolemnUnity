@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using SS.Scene;
+//using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.CurrentSceneName);
     } 
     public void Resume()
     {
@@ -44,7 +45,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Main_menu");
+        SceneManager.LoadScene(MainMenu2Controller.MAINMENU2_SCENE_NAME);
     }
     public void LoadOption()
     {

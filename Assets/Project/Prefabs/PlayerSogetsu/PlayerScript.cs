@@ -249,7 +249,8 @@ namespace UnityStandardAssets._2D
 
                             try {
                                 //GameObject.Find("DataMaster").GetComponent<GameInit>().enemyManagerPrefab.GetComponent<EnemyMasterScript>().resetSpawner();
-                                GameData.current.TriggerEvent(GameData.GameEvent.playerDie);
+                                //GameData.current.TriggerEvent(GameData.GameEvent.playerDie);
+                                StageData.current.TriggerEvent(StageData.GameEvent.playerDie);
                             }
                             catch (Exception e)
                             {
@@ -495,7 +496,7 @@ namespace UnityStandardAssets._2D
             if (state == State.normal)
             {
                 m_HealthLeft -= dmg;
-                Debug.Log("Took " + dmg + "damage! Health left: " + m_HealthLeft);
+                //.Log("Took " + dmg + "damage! Health left: " + m_HealthLeft);
                 //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyLayer"), gameObject.layer);
                 //gameObject.layer = LayerMask.NameToLayer("PlayerInvicible"); //playerInvicible layer
                 disableControl = true;

@@ -13,7 +13,6 @@ public class NextStageCheck : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Player")
         {
-            Debug.Break();
             PlayerEnter = true;
             _StageMaster.GetComponent<GotoNextStage>().goToNextStage();
         }

@@ -11,4 +11,8 @@ public class Stage1SSController : Controller
     {
         return STAGE1SS_SCENE_NAME;
     }
+    public void OnSaveButton()
+    {
+        SceneManager.Popup(SaveMenuController.SAVEMENU_SCENE_NAME);
+    }
 }

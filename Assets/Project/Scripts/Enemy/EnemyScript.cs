@@ -30,6 +30,9 @@ namespace Solemn.Enemy
         public enum State { idle, hurt, recover, dying }
         public State currentState;
         private Vector3 startPos;
+
+        enum EnemyType { minion, boss }
+        [SerializeField] EnemyType m_Type = EnemyType.minion;
         void Awake()
         {
             if (currentHP == 0) { currentHP = HP; }
@@ -101,12 +104,20 @@ namespace Solemn.Enemy
                     //{
                     //    c.enabled = false;
                     //}
-                    deathTimer -= Time.deltaTime;
-                    if (deathTimer <= 0)
+                    switch (m_Type)
                     {
-                        Destroy(gameObject);
-                        return;
+                        case EnemyType.minion:
+                            deathTimer -= Time.deltaTime;
+                            if (deathTimer <= 0)
+                            {
+                                Destroy(gameObject);
+                                return;
+                            }
+                            break;
+                        case EnemyType.boss:
+                            break;
                     }
+                    
                     break;
             }
 

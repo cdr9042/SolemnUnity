@@ -32,7 +32,7 @@ namespace Solemn.Enemy {
             if (target != null) {
                 aimDirection = Mathf.Sign(target.transform.position.x - transform.position.x);
             } else {
-                target = GameData.current.players[0];
+                target = StageData.current.players[0];
             }
             direction = aimDirection;
             m_Velocity = m_MaxSpeed;

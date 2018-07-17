@@ -16,6 +16,27 @@ public static class SaveLoadGame
         BinaryFormatter bf = new BinaryFormatter();
         //Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
         FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
+        Debug.Log(GameData.current);
+        Debug.Log(SaveLoadGame.savedGames);
+        bf.Serialize(file, SaveLoadGame.savedGames);
+
+        // Debug.Log(SaveLoadGame.savedGames.GetType().FullName);
+        // object datasObj = SaveLoadGame.savedGames;
+        // Debug.Log(datasObj.GetType().FullName);
+        // List<GameData> test = datasObj as List<GameData>;
+        // Debug.Log(test);
+
+        file.Close();
+    }
+
+    public static void Save(int i)
+    {
+        SaveLoadGame.savedGames.Insert(i, GameData.current);
+        BinaryFormatter bf = new BinaryFormatter();
+        //Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
+        FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
+        Debug.Log(GameData.current);
+        Debug.Log(SaveLoadGame.savedGames);
         bf.Serialize(file, SaveLoadGame.savedGames);
 
         // Debug.Log(SaveLoadGame.savedGames.GetType().FullName);

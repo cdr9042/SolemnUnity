@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
+//using UnityEngine.SceneManagement;
+using SS.Scene;
 public class GotoNextStage : MonoBehaviour {
 	public Transform NextStagePortal;
 	public Transform DataMaster;
@@ -31,8 +31,17 @@ public class GotoNextStage : MonoBehaviour {
     {
         GameData.current._Progress.checkPoint = null;
         GameData.current._Progress.stage = NextScene;
-        SaveLoadGame.Save();
-        SceneManager.LoadScene(NextScene);
+        try
+        {
+            SaveLoadGame.Save();
+        }
+        catch(System.Exception e)
+        {
+            Debug.Log(e);
+        }
+        
+        //SceneManager.LoadScene(NextScene);
+        SceneManager.LoadScene(Stage2SSController.STAGE2SS_SCENE_NAME);
     }
 
 }
