@@ -11,8 +11,12 @@ public class BGRepeat : MonoBehaviour
     GameObject go;
     void Start()
     {
-        if (GameData.current != null)
-            cam = StageData.current.playerCamera.transform;
+        if (StageData.current != null)
+        {
+            if (StageData.current.playerCamera.transform != null)
+                cam = StageData.current.playerCamera.transform;
+        }
+            
         if (posMarker != null) go = Instantiate(posMarker).gameObject;
         //transform.position = new Vector3(cam.position.x, cam.position.y, transform.position.z);
     }
@@ -63,7 +67,7 @@ public class BGRepeat : MonoBehaviour
         }
         else
         {
-            if (GameData.current != null)
+            if (StageData.current != null)
                 cam = StageData.current.playerCamera.transform;
         }
 

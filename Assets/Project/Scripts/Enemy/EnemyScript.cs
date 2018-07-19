@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Solemn.Audio;
 namespace Solemn.Enemy
 {
     public class EnemyScript : MonoBehaviour
@@ -33,6 +33,8 @@ namespace Solemn.Enemy
 
         enum EnemyType { minion, boss }
         [SerializeField] EnemyType m_Type = EnemyType.minion;
+        public enum ArmorType { naked, metal}
+        public ArmorType m_ArmorType = ArmorType.naked;
         void Awake()
         {
             if (currentHP == 0) { currentHP = HP; }
@@ -152,6 +154,8 @@ namespace Solemn.Enemy
                 currentState = State.hurt;
                 m_Anim.SetBool("isHurt", true); //start hurt animation
             }
+
+            //AudioManager.instance.RandomizeSfxHitSound(m_ArmorType);
         }
         public void Respawn()
         {

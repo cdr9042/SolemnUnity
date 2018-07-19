@@ -31,14 +31,6 @@ public class GotoNextStage : MonoBehaviour {
     {
         GameData.current._Progress.checkPoint = null;
         GameData.current._Progress.stage = NextScene;
-        try
-        {
-            SaveLoadGame.Save();
-        }
-        catch(System.Exception e)
-        {
-            Debug.Log(e);
-        }
         
         //SceneManager.LoadScene(NextScene);
         SceneManager.LoadScene(Stage2SSController.STAGE2SS_SCENE_NAME);

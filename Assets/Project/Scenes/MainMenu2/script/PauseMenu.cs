@@ -9,12 +9,12 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPause = false;
 
     public GameObject pauseMenuUI;
-
+    public Stage1SSController SceneController;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gameIsPause)
+            if (StageData.gameIsPause)
             {
                 Resume();
             }
@@ -27,31 +27,40 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        //pauseMenuUI.SetActive(true);
+
         Time.timeScale = 0f ;
-        gameIsPause = true;
+        StageData.gameIsPause = true;
+        SceneController.OpenPauseMenu();
+        //SceneManager.Popup(PauseMenuController.PAUSEMENU_SCENE_NAME);
     }
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.CurrentSceneName);
     } 
-    public void Resume()
+    public static void Resume()
     {
-        pauseMenuUI.SetActive(false);
+        //pauseMenuUI.SetActive(false);
+        SceneManager.Close();
         Time.timeScale = 1f;
-        gameIsPause = false;
+        StageData.gameIsPause = false;
     }
 
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(MainMenu2Controller.MAINMENU2_SCENE_NAME);
+        //SceneManager.LoadScene("MainMenu2");
     }
     public void LoadOption()
     {
 
     }
 
+    public void OnSaveButton()
+    {
+        SceneManager.Popup(SaveMenuController.SAVEMENU_SCENE_NAME);
+    }
 
 
 }

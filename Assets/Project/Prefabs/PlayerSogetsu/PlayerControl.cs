@@ -39,12 +39,10 @@ namespace UnityStandardAssets._2D
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Debug.Log(h);
             // Pass all parameters to the character control script.
-            m_Character.setMove(h);
-            m_Character.Move(h, crouch, m_Jump);
-            if(m_Character.state == PlayerScript.State.die) {
-                if (m_Jump) {
-                    SceneManager.LoadScene("Main_menu");
-                }
+            
+            if(m_Character.state != PlayerScript.State.die) {
+                m_Character.setMove(h);
+                m_Character.Move(h, crouch, m_Jump);
             }
             m_Jump = false;
 

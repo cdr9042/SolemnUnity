@@ -46,9 +46,9 @@ public class Checkpoint : MonoBehaviour
 		phase = 2;
 		GameData.current._Progress.checkPoint = name;
         if (GameData.current.getGameMode() != "test") {
-            Debug.Log(GameData.current._Progress.checkPoint);
-            GameData.current._Progress.getStage();
-		    SaveLoadGame.Save();
+            //Debug.Log(GameData.current._Progress.checkPoint);
+            //GameData.current._Progress.getStage();
+		    //SaveLoadGame.Save();
         }
     }
 

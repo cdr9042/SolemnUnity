@@ -62,8 +62,6 @@ public class MainMenu2Controller : Controller
     {
         GameData.current = new GameData();
         GameData.current.CreateNewGame();
-        //SceneManager.LoadScene("Preload");
-        SceneManager.LoadScene(Stage1SSController.STAGE1SS_SCENE_NAME);
         //UnityEngine.SceneManagement.SceneManager.LoadScene("Stage1");
     }
 

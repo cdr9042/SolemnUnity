@@ -12,6 +12,7 @@ public class StageData:MonoBehaviour
 
     public GameObject m_EnemyMaster;
 
+    public static bool gameIsPause = false;
     float t_countDown;
     float timer;
 

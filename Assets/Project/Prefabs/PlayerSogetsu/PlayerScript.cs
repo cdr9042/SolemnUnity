@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
-
+using Solemn.Audio;
 
 namespace UnityStandardAssets._2D
 {
@@ -67,6 +67,11 @@ namespace UnityStandardAssets._2D
         GameObject gameOverUI;
 
         public Transform lastCheckpoint;
+
+        public SfxListScript m_AtkVoiceArray;
+        public SfxListScript m_HurtVoiceArray;
+        public SfxListScript m_DeathVoiceArray;
+        public SfxListScript m_WeaponSfxArray;
 
         private void Awake()
         {
@@ -379,6 +384,8 @@ namespace UnityStandardAssets._2D
         {
             if (attack && attackMode == 0)
             {
+                AudioManager.instance.RandomizeSfx(m_AtkVoiceArray.soundList);
+                AudioManager.instance.RandomizeSfx(m_WeaponSfxArray.soundList);
                 if (m_Grounded)
                 {
                     setMove(0f);
@@ -509,12 +516,14 @@ namespace UnityStandardAssets._2D
                     t_currentState = 0;
                     state = State.lostControl;
                     m_Anim.SetBool("isHurt", true);
+                    AudioManager.instance.RandomizeSfx(m_HurtVoiceArray.soundList);
                 }
                 else
                 {
                     t_currentState = 0;
                     state = State.die;
                     m_Anim.SetBool("Fall", true);
+                    AudioManager.instance.PlaySingle(m_DeathVoiceArray.soundList[0]);
                     // gameOverUI.GetComponent<GameOverUIScript>().active();
                     //gameOverUI.SetActive(true);
                 }

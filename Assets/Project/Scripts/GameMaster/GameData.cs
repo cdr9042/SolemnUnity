@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
+using SS.Scene;
 
 [System.Serializable]
 public class GameData
@@ -8,14 +9,14 @@ public class GameData
 
     public static GameData current;
     public Progress _Progress;
-    public static string gameMode;
+    public static string gameMode = "";
+    public string modifiedTime = "";
     //public Transform[] players;
     //private int totalEnemyCount;
 
     public GameData()
     {
-        _Progress = new Progress();
-        gameMode = "";
+        _Progress = new Progress();        
         //players = new Transform[4];
         //totalEnemyCount = 0;
     }
@@ -35,31 +36,12 @@ public class GameData
 
     public void CreateNewGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(Stage1SSController.STAGE1SS_SCENE_NAME);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-    public void LoadGame()
+    public void Load(int i)
     {
-        if (SaveLoadGame.savedGames.Count > 0)
-        {
-            foreach (GameData g in SaveLoadGame.savedGames)
-            {
-                GameData.current = g;
-                //Move on to game...
-                // Application.LoadLevel(1);
-                string savedStage = g._Progress.getStage();
-                if (Application.CanStreamedLevelBeLoaded(savedStage))
-                {
-                    SceneManager.LoadScene(savedStage);
-                }
-                else
-                {
-                    Debug.Log("invalid save data");
-                    CreateNewGame();
-                }
-                // Do something that can throw an exception
+        
 
-            }
-        }
     }
 }

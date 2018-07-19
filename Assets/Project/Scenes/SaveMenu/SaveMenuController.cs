@@ -12,8 +12,13 @@ public class SaveMenuController : Controller
         return SAVEMENU_SCENE_NAME;
     }
 
-    public static void OnSaveButton(int saveSlot)
-    {
+    //public static void OnSaveButton(int saveSlot)
+    //{
 
+    //}
+
+    public void OnBackButton()
+    {
+        SceneManager.Close();
     }
 }

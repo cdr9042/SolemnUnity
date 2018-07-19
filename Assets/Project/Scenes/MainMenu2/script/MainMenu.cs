@@ -12,24 +12,24 @@ public class MainMenu : MonoBehaviour
         Debug.Log(SaveLoadGame.savedGames);
         if (SaveLoadGame.savedGames.Count > 0)
         {
-            foreach (GameData g in SaveLoadGame.savedGames)
-            {
-                GameData.current = g;
-                //Move on to game...
-                // Application.LoadLevel(1);
-                string savedStage = g._Progress.getStage();
-                if (Application.CanStreamedLevelBeLoaded(savedStage))
-                {
-                    SceneManager.LoadScene(savedStage);
-                }
-                else
-                {
-                    Debug.Log("invalid save data");
-                    CreateNewGame();
-                }
-                // Do something that can throw an exception
+            //foreach (GameData g in SaveLoadGame.savedGames)
+            //{
+            //    GameData.current = g;
+            //    //Move on to game...
+            //    // Application.LoadLevel(1);
+            //    string savedStage = g._Progress.getStage();
+            //    if (Application.CanStreamedLevelBeLoaded(savedStage))
+            //    {
+            //        SceneManager.LoadScene(savedStage);
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("invalid save data");
+            //        CreateNewGame();
+            //    }
+            //    // Do something that can throw an exception
 
-            }
+            //}
         }
         else
         {

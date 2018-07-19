@@ -11,13 +11,14 @@ public class GameInit : MonoBehaviour
     [SerializeField] private GameObject healthBar;
     [SerializeField] private GameObject m_enemyManager;
     [SerializeField] private GameObject m_PlayerPrefab;
-    public Transform m_Player;
+    [HideInInspector] public Transform m_Player;
     [SerializeField] private GameObject cameraPrefab;
-    [SerializeField] private PolygonCollider2D cameraConfiner;
-    [SerializeField] private GameObject postInit;
-    [SerializeField] private GameObject playerSpawnPoint;
+    private PolygonCollider2D cameraConfiner;
+    private GameObject postInit;
+    private GameObject playerSpawnPoint;
     [SerializeField] private GameObject generalManager;
     [SerializeField] private GameObject stageManager;
+
     // Use this for initialization
     void Start()
     {
@@ -39,6 +40,7 @@ public class GameInit : MonoBehaviour
         else
         {
             GameData.current = new GameData();
+            GameData.current._Progress.setStage(SceneManager.GetActiveScene().name);
             GameData.current.setGameMode("test");
             Debug.Log("GameData.current not set, test mode initiated");
         }
@@ -54,7 +56,7 @@ public class GameInit : MonoBehaviour
         }
         else
         {
-            //lastCheckpoint = GameObject.Find("SpawnPoint");
+            playerSpawnPoint = GameObject.Find("SpawnPoint");
         }
 
         // GameObject _cam = Instantiate(cameraFab,new Vector3(0,0,0),Quaternion.identity);
@@ -70,6 +72,7 @@ public class GameInit : MonoBehaviour
         // Physics2D.IgnoreLayerCollision (LayerMask.NameToLayer ("PlayerLayer"), LayerMask.NameToLayer ("EnemyLayer"));
 
         // DebugInit();
+        postInit = GameObject.Find("PostInit");
         postInit.SetActive(true);
     }
 
@@ -88,6 +91,7 @@ public class GameInit : MonoBehaviour
         StageData.current.playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         CinemachineVirtualCamera vcam = cameraPrefab.GetComponentInChildren<CinemachineVirtualCamera>();
         CinemachineConfiner vcam_confiner = cameraPrefab.GetComponentInChildren<CinemachineConfiner>();
+        cameraConfiner = GameObject.Find("CameraConfiner").GetComponent<PolygonCollider2D>();
         vcam_confiner.m_BoundingShape2D = cameraConfiner;
         vcam.Follow = m_Player.transform;
     }
