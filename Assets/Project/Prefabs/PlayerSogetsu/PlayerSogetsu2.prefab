@@ -272,10 +272,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 12
-  m_JumpForce: 770
-  m_wallJumpXForce: 650
-  m_wallJumpYForce: 600
+  m_JumpForce: 2000
+  m_wallJumpXForce: 1300
+  m_wallJumpYForce: 1500
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_KnockBack: 8
   m_AirJump: 0
   canWallJump: 1
-  m_HealthMax: 20
+  m_HealthMax: 40
   m_HealthLeft: 0
   state: 0
   AttackTrigger: {fileID: 61912412332629894}

@@ -10,20 +10,27 @@ public class EnemySpawner : MonoBehaviour
     public float numberEnemySpawned;
     public float concurrentEnemySpawned;
     public float spawnArea;
+    private bool isInitialSpawn = true;
+
     public GameObject player;
     private Transform cam;
+
     private float horzExtent, vertExtent, CamLeftPosX, CamRightPosX, CamTopPosY, CamBotPosY;
     private Rect activeBound;
     private float activeBoundMargin = 2f;
+
     public EnemyMasterScript enemyMaster;
     [SerializeField] private bool canDespawnOOV = true;
-    private enum SpawnType { minion, boss}
+
+    private enum SpawnType { minion, boss }
     [SerializeField] private SpawnType m_spawnType = SpawnType.minion;
+
+
     //private string prefabKey;
     // Use this for initialization
     void Start()
     {
-        cam = Camera.main.transform;
+        cam = GeneralHelper.GetMainCamera().transform;
 
         vertExtent = Camera.main.orthographicSize * 2;
         horzExtent = vertExtent * Screen.width / Screen.height;
@@ -44,21 +51,32 @@ public class EnemySpawner : MonoBehaviour
         if (m_spawnType == SpawnType.minion && numberEnemySpawned <= m_PoolAmount)
         {
             // activeBound = new Rect(CamLeftPosX - activeBoundMargin, CamTopPosY + activeBoundMargin, horzExtent * 2 + activeBoundMargin, vertExtent * 2 + activeBoundMargin);
-            if (transform.position.x > CamLeftPosX && transform.position.x < CamRightPosX && transform.position.y > CamBotPosY && transform.position.y < CamTopPosY)
+            if (isInitialSpawn)
             {
-                //.Log(name + " is in spawn bound");
+                if (isInSpawnBound(transform))
+                {
+                    Spawn();
+                    isInitialSpawn = false;
+                }
+            }
+            else if (!isInView(transform) && isInSpawnBound(transform))
+            {
                 Spawn();
             }
+
         }
 
         if (canDespawnOOV)
         {
             foreach (Transform spawn in enemySpawned.ToArray())
             {
-                if (spawn == null) {
+                if (spawn == null)
+                {
                     enemySpawned.Remove(spawn); break;
                 }
-                if (spawn.position.x < CamLeftPosX || spawn.position.x > CamRightPosX || spawn.position.y < CamBotPosY || spawn.position.y > CamTopPosY)
+                if (!isInSpawnBound(spawn))
+                //if (spawn.position.x < CamLeftPosX - activeBoundMargin || spawn.position.x > CamRightPosX + activeBoundMargin ||
+                //    spawn.position.y < CamBotPosY - activeBoundMargin || spawn.position.y > CamTopPosY + activeBoundMargin)
                 {
                     //SpawningPool.ReturnToCache(spawn.gameObject);
                     Object.Destroy(spawn.gameObject);
@@ -67,7 +85,7 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
         }
-        
+
         // Debug.DrawLine(new Vector3(transform.position.x, transform.position.y, 0), new Vector3(CamLeftPosX, CamTopPosY, 0), Color.red);
         // Debug.DrawLine(new Vector3(transform.position.x, transform.position.y, 0), new Vector3(CamRightPosX, CamBotPosY, 0), Color.red);
         // Debug.Log(Vector2.Distance(activeBound.center, transform.position));
@@ -81,6 +99,12 @@ public class EnemySpawner : MonoBehaviour
         enemySpawned.Add(spawned);
     }
 
+    public void Reset()
+    {
+        resetSpawner();
+        isInitialSpawn = true;
+    }
+
     public void resetSpawner()
     {
         foreach (Transform enemy in enemySpawned)
@@ -89,6 +113,17 @@ public class EnemySpawner : MonoBehaviour
         }
         enemySpawned.Clear();
         numberEnemySpawned = 0;
+    }
+
+    bool isInView(Transform transf)
+    {
+        return (transf.position.x > CamLeftPosX && transf.position.x < CamRightPosX && transf.position.y > CamBotPosY && transf.position.y < CamTopPosY);
+    }
+
+    bool isInSpawnBound(Transform transf)
+    {
+        return (transf.position.x > CamLeftPosX - activeBoundMargin && transf.position.x < CamRightPosX + activeBoundMargin &&
+            transf.position.y > CamBotPosY - activeBoundMargin && transf.position.y < CamTopPosY + activeBoundMargin);
     }
 
     void OnGUI()

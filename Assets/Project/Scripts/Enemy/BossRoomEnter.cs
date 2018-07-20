@@ -17,4 +17,8 @@ public class BossRoomEnter : MonoBehaviour {
             played = true;
         }
     }
+
+    public void Reset() {
+        played = false;
+    }
 }

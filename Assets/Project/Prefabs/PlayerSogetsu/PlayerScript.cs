@@ -50,7 +50,7 @@ namespace UnityStandardAssets._2D
 
         private bool disableControl = false;  //nếu đang taking damage = true thì không thể điều khiển
         private float t_currentState = 0f;
-        public enum State { normal, lostControl, invicible, die, revive}
+        public enum State { normal, lostControl, invicible, die, revive }
         public State state = State.normal;              //trạng thái của người chơi
         private string mylog = "";
 
@@ -127,7 +127,7 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             // .Log(transform.parent);
-            if (transform.parent.parent == null) //check if on moving platform
+            if (!isStandingOnPlatform()) //check if on moving platform
                 m_Grounded = false;
             m_OnWall = false;
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -252,7 +252,8 @@ namespace UnityStandardAssets._2D
                             m_HealthLeft = m_HealthMax;
                             m_Rigidbody2D.gravityScale = m_RigidbodyOldGravity;
 
-                            try {
+                            try
+                            {
                                 //GameObject.Find("DataMaster").GetComponent<GameInit>().enemyManagerPrefab.GetComponent<EnemyMasterScript>().resetSpawner();
                                 //GameData.current.TriggerEvent(GameData.GameEvent.playerDie);
                                 StageData.current.TriggerEvent(StageData.GameEvent.playerDie);
@@ -294,7 +295,7 @@ namespace UnityStandardAssets._2D
 
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
-
+            DebugController.instance.DebugText = getRelativeVelocity().ToString();
             // If the player should jump...
             if (jump)
                 if (m_Grounded && m_Anim.GetBool("Ground"))
@@ -343,7 +344,19 @@ namespace UnityStandardAssets._2D
                     {
                         targetVelocityX = 0;
                     }
-                    float velocityx = Mathf.Lerp(m_Rigidbody2D.velocity.x, targetVelocityX, velocityx_modifier * Time.deltaTime);
+                    float addVelocityX = 0f;
+                    if (isStandingOnPlatform())
+                    {
+                        if (transform.parent.parent.GetComponent<Rigidbody2D>() != null)
+                            addVelocityX = transform.parent.parent.GetComponent<Rigidbody2D>().velocity.x;
+                        else
+                        {
+                            Debug.Log("RigidBody not found in platform");
+                        }
+                    }
+
+                    float velocityx = Mathf.Lerp(m_Rigidbody2D.velocity.x, targetVelocityX + addVelocityX, velocityx_modifier * Time.deltaTime);
+
                     m_Rigidbody2D.velocity = new Vector2(velocityx, m_Rigidbody2D.velocity.y);
                     if (!m_LockFacing && attackMode == 0) // If the input is moving the player right and the player is facing left...
                     {
@@ -353,6 +366,7 @@ namespace UnityStandardAssets._2D
             }
             // mylog = m_Grounded.ToString();
         }
+
         private void Flip()
         {
             Vector3 theScale = transform.localScale;
@@ -382,7 +396,7 @@ namespace UnityStandardAssets._2D
 
         public void Attack(bool attack)
         {
-            if (attack && attackMode == 0)
+            if (attack && attackMode == 0 && (state == State.normal || state == State.invicible))
             {
                 AudioManager.instance.RandomizeSfx(m_AtkVoiceArray.soundList);
                 AudioManager.instance.RandomizeSfx(m_WeaponSfxArray.soundList);
@@ -452,6 +466,10 @@ namespace UnityStandardAssets._2D
                     Debug.Log("Script 'Enemy' not present in " + collider.gameObject);
                 }
             }
+        }
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            OnCollisionEnter2D(collision);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -528,6 +546,25 @@ namespace UnityStandardAssets._2D
                     //gameOverUI.SetActive(true);
                 }
             }
+        }
+
+        Vector2 getRelativeVelocity()
+        {
+            if (!isStandingOnPlatform())
+                return m_Rigidbody2D.velocity;
+            else if (getStandingPlatform().GetComponent<Rigidbody2D>() != null)
+                return (m_Rigidbody2D.velocity - getStandingPlatform().GetComponent<Rigidbody2D>().velocity);
+            else return Vector2.zero;
+        }
+
+        bool isStandingOnPlatform()
+        {
+            return !(getStandingPlatform() == null);
+        }
+
+        Transform getStandingPlatform()
+        {
+            return (transform.parent.parent);
         }
 
         // private IEnumerator Flasher() 

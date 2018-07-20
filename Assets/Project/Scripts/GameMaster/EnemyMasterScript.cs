@@ -6,6 +6,7 @@ using DigitalRuby.Pooling;
 public class EnemyMasterScript : MonoBehaviour
 {
     public List<GameObject> enemyList = new List<GameObject>();
+    public GameObject enemySpawnerParent;
 	//public Transform player;
     // Use this for initialization
     void Start()
@@ -17,6 +18,7 @@ public class EnemyMasterScript : MonoBehaviour
 			enemy.GetComponent<EnemySpawner>().enabled = true;
 			// enemy.GetComponent<EnemySpawner>().player = player;
         };
+        enemySpawnerParent = GameObject.Find("SpawnerParent");
     }
 
     // Update is called once per frame
@@ -25,8 +27,9 @@ public class EnemyMasterScript : MonoBehaviour
 
     // }
 	public void resetSpawner(){
-		foreach(GameObject spawner in enemyList){
-			spawner.GetComponent<EnemySpawner>().resetSpawner();
-		}
+        enemySpawnerParent.BroadcastMessage("Reset");
+		//foreach(GameObject spawner in enemyList){
+		//	spawner.GetComponent<EnemySpawner>().resetSpawner();
+		//}
 	}
 }

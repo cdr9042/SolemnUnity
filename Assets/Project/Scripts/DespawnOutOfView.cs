@@ -16,7 +16,7 @@ public class DespawnOutOfView : MonoBehaviour
     private bool enteredView = false;
     void Start()
     {
-        cam = Camera.main.transform;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
 
         vertExtent = Camera.main.orthographicSize * 2;
         horzExtent = vertExtent * Screen.width / Screen.height; ;

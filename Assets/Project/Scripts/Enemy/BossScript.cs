@@ -74,7 +74,7 @@ namespace Solemn.Enemy
             StartCoroutine(DyingFlash());
         }
 
-        public void Respawn()
+        public void Reset()
         {
             m_eScript.Respawn();
             m_State = BossState.wait;

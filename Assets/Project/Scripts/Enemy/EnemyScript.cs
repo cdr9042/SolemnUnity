@@ -140,7 +140,7 @@ namespace Solemn.Enemy
             {
                 t_state = knockBackTime;
                 //float knockDirection = transform.position.x - thePlayer.transform.position.x;
-                m_Rigidbody2D.AddForce(new Vector2(direction * 100f, m_Rigidbody2D.velocity.y));
+                m_Rigidbody2D.AddForce(new Vector2(direction * 300f, m_Rigidbody2D.velocity.y));
             }
 
             if (currentHP <= 0)

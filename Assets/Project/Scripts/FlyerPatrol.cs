@@ -39,7 +39,7 @@ public class FlyerPatrol : MonoBehaviour
             }
 
             //xoay sprite
-            if (directionMove.x != 0)
+            if (directionMove.x != 0 && objType != ObjType.platform)
                 transform.localScale = new Vector3(Mathf.Sign(-directionMove.x), 1);
 
             Vector3 targetVelocity = directionMove.normalized * hSpeed;

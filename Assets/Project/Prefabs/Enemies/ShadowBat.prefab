@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482423311128612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.89, y: -0.88, z: 0}
+  m_LocalPosition: {x: 2.58, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4560643878721820}
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1102198358451818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 1.88, z: 0}
+  m_LocalPosition: {x: -4, y: 1.88, z: 0}
   m_LocalScale: {x: 0.61, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 4560643878721820}
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1122714572673366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.88, z: 0}
+  m_LocalPosition: {x: 4, y: 1.88, z: 0}
   m_LocalScale: {x: 0.61, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 4560643878721820}
@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788813832653784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.31, y: -4.14, z: 0}
+  m_LocalPosition: {x: 17.809547, y: 7.4816, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4115145236365510}
@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1046511507745408}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -2.12, z: 0}
+  m_LocalPosition: {x: 0, y: -2.12, z: 0}
   m_LocalScale: {x: 0.58, y: 0.57, z: 1}
   m_Children: []
   m_Father: {fileID: 4560643878721820}
@@ -240,11 +240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 60
-  currentHP: 1
+  currentHP: 0
   canBeKnockBack: 1
   m_Collider: {fileID: 61629020371575000}
   thePlayer: {fileID: 0}
   currentState: 0
+  m_Type: 0
+  m_ArmorType: 0
 --- !u!114 &114410659625254892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,6 +276,7 @@ MonoBehaviour:
   - {fileID: 4435916878012926}
   m_FlyForce: 180
   hSpeed: 8
+  objType: 0
 --- !u!212 &212070336431310410
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -354,8 +357,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e629933b7233c0a4eb08d328babaf46a, type: 3}
-  m_Color: {r: 0.44995722, g: 1, b: 0.4198113, a: 0.3137255}
+  m_Sprite: {fileID: 21300000, guid: 099c0bcfacb1c6748b66725488e372dc, type: 3}
+  m_Color: {r: 0.44995722, g: 1, b: 0.4198113, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

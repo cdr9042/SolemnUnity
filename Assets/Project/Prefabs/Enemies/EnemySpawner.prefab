@@ -52,13 +52,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d6cd612dabb7041b0bfcdd1c4b666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawn: {fileID: 4225895139213656, guid: ee81564006f561c4a95cc8743a94615b, type: 2}
-  initialPoolCount: 1
-  totalEnemiesSpawned: 1
+  enemyPrefab: {fileID: 0}
+  m_PoolAmount: 0
+  numberEnemySpawned: 0
   concurrentEnemySpawned: 0
   spawnArea: 0
   player: {fileID: 0}
   enemyMaster: {fileID: 0}
+  canDespawnOOV: 1
+  m_spawnType: 0
 --- !u!212 &212269689257015216
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,7 +96,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e629933b7233c0a4eb08d328babaf46a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 099c0bcfacb1c6748b66725488e372dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

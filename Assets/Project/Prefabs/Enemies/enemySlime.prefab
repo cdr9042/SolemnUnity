@@ -267,11 +267,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 40
-  currentHP: 1
+  currentHP: 0
   canBeKnockBack: 1
   m_Collider: {fileID: 0}
   thePlayer: {fileID: 0}
   currentState: 0
+  m_Type: 0
+  m_ArmorType: 0
 --- !u!114 &114855319428296080
 MonoBehaviour:
   m_ObjectHideFlags: 1
