@@ -295,7 +295,7 @@ namespace UnityStandardAssets._2D
 
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
-            DebugController.instance.DebugText = getRelativeVelocity().ToString();
+            //DebugController.instance.DebugText = getRelativeVelocity().ToString();
             // If the player should jump...
             if (jump)
                 if (m_Grounded && m_Anim.GetBool("Ground"))
