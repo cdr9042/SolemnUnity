@@ -9,20 +9,8 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/MainMenu2/MainMenu2.unity
     guid: d40e1a4381200fc4b9d507cfb03b1c9d
   - enabled: 1
-    path: Assets/Project/Scenes/Stages/Stage1SS/Stage1SS.unity
-    guid: 346648627a4644a41b682bff7db5f239
-  - enabled: 1
-    path: Assets/Project/Scenes/Stages/Stage1.unity
-    guid: 1c49999953250ff4db9483c450f9c467
-  - enabled: 1
-    path: Assets/Project/Scenes/Stages/Stage2.unity
-    guid: ea6e47bd55d15a94aa48d1d320c0ca09
-  - enabled: 1
     path: Assets/Project/Scenes/LoadMenu/LoadMenu.unity
     guid: 26d91c580b759884ca6ab5fb6e34eb79
-  - enabled: 1
-    path: Assets/Project/Scenes/Stages/Stage1SS/Stage1SS.unity
-    guid: 346648627a4644a41b682bff7db5f239
   - enabled: 1
     path: Assets/Project/Scenes/Stages/Stage1SS/Stage1SS.unity
     guid: 346648627a4644a41b682bff7db5f239

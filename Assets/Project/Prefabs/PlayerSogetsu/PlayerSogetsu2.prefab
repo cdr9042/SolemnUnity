@@ -481,9 +481,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 12
-  m_JumpForce: 2000
-  m_wallJumpXForce: 1300
-  m_wallJumpYForce: 1500
+  m_JumpForce: 2100
+  m_wallJumpXForce: 1200
+  m_wallJumpYForce: 1600
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -495,7 +495,7 @@ MonoBehaviour:
     m_Bits: 1024
   m_ProtectTime: 2
   m_StaggerTime: 0.7
-  m_KnockBack: 8
+  m_KnockBack: 6
   m_AirJump: 0
   canWallJump: 1
   m_HealthMax: 60

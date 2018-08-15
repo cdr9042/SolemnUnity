@@ -338,7 +338,7 @@ namespace UnityStandardAssets._2D
                     m_Anim.SetFloat("Speed", Mathf.Abs(m_Move));
 
                     // Move the character
-                    float velocityx_modifier = m_Grounded ? 8f : 3f; //hạn chế di chuyển trên không
+                    float velocityx_modifier = m_Grounded ? 9f : 4f; //hạn chế di chuyển trên không
                     float targetVelocityX = m_Move * m_MaxSpeed;
                     if (attackMode == 1)
                     {
